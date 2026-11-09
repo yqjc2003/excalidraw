@@ -5,6 +5,8 @@ import { FilledButton } from "@excalidraw/excalidraw/components/FilledButton";
 import { IconButton } from "@excalidraw/excalidraw/components/IconButton";
 import { TextField } from "@excalidraw/excalidraw/components/TextField";
 import {
+  checkIcon,
+  CloseIcon,
   copyIcon,
   downloadIcon,
   DuplicateIcon,
@@ -100,18 +102,37 @@ const BoardRow = ({
     <div className="BoardsDialog__board">
       <div className="BoardsDialog__board__header">
         {renaming ? (
-          <TextField
-            className="BoardsDialog__board__rename"
-            value={renameValue}
-            onChange={setRenameValue}
-            onKeyDown={(event) => {
-              if (event.key === "Enter") {
-                onRenameSubmit();
-              } else if (event.key === "Escape") {
-                onRenameCancel();
-              }
-            }}
-          />
+          <div className="BoardsDialog__board__rename">
+            <TextField
+              className="BoardsDialog__board__renameInput"
+              value={renameValue}
+              selectOnRender
+              onChange={setRenameValue}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  onRenameSubmit();
+                } else if (event.key === "Escape") {
+                  onRenameCancel();
+                }
+              }}
+            />
+            <IconButton
+              type="button"
+              size="small"
+              icon={checkIcon}
+              title={t("boards.save")}
+              aria-label={t("boards.save")}
+              onClick={onRenameSubmit}
+            />
+            <IconButton
+              type="button"
+              size="small"
+              icon={CloseIcon}
+              title={t("boards.cancel")}
+              aria-label={t("boards.cancel")}
+              onClick={onRenameCancel}
+            />
+          </div>
         ) : (
           <button
             type="button"

@@ -229,6 +229,8 @@
     "newBoard": "新建白板",
     "open": "打开",
     "rename": "重命名",
+    "save": "保存",
+    "cancel": "取消",
     "duplicate": "复制",
     "export": "导出",
     "share": "分享",
