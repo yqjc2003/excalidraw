@@ -9,7 +9,10 @@ import {
   useExcalidrawAPI,
 } from "@excalidraw/excalidraw";
 import { trackEvent } from "@excalidraw/excalidraw/analytics";
-import { getDefaultAppState } from "@excalidraw/excalidraw/appState";
+import {
+  clearAppStateForLocalStorage,
+  getDefaultAppState,
+} from "@excalidraw/excalidraw/appState";
 import {
   CommandPalette,
   DEFAULT_CATEGORIES,
@@ -44,10 +47,11 @@ import {
   ExcalLogo,
   usersIcon,
   exportToPlus,
+  LibraryIcon,
   share,
   youtubeIcon,
 } from "@excalidraw/excalidraw/components/icons";
-import { isElementLink } from "@excalidraw/element";
+import { getNonDeletedElements, isElementLink } from "@excalidraw/element";
 import {
   bumpElementVersions,
   restoreAppState,
@@ -64,6 +68,7 @@ import {
 import type { RemoteExcalidrawElement } from "@excalidraw/excalidraw/data/reconcile";
 import type { RestoredDataState } from "@excalidraw/excalidraw/data/restore";
 import type {
+  ExcalidrawElement,
   FileId,
   NonDeletedExcalidrawElement,
   OrderedExcalidrawElement,
@@ -90,6 +95,7 @@ import {
 import {
   FIREBASE_STORAGE_PREFIXES,
   isExcalidrawPlusSignedUser,
+  SAVE_TO_LOCAL_STORAGE_TIMEOUT,
   STORAGE_KEYS,
   SYNC_BROWSER_TABS_TIMEOUT,
 } from "./app_constants";
@@ -102,6 +108,13 @@ import Collab, {
 import { AppFooter } from "./components/AppFooter";
 import { AppMainMenu } from "./components/AppMainMenu";
 import { AppWelcomeScreen } from "./components/AppWelcomeScreen";
+import { BoardSwitcher } from "./components/BoardSwitcher";
+import {
+  BoardsDialog,
+  boardsDialogStateAtom,
+  currentBoardIdAtom,
+  currentBoardNameAtom,
+} from "./components/BoardsDialog";
 import {
   ExportToExcalidrawPlus,
   exportToExcalidrawPlus,
@@ -121,6 +134,19 @@ import {
   importFromLocalStorage,
   importUsernameFromLocalStorage,
 } from "./data/localStorage";
+import {
+  createBoard,
+  getAllBoardFileIds,
+  getBoard,
+  getCurrentBoardId,
+  listBoards,
+  saveBoard,
+  setCurrentBoardId,
+} from "./data/boards";
+import {
+  boardIdFromShareLink,
+  importBoardFromShareLink,
+} from "./data/boardShare";
 
 import { loadFilesFromFirebase } from "./data/firebase";
 import {
@@ -214,11 +240,125 @@ const shareableLinkConfirmDialog = {
   color: "danger",
 } as const;
 
+type BoardScenePayload = {
+  id: string;
+  name: string;
+  elements: ExcalidrawElement[];
+  appState: Partial<AppState>;
+};
+
+/**
+ * whether the current url points at a scene that lives outside of the
+ * browser storage (a shared board, a backend scene or a collab room)
+ */
+const isExternalSceneUrl = () => {
+  const searchParams = new URLSearchParams(window.location.search);
+  if (searchParams.get("id")) {
+    return true;
+  }
+  const hash = window.location.hash;
+  return (
+    /^#json=[a-zA-Z0-9_-]+,[a-zA-Z0-9_-]+$/.test(hash) ||
+    /^#board=[a-zA-Z0-9_-]+,[a-zA-Z0-9_-]*$/.test(hash) ||
+    /^#room=[a-zA-Z0-9_-]+,[a-zA-Z0-9_-]+$/.test(hash)
+  );
+};
+
+/**
+ * Loads a board and returns it in the shape needed to restore it into the
+ * canvas.
+ */
+const getBoardPayload = async (
+  id: string | null,
+): Promise<BoardScenePayload | null> => {
+  if (!id) {
+    return null;
+  }
+  const record = await getBoard(id);
+  if (!record) {
+    return null;
+  }
+  return {
+    id: record.id,
+    name: record.name,
+    elements: record.elements,
+    appState: record.appState,
+  };
+};
+
+/**
+ * Resolves the board that should be opened when the app loads. If the user
+ * doesn't have any boards yet, we seed the first one with whatever is
+ * currently in localStorage, so that existing drawings aren't lost.
+ */
+const resolveCurrentBoard = async (): Promise<BoardScenePayload | null> => {
+  try {
+    const boards = await listBoards();
+
+    if (boards.length === 0) {
+      const localDataState = importFromLocalStorage();
+      const board = await createBoard({
+        name: localDataState?.appState?.name?.trim() || t("boards.defaultName"),
+        elements: localDataState?.elements ?? [],
+        appState: localDataState?.appState ?? {},
+      });
+      return {
+        id: board.id,
+        name: board.name,
+        elements: board.elements,
+        appState: board.appState,
+      };
+    }
+
+    const currentId = getCurrentBoardId();
+    const board =
+      (currentId ? boards.find((meta) => meta.id === currentId) : null) ??
+      boards[0];
+
+    return await getBoardPayload(board.id);
+  } catch (error: any) {
+    console.error(error);
+    return null;
+  }
+};
+
+/** autosaves the currently open scene into its board */
+const saveBoardScene = debounce(
+  async (
+    id: string,
+    elements: readonly ExcalidrawElement[],
+    appState: AppState,
+  ) => {
+    try {
+      const record = await getBoard(id);
+      if (!record) {
+        return;
+      }
+      await saveBoard({
+        ...record,
+        elements: [...getNonDeletedElements(elements)],
+        appState: clearAppStateForLocalStorage(appState),
+        updatedAt: Date.now(),
+      });
+    } catch (error: any) {
+      console.error(error);
+    }
+  },
+  SAVE_TO_LOCAL_STORAGE_TIMEOUT,
+);
+
 const initializeScene = async (opts: {
   collabAPI: CollabAPI | null;
   excalidrawAPI: ExcalidrawImperativeAPI;
+  /**
+   * the board that should be restored on load (if any). When supplied, the
+   * board takes precedence over the legacy single-scene localStorage state.
+   */
+  boardScene?: BoardScenePayload | null;
+  /** called with the board that ended up being opened */
+  onBoardScene?: (board: BoardScenePayload | null) => void;
 }): Promise<
-  { scene: ExcalidrawInitialDataState | null } & (
+  { scene: ExcalidrawInitialDataState | null; isBoardShare?: boolean } & (
     | { isExternalScene: true; id: string; key: string }
     | { isExternalScene: false; id?: null; key?: null }
   )
@@ -229,8 +369,14 @@ const initializeScene = async (opts: {
     /^#json=([a-zA-Z0-9_-]+),([a-zA-Z0-9_-]+)$/,
   );
   const externalUrlMatch = window.location.hash.match(/^#url=(.*)$/);
+  const boardShareMatch = window.location.hash.match(
+    /^#board=([a-zA-Z0-9_-]+),([a-zA-Z0-9_-]*)$/,
+  );
 
   const localDataState = importFromLocalStorage();
+
+  const boardScene = opts.boardScene ?? null;
+  opts.onBoardScene?.(boardScene);
 
   let scene: Omit<
     RestoredDataState,
@@ -239,22 +385,41 @@ const initializeScene = async (opts: {
     "files"
   > & {
     scrollToContent?: boolean;
-  } = {
-    elements: restoreElements(localDataState?.elements, null, {
-      repairBindings: true,
-      deleteInvisibleElements: true,
-    }),
-    appState: restoreAppState(localDataState?.appState, null),
-  };
+    /** files embedded into a shared board link */
+    files?: BinaryFiles;
+  } = boardScene
+    ? {
+        elements: restoreElements(boardScene.elements, null, {
+          repairBindings: true,
+          deleteInvisibleElements: true,
+        }),
+        appState: restoreAppState(boardScene.appState, null),
+      }
+    : {
+        elements: restoreElements(localDataState?.elements, null, {
+          repairBindings: true,
+          deleteInvisibleElements: true,
+        }),
+        appState: restoreAppState(localDataState?.appState, null),
+      };
 
   let roomLinkData = getCollaborationLinkData(window.location.href);
-  const isExternalScene = !!(id || jsonBackendMatch || roomLinkData);
+  const isExternalScene = !!(
+    id ||
+    jsonBackendMatch ||
+    roomLinkData ||
+    boardShareMatch
+  );
+  let isBoardShare = false;
   if (isExternalScene) {
     if (
       // don't prompt if scene is empty
       !scene.elements.length ||
       // don't prompt for collab scenes because we don't override local storage
       roomLinkData ||
+      // a shared board is imported into a board of its own, so there's
+      // nothing to overwrite
+      boardShareMatch ||
       // otherwise, prompt whether user wants to override current scene
       (await openConfirmModal(shareableLinkConfirmDialog))
     ) {
@@ -278,6 +443,27 @@ const initializeScene = async (opts: {
             // localStorage user settings which we do not persist on server.
             localDataState?.appState,
           ),
+        };
+      } else if (boardShareMatch) {
+        isBoardShare = true;
+
+        const imported = await importBoardFromShareLink(window.location.hash);
+
+        scene = {
+          elements: bumpElementVersions(
+            restoreElements(imported?.elements ?? [], null, {
+              repairBindings: true,
+              deleteInvisibleElements: true,
+            }),
+            localDataState?.elements,
+          ),
+          appState: restoreAppState(
+            imported?.appState ?? {},
+            // local appState when importing from backend to ensure we restore
+            // localStorage user settings which we do not persist on server.
+            localDataState?.appState,
+          ),
+          files: imported?.files ?? {},
         };
       }
       scene.scrollToContent = true;
@@ -360,14 +546,15 @@ const initializeScene = async (opts: {
       key: roomLinkData.roomKey,
     };
   } else if (scene) {
-    return isExternalScene && jsonBackendMatch
-      ? {
-          scene,
-          isExternalScene,
-          id: jsonBackendMatch[1],
-          key: jsonBackendMatch[2],
-        }
-      : { scene, isExternalScene: false };
+    if (isExternalScene && jsonBackendMatch) {
+      return {
+        scene,
+        isExternalScene,
+        id: jsonBackendMatch[1],
+        key: jsonBackendMatch[2],
+      };
+    }
+    return { scene, isExternalScene: false, isBoardShare };
   }
   return { scene: null, isExternalScene: false };
 };
@@ -397,6 +584,105 @@ const ExcalidrawWrapper = () => {
 
   const debugCanvasRef = useRef<HTMLCanvasElement>(null);
 
+  // boards (whiteboards cached in the browser)
+  // ---------------------------------------------------------------------------
+
+  /** the board that's currently open, mirrored into a ref for hot paths */
+  const currentBoardIdRef = useRef<string | null>(null);
+  const [, setCurrentBoardIdAtom] = useAtom(currentBoardIdAtom);
+  const [, setCurrentBoardNameAtom] = useAtom(currentBoardNameAtom);
+
+  /**
+   * Opens a board: makes it the current one and loads its scene (and images)
+   * into the canvas.
+   */
+  const openBoard = useCallback(
+    async (id: string) => {
+      if (!excalidrawAPI) {
+        return;
+      }
+
+      // make sure the board we're leaving is up to date
+      saveBoardScene.flush();
+
+      const record = await getBoard(id);
+      if (!record) {
+        setErrorMessage(t("boards.openFailed"));
+        return;
+      }
+
+      currentBoardIdRef.current = id;
+      setCurrentBoardId(id);
+      setCurrentBoardIdAtom(id);
+      setCurrentBoardNameAtom(record.name);
+
+      excalidrawAPI.updateScene({
+        elements: restoreElements(record.elements, null, {
+          repairBindings: true,
+          deleteInvisibleElements: true,
+        }),
+        appState: restoreAppState(record.appState, excalidrawAPI.getAppState()),
+        captureUpdate: CaptureUpdateAction.IMMEDIATELY,
+      });
+
+      // load the images referenced by the board
+      const fileIds = record.elements
+        .filter(isInitializedImageElement)
+        .map((element) => element.fileId);
+
+      if (fileIds.length) {
+        LocalData.fileStorage
+          .getFiles(fileIds)
+          .then(({ loadedFiles, erroredFiles }) => {
+            excalidrawAPI.addFiles(loadedFiles);
+            updateStaleImageStatuses({
+              excalidrawAPI,
+              erroredFiles,
+              elements: excalidrawAPI.getSceneElementsIncludingDeleted(),
+            });
+          });
+      }
+    },
+    [excalidrawAPI, setCurrentBoardIdAtom, setCurrentBoardNameAtom],
+  );
+
+  /**
+   * Stores the currently open scene as a board of its own. Used when the
+   * scene comes from an external source (e.g. a shared link), so that we
+   * don't overwrite the board the user was working on.
+   *
+   * When `opts.id` is supplied and a board with that id already exists, the
+   * existing board is opened instead of creating a duplicate — this keeps
+   * opening the same shared link from piling up boards.
+   */
+  const adoptSceneAsBoard = useCallback(
+    async (scene: ExcalidrawInitialDataState, opts?: { id?: string }) => {
+      try {
+        if (opts?.id) {
+          const existing = await getBoard(opts.id);
+          if (existing) {
+            await openBoard(existing.id);
+            return;
+          }
+        }
+
+        const board = await createBoard({
+          id: opts?.id,
+          name: scene.appState?.name?.trim() || t("boards.defaultName"),
+          elements: (scene.elements ?? []) as ExcalidrawElement[],
+          appState: scene.appState ?? {},
+        });
+        currentBoardIdRef.current = board.id;
+        setCurrentBoardId(board.id);
+        setCurrentBoardIdAtom(board.id);
+        setCurrentBoardNameAtom(board.name);
+      } catch (error: any) {
+        console.error(error);
+      }
+    },
+    [openBoard, setCurrentBoardIdAtom, setCurrentBoardNameAtom],
+  );
+
   useEffect(() => {
     trackEvent("load", "frame", getFrame());
     // Delayed so that the app has a time to load the latest SW
@@ -406,6 +692,7 @@ const ExcalidrawWrapper = () => {
   }, []);
 
   const [, setShareDialogState] = useAtom(shareDialogStateAtom);
+  const [, setBoardsDialogState] = useAtom(boardsDialogStateAtom);
   const [collabAPI] = useAtom(collabAPIAtom);
   const [isCollaborating] = useAtomWithInitialValue(isCollaboratingAtom, () => {
     return isCollaborationLink(window.location.href);
@@ -547,9 +834,12 @@ const ExcalidrawWrapper = () => {
               });
           }
           // on fresh load, clear unused files from IDB (from previous
-          // session)
-          LocalData.fileStorage.clearObsoleteFiles({
-            currentFileIds: fileIds,
+          // session). Files referenced by other boards are kept around, so
+          // that switching boards doesn't lose their images.
+          getAllBoardFileIds().then((boardFileIds) => {
+            LocalData.fileStorage.clearObsoleteFiles({
+              currentFileIds: [...fileIds, ...boardFileIds],
+            });
           });
         }
       }
@@ -562,10 +852,41 @@ const ExcalidrawWrapper = () => {
       return;
     }
 
-    initializeScene({ collabAPI, excalidrawAPI }).then(async (data) => {
+    (async () => {
+      // unless we're loading an external scene (shared link, backend scene,
+      // collab room), restore the board that was open last
+      const isExternal = isExternalSceneUrl();
+      const isCollabLink = isCollaborationLink(window.location.href);
+      // the hash is wiped by `initializeScene`, so remember it upfront
+      const shareHash = window.location.hash;
+      const boardScene = isExternal ? null : await resolveCurrentBoard();
+
+      const data = await initializeScene({
+        collabAPI,
+        excalidrawAPI,
+        boardScene,
+        onBoardScene: (board) => {
+          if (board) {
+            currentBoardIdRef.current = board.id;
+            setCurrentBoardId(board.id);
+            setCurrentBoardIdAtom(board.id);
+            setCurrentBoardNameAtom(board.name);
+          }
+        },
+      });
+
       loadImages(data, /* isInitialLoad */ true);
       initialStatePromiseRef.current.promise.resolve(data.scene);
-    });
+
+      if (isExternal && data.scene && !isCollabLink) {
+        // the scene comes from outside of the browser storage — store it in
+        // a board of its own, so that we don't overwrite the board the user
+        // was working on
+        await adoptSceneAsBoard(data.scene, {
+          id: data.isBoardShare ? boardIdFromShareLink(shareHash) : undefined,
+        });
+      }
+    })();
 
     const onHashChange = async (event: HashChangeEvent) => {
       event.preventDefault();
@@ -579,7 +900,33 @@ const ExcalidrawWrapper = () => {
         }
         excalidrawAPI.updateScene({ appState: { isLoading: true } });
 
-        initializeScene({ collabAPI, excalidrawAPI }).then((data) => {
+        // make sure the board we're on is up to date before we potentially
+        // replace the scene
+        saveBoardScene.flush();
+
+        (async () => {
+          const isExternal = isExternalSceneUrl();
+          const isCollabLink = isCollaborationLink(window.location.href);
+          // the hash is wiped by `initializeScene`, so remember it upfront
+          const shareHash = window.location.hash;
+          const boardScene = isExternal
+            ? null
+            : await getBoardPayload(currentBoardIdRef.current);
+
+          const data = await initializeScene({
+            collabAPI,
+            excalidrawAPI,
+            boardScene,
+            onBoardScene: (board) => {
+              if (board) {
+                currentBoardIdRef.current = board.id;
+                setCurrentBoardId(board.id);
+                setCurrentBoardIdAtom(board.id);
+                setCurrentBoardNameAtom(board.name);
+              }
+            },
+          });
+
           loadImages(data);
           if (data.scene) {
             excalidrawAPI.updateScene({
@@ -590,7 +937,15 @@ const ExcalidrawWrapper = () => {
               captureUpdate: CaptureUpdateAction.IMMEDIATELY,
             });
           }
-        });
+
+          if (isExternal && data.scene && !isCollabLink) {
+            await adoptSceneAsBoard(data.scene, {
+              id: data.isBoardShare
+                ? boardIdFromShareLink(shareHash)
+                : undefined,
+            });
+          }
+        })();
       }
     };
 
@@ -685,7 +1040,16 @@ const ExcalidrawWrapper = () => {
         false,
       );
     };
-  }, [isCollabDisabled, collabAPI, excalidrawAPI, setLangCode, loadImages]);
+  }, [
+    isCollabDisabled,
+    collabAPI,
+    excalidrawAPI,
+    setLangCode,
+    loadImages,
+    adoptSceneAsBoard,
+    setCurrentBoardIdAtom,
+    setCurrentBoardNameAtom,
+  ]);
 
   useEffect(() => {
     const unloadHandler = (event: BeforeUnloadEvent) => {
@@ -719,6 +1083,11 @@ const ExcalidrawWrapper = () => {
   ) => {
     if (collabAPI?.isCollaborating()) {
       collabAPI.syncElements(elements);
+    }
+
+    // keep the board that's currently open in sync with the canvas
+    if (currentBoardIdRef.current && !collabAPI?.isCollaborating()) {
+      saveBoardScene(currentBoardIdRef.current, elements, appState);
     }
 
     // this check is redundant, but since this is a hot path, it's best
@@ -1001,26 +1370,35 @@ const ExcalidrawWrapper = () => {
         theme={editorTheme}
         onThemeChange={setAppTheme}
         renderTopRightUI={(isMobile) => {
-          if (isMobile || !collabAPI || !isCollabAvailable) {
+          if (isMobile) {
             return null;
           }
 
           return (
             <div className="excalidraw-ui-top-right">
-              {excalidrawAPI?.getEditorInterface().formFactor === "desktop" && (
-                <ExcalidrawPlusPromoBanner
-                  isSignedIn={isExcalidrawPlusSignedUser}
-                />
-              )}
+              <BoardSwitcher />
 
-              {collabError.message && <CollabError collabError={collabError} />}
-              <LiveCollaborationTrigger
-                isCollaborating={isCollaborating}
-                onSelect={() =>
-                  setShareDialogState({ isOpen: true, type: "share" })
-                }
-                editorInterface={editorInterface}
-              />
+              {collabAPI && isCollabAvailable && (
+                <>
+                  {excalidrawAPI?.getEditorInterface().formFactor ===
+                    "desktop" && (
+                    <ExcalidrawPlusPromoBanner
+                      isSignedIn={isExcalidrawPlusSignedUser}
+                    />
+                  )}
+
+                  {collabError.message && (
+                    <CollabError collabError={collabError} />
+                  )}
+                  <LiveCollaborationTrigger
+                    isCollaborating={isCollaborating}
+                    onSelect={() =>
+                      setShareDialogState({ isOpen: true, type: "share" })
+                    }
+                    editorInterface={editorInterface}
+                  />
+                </>
+              )}
             </div>
           );
         }}
@@ -1108,6 +1486,8 @@ const ExcalidrawWrapper = () => {
           }}
         />
 
+        <BoardsDialog onOpenBoard={openBoard} onError={setErrorMessage} />
+
         <AppSidebar />
 
         {errorMessage && (
@@ -1118,6 +1498,24 @@ const ExcalidrawWrapper = () => {
 
         <CommandPalette
           customCommandPaletteItems={[
+            {
+              label: t("boards.menuItem"),
+              category: DEFAULT_CATEGORIES.app,
+              predicate: true,
+              icon: LibraryIcon,
+              keywords: [
+                "board",
+                "boards",
+                "whiteboard",
+                "drawings",
+                "list",
+                "switch",
+                "new",
+              ],
+              perform: () => {
+                setBoardsDialogState({ isOpen: true });
+              },
+            },
             {
               label: t("labels.liveCollaboration"),
               category: DEFAULT_CATEGORIES.app,

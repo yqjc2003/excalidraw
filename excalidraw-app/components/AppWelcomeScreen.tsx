@@ -1,16 +1,23 @@
-import { loginIcon } from "@excalidraw/excalidraw/components/icons";
+import {
+  loginIcon,
+  LibraryIcon,
+} from "@excalidraw/excalidraw/components/icons";
 import { POINTER_EVENTS } from "@excalidraw/common";
 import { useI18n } from "@excalidraw/excalidraw/i18n";
 import { WelcomeScreen } from "@excalidraw/excalidraw/index";
 import React from "react";
 
 import { isExcalidrawPlusSignedUser } from "../app_constants";
+import { useSetAtom } from "../app-jotai";
+
+import { boardsDialogStateAtom } from "./BoardsDialog";
 
 export const AppWelcomeScreen: React.FC<{
   onCollabDialogOpen: () => any;
   isCollabEnabled: boolean;
 }> = React.memo((props) => {
   const { t } = useI18n();
+  const setBoardsDialogState = useSetAtom(boardsDialogStateAtom);
   let headingContent;
 
   if (isExcalidrawPlusSignedUser) {
@@ -58,6 +65,13 @@ export const AppWelcomeScreen: React.FC<{
         </WelcomeScreen.Center.Heading>
         <WelcomeScreen.Center.Menu>
           <WelcomeScreen.Center.MenuItemLoadScene />
+          <WelcomeScreen.Center.MenuItem
+            onSelect={() => setBoardsDialogState({ isOpen: true })}
+            icon={LibraryIcon}
+            shortcut={null}
+          >
+            {t("boards.menuItem")}
+          </WelcomeScreen.Center.MenuItem>
           <WelcomeScreen.Center.MenuItemHelp />
           {props.isCollabEnabled && (
             <WelcomeScreen.Center.MenuItemLiveCollaborationTrigger

@@ -48,12 +48,15 @@ export const STORAGE_KEYS = {
   IDB_LIBRARY: "excalidraw-library",
   IDB_TTD_CHATS: "excalidraw-ttd-chats",
 
+  LOCAL_STORAGE_CURRENT_BOARD: "excalidraw-current-board",
+
   // do not use apart from migrations
   __LEGACY_LOCAL_STORAGE_LIBRARY: "excalidraw-library",
 } as const;
 
 export const COOKIES = {
   AUTH_STATE_COOKIE: "excplus-auth",
+  CURRENT_BOARD: "excalidraw-current-board",
 } as const;
 
 export const isExcalidrawPlusSignedUser = document.cookie.includes(

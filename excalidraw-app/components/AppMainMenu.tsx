@@ -2,6 +2,7 @@ import {
   loginIcon,
   ExcalLogo,
   eyeIcon,
+  LibraryIcon,
 } from "@excalidraw/excalidraw/components/icons";
 import { useI18n } from "@excalidraw/excalidraw/i18n";
 import { MainMenu } from "@excalidraw/excalidraw/index";
@@ -13,8 +14,10 @@ import type { Theme } from "@excalidraw/element/types";
 
 import { LanguageList } from "../app-language/LanguageList";
 import { isExcalidrawPlusSignedUser } from "../app_constants";
+import { useSetAtom } from "../app-jotai";
 
 import { saveDebugState } from "./DebugCanvas";
+import { boardsDialogStateAtom } from "./BoardsDialog";
 
 export const AppMainMenu: React.FC<{
   onCollabDialogOpen: () => any;
@@ -24,9 +27,16 @@ export const AppMainMenu: React.FC<{
   refresh: () => void;
 }> = React.memo((props) => {
   const { t } = useI18n();
+  const setBoardsDialogState = useSetAtom(boardsDialogStateAtom);
   return (
     <MainMenu>
       <MainMenu.DefaultItems.LoadScene />
+      <MainMenu.Item
+        icon={LibraryIcon}
+        onSelect={() => setBoardsDialogState({ isOpen: true })}
+      >
+        {t("boards.menuItem")}
+      </MainMenu.Item>
       <MainMenu.DefaultItems.SaveToActiveFile />
       <MainMenu.DefaultItems.Export />
       <MainMenu.DefaultItems.SaveAsImage />
