@@ -1,3 +1,3 @@
 # Contributing
 
-Head over to the [docs](https://docs.excalidraw.com/docs/introduction/contributing)
+See the `contributing` guide in `dev-docs/docs/@excalidraw/excalidraw/contributing` in this repository.

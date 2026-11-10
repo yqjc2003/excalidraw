@@ -77,8 +77,8 @@ export default function Page() {
 
 See the local examples for complete setups:
 
-- [examples/with-nextjs](https://github.com/excalidraw/excalidraw/tree/master/examples/with-nextjs)
-- [examples/with-script-in-browser](https://github.com/excalidraw/excalidraw/tree/master/examples/with-script-in-browser)
+- [examples/with-nextjs](../../examples/with-nextjs)
+- [examples/with-script-in-browser](../../examples/with-script-in-browser)
 
 ## LLM / agent tips
 
@@ -127,16 +127,16 @@ For self-hosting, copy the contents of `node_modules/@excalidraw/excalidraw/dist
 
 ## Demo
 
-Try the [CodeSandbox example](https://codesandbox.io/p/sandbox/github/excalidraw/excalidraw/tree/master/examples/with-script-in-browser).
+See the local `examples/with-script-in-browser` setup for a runnable demo.
 
 ## Integration
 
-Read the [integration docs](https://docs.excalidraw.com/docs/@excalidraw/excalidraw/integration).
+See `dev-docs/docs/@excalidraw/excalidraw` in this repository.
 
 ## API
 
-Read the [API docs](https://docs.excalidraw.com/docs/@excalidraw/excalidraw/api).
+See `dev-docs/docs/@excalidraw/excalidraw/api` in this repository.
 
 ## Contributing
 
-Read the [contributing docs](https://docs.excalidraw.com/docs/@excalidraw/excalidraw/contributing).
+See `CONTRIBUTING.md` in the repository root.

@@ -12,52 +12,6 @@
       font-size: 1.125rem;
     }
 
-    &__header {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    &__btn {
-      --background: var(--color-surface-mid);
-
-      display: flex;
-      column-gap: 0.5rem;
-      align-items: center;
-      background-color: var(--background);
-      padding: 0.625rem 1rem;
-      border: 1px solid var(--background);
-      border-radius: var(--border-radius-lg);
-      color: var(--text-primary-color);
-      font-weight: 600;
-      font-size: 0.75rem;
-      letter-spacing: 0.4px;
-
-      @at-root .excalidraw.theme--dark#{&} {
-        --background: var(--color-surface-high);
-        &:hover {
-          --background: #363541;
-        }
-      }
-
-      &:hover {
-        --background: var(--color-surface-high);
-        text-decoration: none;
-      }
-
-      &:active {
-        border-color: var(--color-primary);
-      }
-    }
-
-    &__link-icon {
-      line-height: 0;
-      svg {
-        width: 1rem;
-        height: 1rem;
-      }
-    }
-
     &__islands-container {
       display: grid;
       grid-column-gap: 1.5rem;

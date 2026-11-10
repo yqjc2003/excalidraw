@@ -271,13 +271,19 @@ export default defineConfig(({ mode }) => {
       assetsInlineLimit: 0,
     },
     plugins: [
-      Sitemap({
-        hostname: "https://excalidraw.com",
-        outDir: "build",
-        changefreq: "monthly",
-        // its static in public folder
-        generateRobotsTxt: false,
-      }),
+      // Only generate a sitemap when the deployment provides its own public
+      // origin, so we never publish links to excalidraw.com.
+      ...(envVars.VITE_APP_SITE_URL
+        ? [
+            Sitemap({
+              hostname: envVars.VITE_APP_SITE_URL,
+              outDir: "build",
+              changefreq: "monthly",
+              // its static in public folder
+              generateRobotsTxt: false,
+            }),
+          ]
+        : []),
       woff2BrowserPlugin(),
       lazyChunksPlugin(
         /[\\/]node_modules[\\/]@excalidraw[\\/]mermaid-to-excalidraw[\\/]/,

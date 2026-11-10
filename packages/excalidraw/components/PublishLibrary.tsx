@@ -401,29 +401,13 @@ const PublishLibrary = ({
           <div className="publish-library-note">
             <Trans
               i18nKey="publishDialog.noteDescription"
-              link={(el) => (
-                <a
-                  href="https://libraries.excalidraw.com"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  {el}
-                </a>
-              )}
+              link={(el) => <span>{el}</span>}
             />
           </div>
           <span className="publish-library-note">
             <Trans
               i18nKey="publishDialog.noteGuidelines"
-              link={(el) => (
-                <a
-                  href="https://github.com/excalidraw/excalidraw-libraries#guidelines"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {el}
-                </a>
-              )}
+              link={(el) => <span>{el}</span>}
             />
           </span>
 
@@ -520,15 +504,7 @@ const PublishLibrary = ({
             <span className="publish-library-note">
               <Trans
                 i18nKey="publishDialog.noteLicense"
-                link={(el) => (
-                  <a
-                    href="https://github.com/excalidraw/excalidraw-libraries/blob/main/LICENSE"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {el}
-                  </a>
-                )}
+                link={(el) => <span>{el}</span>}
               />
             </span>
           </div>
