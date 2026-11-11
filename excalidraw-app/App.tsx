@@ -117,6 +117,11 @@ import {
   isCollaborationLink,
 } from "./data";
 
+import {
+  isAIBackendConfigured,
+  isCollabBackendConfigured,
+  isShareBackendConfigured,
+} from "./backends";
 import { updateStaleImageStatuses } from "./data/FileManager";
 import { FileStatusStore } from "./data/fileStatusStore";
 import {
@@ -238,14 +243,16 @@ type BoardScenePayload = {
  */
 const isExternalSceneUrl = () => {
   const searchParams = new URLSearchParams(window.location.search);
-  if (searchParams.get("id")) {
+  if (isShareBackendConfigured && searchParams.get("id")) {
     return true;
   }
   const hash = window.location.hash;
   return (
-    /^#json=[a-zA-Z0-9_-]+,[a-zA-Z0-9_-]+$/.test(hash) ||
+    (isShareBackendConfigured &&
+      /^#json=[a-zA-Z0-9_-]+,[a-zA-Z0-9_-]+$/.test(hash)) ||
     /^#board=[a-zA-Z0-9_-]+,[a-zA-Z0-9_-]*$/.test(hash) ||
-    /^#room=[a-zA-Z0-9_-]+,[a-zA-Z0-9_-]+$/.test(hash)
+    (isCollabBackendConfigured &&
+      /^#room=[a-zA-Z0-9_-]+,[a-zA-Z0-9_-]+$/.test(hash))
   );
 };
 
@@ -350,9 +357,13 @@ const initializeScene = async (opts: {
 > => {
   const searchParams = new URLSearchParams(window.location.search);
   const id = searchParams.get("id");
-  const jsonBackendMatch = window.location.hash.match(
+  const jsonBackendHashMatch = window.location.hash.match(
     /^#json=([a-zA-Z0-9_-]+),([a-zA-Z0-9_-]+)$/,
   );
+  // server-side share links are only loaded when a share backend is configured
+  const jsonBackendMatch = isShareBackendConfigured
+    ? jsonBackendHashMatch
+    : null;
   const externalUrlMatch = window.location.hash.match(/^#url=(.*)$/);
   const boardShareMatch = window.location.hash.match(
     /^#board=([a-zA-Z0-9_-]+),([a-zA-Z0-9_-]*)$/,
@@ -389,6 +400,12 @@ const initializeScene = async (opts: {
       };
 
   let roomLinkData = getCollaborationLinkData(window.location.href);
+  if (roomLinkData && !opts.collabAPI) {
+    // live collaboration isn't available (no websocket server configured)
+    window.history.replaceState({}, APP_NAME, window.location.origin);
+    window.alert(t("errors.cannotResolveCollabServer"));
+    roomLinkData = null;
+  }
   const isExternalScene = !!(
     id ||
     jsonBackendMatch ||
@@ -497,6 +514,13 @@ const initializeScene = async (opts: {
     }
   }
 
+  if (jsonBackendHashMatch && !jsonBackendMatch) {
+    // the link points at a server-side share link, but the app isn't
+    // configured with a share backend to load it from
+    window.history.replaceState({}, APP_NAME, window.location.origin);
+    window.alert(t("alerts.importBackendFailed"));
+  }
+
   if (roomLinkData && opts.collabAPI) {
     const { excalidrawAPI } = opts;
 
@@ -548,7 +572,9 @@ const ExcalidrawWrapper = () => {
   const excalidrawAPI = useExcalidrawAPI();
 
   const [errorMessage, setErrorMessage] = useState("");
-  const isCollabDisabled = isRunningInIframe();
+  // collaboration needs a websocket server to talk to; without one the app
+  // stays fully local (no room links, no live collaboration)
+  const isCollabDisabled = isRunningInIframe() || !isCollabBackendConfigured;
 
   const { editorTheme, appTheme, setAppTheme } = useHandleAppTheme();
 
@@ -1130,6 +1156,9 @@ const ExcalidrawWrapper = () => {
     if (exportedElements.length === 0) {
       throw new Error(t("alerts.cannotExportEmptyCanvas"));
     }
+    if (!isShareBackendConfigured) {
+      throw new Error(t("alerts.couldNotCreateShareableLink"));
+    }
     try {
       const { url, errorMessage } = await exportToBackend(
         exportedElements,
@@ -1276,11 +1305,12 @@ const ExcalidrawWrapper = () => {
         initialData={initialStatePromiseRef.current.promise}
         isCollaborating={isCollaborating}
         onPointerUpdate={collabAPI?.onPointerUpdate}
+        aiEnabled={isAIBackendConfigured}
         UIOptions={{
           canvasActions: {
             toggleTheme: true,
             export: {
-              onExportToBackend,
+              ...(isShareBackendConfigured ? { onExportToBackend } : {}),
             },
           },
         }}
@@ -1344,9 +1374,11 @@ const ExcalidrawWrapper = () => {
           <OverwriteConfirmDialog.Actions.SaveToDisk />
         </OverwriteConfirmDialog>
         <AppFooter onChange={() => excalidrawAPI?.refresh()} />
-        {excalidrawAPI && <AIComponents excalidrawAPI={excalidrawAPI} />}
+        {excalidrawAPI && isAIBackendConfigured && (
+          <AIComponents excalidrawAPI={excalidrawAPI} />
+        )}
 
-        <TTDDialogTrigger />
+        {isAIBackendConfigured && <TTDDialogTrigger />}
         {isCollaborating && isOffline && (
           <div className="alertalert--warning">
             {t("alerts.collabOfflineWarning")}

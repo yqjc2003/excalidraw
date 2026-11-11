@@ -64,7 +64,6 @@ export const getSyncableElements = (
 
 const BACKEND_V2_GET = import.meta.env.VITE_APP_BACKEND_V2_GET_URL;
 const BACKEND_V2_POST = import.meta.env.VITE_APP_BACKEND_V2_POST_URL;
-
 const generateRoomId = async () => {
   const buffer = new Uint8Array(ROOM_ID_BYTES);
   window.crypto.getRandomValues(buffer);
@@ -203,6 +202,11 @@ export const importFromBackend = async (
   id: string,
   decryptionKey: string,
 ): Promise<ImportedDataState> => {
+  if (!BACKEND_V2_GET) {
+    window.alert(t("alerts.importBackendFailed"));
+    return {};
+  }
+
   try {
     const response = await fetch(`${BACKEND_V2_GET}${id}`);
 
@@ -250,6 +254,10 @@ export const exportToBackend = async (
   appState: Partial<AppState>,
   files: BinaryFiles,
 ): Promise<ExportToBackendResult> => {
+  if (!BACKEND_V2_POST) {
+    return { url: null, errorMessage: t("alerts.couldNotCreateShareableLink") };
+  }
+
   const encryptionKey = await generateEncryptionKey("string");
 
   const payload = await compressData(

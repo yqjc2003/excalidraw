@@ -19,6 +19,7 @@ import { KEYS, getFrame } from "@excalidraw/common";
 import { useEffect, useRef, useState } from "react";
 
 import { atom, useAtom, useAtomValue } from "../app-jotai";
+import { isShareBackendConfigured } from "../backends";
 import { activeRoomLinkAtom } from "../collab/Collab";
 
 import "./ShareDialog.scss";
@@ -218,7 +219,7 @@ const ShareDialogPicker = (props: ShareDialogProps) => {
     <>
       {startCollabJSX}
 
-      {props.type === "share" && (
+      {props.type === "share" && isShareBackendConfigured && (
         <>
           <div className="ShareDialog__picker__header">
             {t("exportDialog.link_title")}

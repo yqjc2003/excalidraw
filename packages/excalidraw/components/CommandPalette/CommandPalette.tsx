@@ -581,7 +581,8 @@ function CommandPaletteInner({
           category: DEFAULT_CATEGORIES.tools,
           icon: mermaidLogoIcon,
           viewMode: false,
-          predicate: appProps.aiEnabled,
+          // mermaid is converted locally, so it doesn't need an AI backend
+          predicate: true,
           perform: () => {
             setAppState((state) => ({
               ...state,
