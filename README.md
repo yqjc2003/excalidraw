@@ -10,7 +10,6 @@
 <div align="center">
   <h2>
     An open source virtual hand-drawn style whiteboard. </br>
-    Collaborative and end-to-end encrypted. </br>
   <br />
   </h2>
 </div>
@@ -57,8 +56,6 @@ The Excalidraw editor (npm package) supports:
 The app in `excalidraw-app/` is a minimal showcase of what you can build with Excalidraw. Its source code is part of this repository as well, and the app features:
 
 - 📡&nbsp;PWA support (works offline).
-- 🤼&nbsp;Real-time collaboration.
-- 🔒&nbsp;End-to-end encryption.
 - 💾&nbsp;Local-first support (autosaves to the browser).
 - 🔗&nbsp;Shareable links (export to a readonly link you can share with others).
 

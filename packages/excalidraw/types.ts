@@ -1,6 +1,5 @@
 import type {
   IMAGE_MIME_TYPES,
-  UserIdleState,
   throttleRAF,
   MIME_TYPES,
   EditorInterface,
@@ -74,49 +73,6 @@ import type { JSX } from "react";
 
 export type { App };
 
-export type SocketId = string & { _brand: "SocketId" };
-
-export type Collaborator = Readonly<{
-  pointer?: CollaboratorPointer;
-  button?: "up" | "down";
-  selectedElementIds?: AppState["selectedElementIds"];
-  username?: string | null;
-  userState?: UserIdleState;
-  color?: {
-    background: string;
-    stroke: string;
-  };
-  // The url of the collaborator's avatar, defaults to username initials
-  // if not present
-  avatarUrl?: string;
-  // Stable user id. A user may have multiple collaborators, one per client.
-  id?: string;
-  socketId?: SocketId;
-  isCurrentUser?: boolean;
-  isInCall?: boolean;
-  isSpeaking?: boolean;
-  isMuted?: boolean;
-}>;
-
-export type CollaboratorPointer = {
-  x: number;
-  y: number;
-  tool: "pointer" | "laser";
-  /**
-   * Whether to render cursor + username. Useful when you only want to render
-   * laser trail.
-   *
-   * @default true
-   */
-  renderCursor?: boolean;
-  /**
-   * Explicit laser color.
-   *
-   * @default string collaborator's cursor color
-   */
-  laserColor?: string;
-};
-
 export type DataURL = string & { _brand: "DataURL" };
 
 export type BinaryFileData = {
@@ -185,11 +141,6 @@ export type ActiveTool =
 export type SidebarName = string;
 export type SidebarTabName = string;
 
-export type UserToFollow = {
-  socketId: SocketId;
-  username: string;
-};
-
 type _CommonCanvasAppState = {
   zoom: AppState["zoom"];
   scrollX: AppState["scrollX"];
@@ -241,8 +192,6 @@ export type InteractiveCanvasAppState = Readonly<
     textToolHover: AppState["textToolHover"];
     isRotating: AppState["isRotating"];
     elementsToHighlight: AppState["elementsToHighlight"];
-    // Collaborators
-    collaborators: AppState["collaborators"];
     // SnapLines
     snapLines: AppState["snapLines"];
     zenModeEnabled: AppState["zenModeEnabled"];
@@ -535,7 +484,6 @@ export interface AppState {
   offsetLeft: number;
 
   fileHandle: FileSystemFileHandle | null;
-  collaborators: Map<SocketId, Collaborator>;
   stats: {
     open: boolean;
     /** bitmap. Use `STATS_PANELS` bit values */
@@ -683,11 +631,6 @@ export type ExcalidrawInitialState = {
   viewport?: Omit<SetViewportOptions, "animation">;
 };
 
-export type OnUserFollowedPayload = {
-  userToFollow: UserToFollow;
-  action: "FOLLOW" | "UNFOLLOW";
-};
-
 export type ViewportStatusFrame = {
   /** the badge (bottom-center pill) */
   label?: {
@@ -780,7 +723,7 @@ export type InteractionConfig = {
       /**
        * The laser pointer stays usable — pointer strokes draw laser trails
        * and pointer positions keep broadcasting via `onPointerUpdate`, so
-       * e.g. collaborators see a presenter's laser & cursor.
+       * the host can e.g. show a presenter's laser & cursor.
        *
        * @default false
        */
@@ -907,7 +850,6 @@ export interface ExcalidrawProps {
    * Invoked once the initial scene is loaded.
    */
   onInitialize?: (api: ExcalidrawImperativeAPI) => void;
-  isCollaborating?: boolean;
   onPointerUpdate?: (payload: {
     pointer: { x: number; y: number; tool: "pointer" | "laser" };
     button: "down" | "up";
@@ -1057,7 +999,6 @@ export interface ExcalidrawProps {
     pointerDownState: PointerDownState,
   ) => void;
   onScrollChange?: (scrollX: number, scrollY: number, zoom: Zoom) => void;
-  onUserFollow?: (payload: OnUserFollowedPayload) => void;
   children?: React.ReactNode;
   validateEmbeddable?:
     | boolean
@@ -1073,22 +1014,6 @@ export interface ExcalidrawProps {
   showDeprecatedFonts?: boolean;
   renderScrollbars?: boolean;
   viewportStatusFrame?: ViewportStatusFrame | null;
-  /**
-   * Rendered inside the UserList "who's here" dropdown (desktop) and inline
-   * in the mobile menu's collaborators section, below a divider. Accepts a
-   * render function — called with `isMobile` so hosts can render different
-   * UI for each surface — in addition to a plain node.
-   */
-  currentUserControls?:
-    | React.ReactNode
-    | ((isMobile: boolean) => React.ReactNode);
-  /**
-   * The user being followed on the canvas, if any. Controlled by the host —
-   * the editor never sets it; it emits follow/unfollow intents via
-   * `onUserFollow` (prop or imperative API) and renders the followed
-   * user's avatar highlight from this value.
-   */
-  userToFollow?: UserToFollow | null;
   /**
    * Called before exporting to a file.
    *
@@ -1121,7 +1046,6 @@ export type SceneData = {
   /** Expects normalized elements; restore imported data before updating the scene. */
   elements?: readonly ExcalidrawElement[] | null;
   appState?: ImportedDataState["appState"];
-  collaborators?: Map<SocketId, Collaborator>;
   captureUpdate?: CaptureUpdateActionType;
 };
 
@@ -1194,7 +1118,6 @@ export type AppProps = Merge<
     imageOptions: Required<ImageOptions>;
     detectScroll: boolean;
     handleKeyboardGlobally: boolean;
-    isCollaborating: boolean;
     children?: React.ReactNode;
     aiEnabled: boolean;
   }
@@ -1270,9 +1193,6 @@ export type AppClassProperties = {
   lastPointerMoveCoords: App["lastPointerMoveCoords"];
   lastPointerMoveEvent: App["lastPointerMoveEvent"];
   bindModeHandler: App["bindModeHandler"];
-
-  emitUserFollowIntent: App["emitUserFollowIntent"];
-  requestUnfollow: App["requestUnfollow"];
 
   setAppState: App["setAppState"];
 
@@ -1488,9 +1408,6 @@ export interface ExcalidrawImperativeAPI {
   ) => UnsubscribeCallback;
   onScrollChange: (
     callback: (scrollX: number, scrollY: number, zoom: Zoom) => void,
-  ) => UnsubscribeCallback;
-  onUserFollow: (
-    callback: (payload: OnUserFollowedPayload) => void,
   ) => UnsubscribeCallback;
   onStateChange: InstanceType<typeof App>["onStateChange"];
   onEvent: InstanceType<typeof App>["onEvent"];

@@ -102,7 +102,6 @@
     "layers": "ලේයර",
     "actions": "ක්‍රියාකාරකම",
     "language": "භාෂාව",
-    "liveCollaboration": "සජීවී සහයෝගිතාව",
     "duplicateSelection": "තෝරාගැනීම පිටපත් කරන්න",
     "untitled": "නිර්නාමික",
     "name": "නම",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Excalidraw සමඟ සාදන ලද",
     "group": "කණ්ඩායම",
     "ungroup": "කණ්ඩායම් ඉවත් කරන්න",
-    "collaborators": "සහයෝගිකයන්",
     "you": "",
     "toggleGrid": "",
     "addToLibrary": "පුස්තකාලයට එක් කරන්න",
@@ -273,7 +271,6 @@
     "decryptFailed": "විකේතනය අසාර්ථකයි",
     "uploadedSecurly": "ආරක්ෂිතව උඩුගත කරන ලදි",
     "loadSceneOverridePrompt": "දර්ශනය පූරණය කිරීම ආවරණය ගැන ඇඟවීම",
-    "collabStopOverridePrompt": "සහයෝගිතාව නැවැත්වීම ආවරණය ගැන ඇඟවීම",
     "errorAddingToLibrary": "පුස්තකාලයට එක් කිරීමේ දෝෂය",
     "errorRemovingFromLibrary": "පුස්තකාලයෙන් ඉවත් කිරීමේ දෝෂය",
     "confirmAddLibrary": "පුස්තකාලයට එක් කිරීම තහවුරු කරන්න",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "වලංගු නොවන දර්ශන URL",
     "resetLibrary": "පුස්තකාලය යළි සකසන්න",
     "removeItemsFromsLibrary": "පුස්තකාලයෙන් අයිතම ඉවත් කරන්න",
-    "invalidEncryptionKey": "වලංගු නොවන ගුප්තකේතන යතුර",
-    "collabOfflineWarning": "සහයෝගිතාව ඕෆ්ලයින් ඇඟවීම",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "ගොනුව ඉතා විශාලයි",
     "svgImageInsertError": "SVG පින්තූර ඇතුළත් කිරීමේ දෝෂය",
     "failedToFetchImage": "පින්තූරය ලබා ගැනීමට අසමත් විය",
-    "cannotResolveCollabServer": "සහයෝගිතා සේවාදායකය විසඳිය නොහැක",
     "importLibraryError": "පුස්තකාල ආයාත දෝෂය",
     "saveLibraryError": "",
-    "collabSaveFailed": "සහයෝගිතා සුරැකීම අසාර්ථකයි",
-    "collabSaveFailed_sizeExceeded": "ප්‍රමාණය ඉක්මවූ බැවින් සහයෝගිතා සුරැකීම අසාර්ථකයි",
     "imageToolNotSupported": "පින්තූර මෙවලම සහාය නොදක්වයි",
     "brave_measure_text_error": {
       "line1": "බ්‍රේව් බ්‍රව්සරයේ පෙළ මැනීමේ දෝෂය",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": ""
-  },
-  "roomDialog": {
-    "desc_intro": "කාමර සංවාද හැඳින්වීම",
-    "desc_privacy": "පෞද්ගලිකත්ව විස්තර",
-    "button_startSession": "සැසිය ආරම්භ කරන්න",
-    "button_stopSession": "සැසිය නවත්වන්න",
-    "desc_inProgressIntro": "පවත්නා සැසි හැඳින්වීම",
-    "desc_shareLink": "බෙදාහැරිය හැකි සබැඳි විස්තර",
-    "desc_exitSession": "සැසියෙන් ඉවත්වීමේ විස්තර",
-    "shareTitle": "බෙදාහැරීමේ මාතෘකාව"
   },
   "errorDialog": {
     "title": "දෝෂ සංවාද මාතෘකාව"
@@ -680,16 +662,6 @@
     "sceneFonts": "",
     "availableFonts": "",
     "empty": ""
-  },
-  "userList": {
-    "empty": "",
-    "hint": {
-      "text": "",
-      "followStatus": "",
-      "inCall": "",
-      "micMuted": "",
-      "isSpeaking": ""
-    }
   },
   "commandPalette": {
     "title": "",

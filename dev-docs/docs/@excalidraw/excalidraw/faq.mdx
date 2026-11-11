@@ -2,7 +2,7 @@
 
 ### Does this package support collaboration ?
 
-No, Excalidraw package doesn't come with collaboration built in, since the implementation is specific to each host app. We expose APIs which you can use to communicate with Excalidraw which you can use to implement it. You can check our own implementation [here](https://github.com/excalidraw/excalidraw/blob/master/excalidraw-app/index.tsx). Here is a [detailed answer](https://github.com/excalidraw/excalidraw/discussions/3879#discussioncomment-1110524) on how you can achieve the same.
+No. This fork is single-user by design: the upstream collaboration surface (`isCollaborating`, `LiveCollaborationTrigger`, the `collaborators` scene state) has been removed from the package. The generic APIs are still there though (`updateScene`, `onChange`, `onPointerUpdate`), so you can build whatever you need on top of them.
 
 ### Turning off Aggressive Anti-Fingerprinting in Brave browser
 

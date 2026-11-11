@@ -102,7 +102,6 @@
     "layers": "Disposition",
     "actions": "Actions",
     "language": "Langue",
-    "liveCollaboration": "Collaboration en direct...",
     "duplicateSelection": "Dupliquer",
     "untitled": "Sans-titre",
     "name": "Nom",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Fait avec Excalidraw",
     "group": "Grouper la sélection",
     "ungroup": "Dégrouper la sélection",
-    "collaborators": "Collaborateurs",
     "you": "Vous",
     "toggleGrid": "Afficher/Cacher la grille",
     "addToLibrary": "Ajouter à la bibliothèque",
@@ -273,7 +271,6 @@
     "decryptFailed": "Les données n'ont pas pu être déchiffrées.",
     "uploadedSecurly": "Le téléchargement a été sécurisé avec un chiffrement de bout en bout, ce qui signifie que ni Excalidraw ni personne d'autre ne peut en lire le contenu.",
     "loadSceneOverridePrompt": "Le chargement d'un dessin externe remplacera votre contenu actuel. Souhaitez-vous continuer ?",
-    "collabStopOverridePrompt": "Arrêter la session écrasera votre précédent dessin stocké localement. Êtes-vous sûr·e ?\n\n(Si vous voulez garder votre dessin local, fermez simplement l'onglet du navigateur à la place.)",
     "errorAddingToLibrary": "Impossible d'ajouter l'élément à la bibliothèque",
     "errorRemovingFromLibrary": "Impossible de retirer l'élément de la bibliothèque",
     "confirmAddLibrary": "Cela va ajouter {{numShapes}} forme(s) à votre bibliothèque. Êtes-vous sûr·e ?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Impossible d'importer la scène depuis l'URL fournie. Elle est soit incorrecte, soit ne contient pas de données JSON Excalidraw valides.",
     "resetLibrary": "Cela va effacer votre bibliothèque. Êtes-vous sûr·e ?",
     "removeItemsFromsLibrary": "Supprimer {{count}} élément(s) de la bibliothèque ?",
-    "invalidEncryptionKey": "La clé de chiffrement doit comporter 22 caractères. La collaboration en direct est désactivée.",
-    "collabOfflineWarning": "Aucune connexion internet disponible.\nVos modifications ne seront pas enregistrées !",
     "localStorageQuotaExceeded": "Quota de stockage du navigateur dépassé. Les modifications ne seront pas enregistrées."
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Le fichier est trop volumineux. La taille maximale autorisée est de {{maxSize}}.",
     "svgImageInsertError": "Impossible d'insérer l'image SVG. Le balisage SVG semble invalide.",
     "failedToFetchImage": "Échec de récupération de l'image.",
-    "cannotResolveCollabServer": "Impossible de se connecter au serveur collaboratif. Veuillez recharger la page et réessayer.",
     "importLibraryError": "Impossible de charger la bibliothèque",
     "saveLibraryError": "Impossible d'enregistrer la bibliothèque sur le stockage. Veuillez enregistrer votre bibliothèque dans un fichier localement pour éviter de perdre vos modifications.",
-    "collabSaveFailed": "Impossible d'enregistrer dans la base de données en arrière-plan. Si des problèmes persistent, vous devriez enregistrer votre fichier localement pour vous assurer de ne pas perdre votre travail.",
-    "collabSaveFailed_sizeExceeded": "Impossible d'enregistrer dans la base de données en arrière-plan, le tableau semble trop grand. Vous devriez enregistrer le fichier localement pour vous assurer de ne pas perdre votre travail.",
     "imageToolNotSupported": "Les images sont désactivées.",
     "brave_measure_text_error": {
       "line1": "On dirait que vous utilisez le navigateur Brave avec l'option <bold>Bloquer agressivement le fichage</bold> activée.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Ou"
-  },
-  "roomDialog": {
-    "desc_intro": "Invitez des personnes à collaborer sur votre dessin.",
-    "desc_privacy": "Ne vous inquiétez pas, la session est chiffrée de bout en bout et entièrement privée. Même notre serveur ne peut pas voir ce que vous dessinez.",
-    "button_startSession": "Démarrer la session",
-    "button_stopSession": "Arrêter la session",
-    "desc_inProgressIntro": "La session de collaboration en direct est maintenant en cours.",
-    "desc_shareLink": "Partagez ce lien avec les personnes avec lesquelles vous souhaitez collaborer :",
-    "desc_exitSession": "Arrêter la session vous déconnectera de la salle, mais vous pourrez continuer à travailler avec la scène, localement. Notez que cela n'affectera pas les autres personnes, et ils pourront toujours collaborer sur leur version.",
-    "shareTitle": "Rejoindre une session de collaboration en direct sur Excalidraw"
   },
   "errorDialog": {
     "title": "Erreur"
@@ -680,16 +662,6 @@
     "sceneFonts": "Dans cette scène",
     "availableFonts": "Polices disponibles",
     "empty": "Aucune police trouvée"
-  },
-  "userList": {
-    "empty": "Aucun utilisateurs trouvé",
-    "hint": {
-      "text": "Cliquez sur l'utilisateur pour le suivre",
-      "followStatus": "Vous suivez actuellement cet utilisateur",
-      "inCall": "L'utilisateur est dans un appel vocal",
-      "micMuted": "Le micro de l'utilisateur est muet",
-      "isSpeaking": "L'utilisateur parle"
-    }
   },
   "commandPalette": {
     "title": "Palette de commandes",

@@ -14,9 +14,5 @@ export const isShareBackendConfigured = !!(
   import.meta.env.VITE_APP_BACKEND_V2_POST_URL
 );
 
-/** live collaboration (websocket server) */
-export const isCollabBackendConfigured = !!import.meta.env
-  .VITE_APP_WS_SERVER_URL;
-
 /** AI features (text to diagram, diagram to code) */
 export const isAIBackendConfigured = !!import.meta.env.VITE_APP_AI_BACKEND;

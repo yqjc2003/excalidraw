@@ -5,20 +5,10 @@
 
 ## This fork's scope (upstream excalidraw is stripped out)
 
-- The app is a self-hosted, pure-frontend build. The upstream excalidraw backends, the official
-  links (GitHub / X / Discord / YouTube / Excalidraw+ / signup) and all third-party telemetry
-  (Sentry, simpleanalytics) have been removed on purpose. Do not reintroduce them.
-- Upstream services are enabled purely through env vars, so they stay off until the user fills
-  them in: `VITE_APP_BACKEND_V2_GET_URL` / `VITE_APP_BACKEND_V2_POST_URL` (server-side share
-  links), `VITE_APP_WS_SERVER_URL` (collaboration), `VITE_APP_AI_BACKEND` (AI features).
-  The UI hides the corresponding entry points when the env var is missing.
-- `libraries.excalidraw.com` is intentionally kept: the user verified that the hosted library
-  browser and the one-click "Add to" import work without any upstream backend of our own.
-- The whole behavioral-telemetry mechanism is gone: `packages/excalidraw/analytics.ts`, the
-  `trackEvent` field on actions (`packages/excalidraw/actions/types.ts`), the `trackAction`
-  helper in `packages/excalidraw/actions/manager.tsx` and every `trackEvent(...)` call site are
-  all removed. Do not reintroduce them; if analytics are ever needed again, add a fresh
-  implementation rather than restoring the upstream one.
-- The user authorizes committing and pushing straight to `origin/master` once the change
-  typechecks, lints and builds — no extra confirmation needed. Commit messages follow English
-  conventional commits, e.g. `feat(app): ...`.
+- The app is a self-hosted, pure-frontend build. The upstream excalidraw backends, the official links (GitHub / X / Discord / YouTube / Excalidraw+ / signup) and all third-party telemetry (Sentry, simpleanalytics) have been removed on purpose. Do not reintroduce them.
+- Upstream services are enabled purely through env vars, so they stay off until the user fills them in: `VITE_APP_BACKEND_V2_GET_URL` / `VITE_APP_BACKEND_V2_POST_URL` (server-side share links), `VITE_APP_AI_BACKEND` (AI features). The UI hides the corresponding entry points when the env var is missing.
+- `libraries.excalidraw.com` is intentionally kept: the user verified that the hosted library browser and the one-click "Add to" import work without any upstream backend of our own. Publishing a library to the upstream public library is _not_ available (removed).
+- Live collaboration is gone entirely — not just disabled. `excalidraw-app/collab/`, the `firebase` / `socket.io-client` dependencies, the `UserList` / `LiveCollaborationTrigger` components, the `AppState.collaborators` state, the remote cursor/selection rendering and the `userToFollow` / `onUserFollow` API are all removed. The `firebase-project/` directory (the upstream collab room config) is deleted too, and no locale key (`alerts.collab*`, `errors.collab*`, `errors.invalidEncryptionKey`) references it any more. Do not reintroduce them; the app is single-user by design.
+- The library's collaboration _API surface_ is removed as well, so the docs match the code: `isCollaborating`, `updateScene({ collaborators })`, `<LiveCollaborationTrigger>` and `<WelcomeScreen.Center.MenuItemLiveCollaborationTrigger/>` no longer exist, and the `dev-docs` pages that described them are gone. Keep it that way — if collaboration is ever needed again, design a fresh API rather than restoring the upstream one.
+- The whole behavioral-telemetry mechanism is gone: `packages/excalidraw/analytics.ts`, the `trackEvent` field on actions (`packages/excalidraw/actions/types.ts`), the `trackAction` helper in `packages/excalidraw/actions/manager.tsx` and every `trackEvent(...)` call site are all removed. Do not reintroduce them; if analytics are ever needed again, add a fresh implementation rather than restoring the upstream one.
+- The user authorizes committing and pushing straight to `origin/master` once the change typechecks, lints and builds — no extra confirmation needed. Commit messages follow English conventional commits, e.g. `feat(app): ...`.

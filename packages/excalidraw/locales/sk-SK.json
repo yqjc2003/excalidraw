@@ -102,7 +102,6 @@
     "layers": "Vrstvy",
     "actions": "Akcie",
     "language": "Jazyk",
-    "liveCollaboration": "Živá spolupráca...",
     "duplicateSelection": "Duplikovať",
     "untitled": "Bez názvu",
     "name": "Meno",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Vytvorené s Excalidraw",
     "group": "Zoskupiť",
     "ungroup": "Zrušiť zoskupenie",
-    "collaborators": "Spolupracovníci",
     "you": "",
     "toggleGrid": "Prepnúť mriežku",
     "addToLibrary": "Pridať do knižnice",
@@ -273,7 +271,6 @@
     "decryptFailed": "Nepodarilo sa rozšifrovať údaje.",
     "uploadedSecurly": "Nahratie je zabezpečené end-to-end šifrovaním, takže Excalidraw server a tretie strany nedokážu prečítať jeho obsah.",
     "loadSceneOverridePrompt": "Nahratie externej kresby nahradí existujúci obsah. Prajete si pokračovať?",
-    "collabStopOverridePrompt": "Ukončenie schôdze nahradí vašu predchádzajúcu lokálne uloženú scénu. Ste si istý?\n\n(Ak si chcete ponechať lokálnu scénu, jednoducho iba zavrite kartu prehliadača.)",
     "errorAddingToLibrary": "Nepodarilo sa pridať položku do knižnice",
     "errorRemovingFromLibrary": "Nepodarilo sa odstrániť položku z knižnice",
     "confirmAddLibrary": "Týmto sa pridá {{numShapes}} tvar(ov) do vašej knižnice. Ste si istí?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Nepodarilo sa načítať scénu z poskytnutej URL. Je nevalidná alebo neobsahuje žiadne validné Excalidraw JSON dáta.",
     "resetLibrary": "Týmto vyprázdnite vašu knižnicu. Ste si istý?",
     "removeItemsFromsLibrary": "Odstrániť {{count}} položiek z knižnice?",
-    "invalidEncryptionKey": "Šifrovací kľúč musí mať 22 znakov. Živá spolupráca je vypnutá.",
-    "collabOfflineWarning": "Internetové pripojenie nie je dostupné.\nVaše zmeny nebudú uložené!",
     "localStorageQuotaExceeded": "Pamäť prehliadača je plná. Zmeny nebudú uložené."
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Súbor je príliš veľký. Maximálna povolená veľkosť je {{maxSize}}.",
     "svgImageInsertError": "Nepodarilo sa vložiť SVG obrázok. SVG formát je pravdepodobne nevalidný.",
     "failedToFetchImage": "Načítanie obrázka zlyhalo.",
-    "cannotResolveCollabServer": "Nepodarilo sa pripojiť ku kolaboračnému serveru. Prosím obnovte stránku a skúste to znovu.",
     "importLibraryError": "Nepodarilo sa načítať knižnicu",
     "saveLibraryError": "Nepodarilo sa uložiť knižnicu. Prosím uložte si vašu knižnicu lokálne do súboru, aby ste nestratili zmeny.",
-    "collabSaveFailed": "Uloženie do databázy sa nepodarilo. Ak tento problém pretrváva uložte si váš súbor lokálne aby ste nestratili vašu prácu.",
-    "collabSaveFailed_sizeExceeded": "Uloženie do databázy sa nepodarilo, pretože veľkosť plátna je príliš veľká. Uložte si váš súbor lokálne aby ste nestratili vašu prácu.",
     "imageToolNotSupported": "Obrázky sú vypnuté.",
     "brave_measure_text_error": {
       "line1": "Vyzerá to, že používate prehliadač Brave so zapnutým nastavením pre <bold>agresívne blokovanie</bold>.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Alebo"
-  },
-  "roomDialog": {
-    "desc_intro": "Pozvite ľudí a spolupracujte s nimi na vašich kresbách.",
-    "desc_privacy": "Nemajte obavy, relácia je end-to-end šifrovaná a úplne privátna. Ani náš server nedokáže vidieť čo kreslíte.",
-    "button_startSession": "Začať schôdzu",
-    "button_stopSession": "Ukončiť schôdzu",
-    "desc_inProgressIntro": "Práve prebieha živá schôdza.",
-    "desc_shareLink": "Zdieľajte tento odkaz s osobou, s ktorou chcete spolupracovať:",
-    "desc_exitSession": "Ukončenie schôdze vás odpojí z miestnosti, avšak naďalej budete môcť pokračovať v práci na scéne lokálne. Toto neovplyvní ostatných spolupracovníkov a stále budú môcť spolupracovať na ich verzii.",
-    "shareTitle": "Pripojiť sa k živej schôdzi na Excalidraw"
   },
   "errorDialog": {
     "title": "Chyba"
@@ -680,16 +662,6 @@
     "sceneFonts": "V tejto scéne",
     "availableFonts": "Dostupné písma",
     "empty": "Nenašli sa žiadne písma"
-  },
-  "userList": {
-    "empty": "Nenašli sa žiadni používatelia",
-    "hint": {
-      "text": "Kliknite na používateľa pre jeho sledovanie",
-      "followStatus": "Aktuálne sledujete tohto používateľa",
-      "inCall": "Používateľ je účastník hovoru",
-      "micMuted": "Používateľ má stlmený mikrofón",
-      "isSpeaking": "Používateľ hovorí"
-    }
   },
   "commandPalette": {
     "title": "Paleta príkazov",

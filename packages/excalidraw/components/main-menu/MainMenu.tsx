@@ -4,13 +4,7 @@ import { composeEventHandlers } from "@excalidraw/common";
 
 import { useTunnels } from "../../context/tunnels";
 import { useUIAppState } from "../../context/ui-appState";
-import { t } from "../../i18n";
-import {
-  useAppProps,
-  useEditorInterface,
-  useExcalidrawSetAppState,
-} from "../App";
-import { UserList } from "../UserList";
+import { useExcalidrawSetAppState } from "../App";
 import DropdownMenu from "../dropdownMenu/DropdownMenu";
 import DropdownMenuSub from "../dropdownMenu/DropdownMenuSub";
 import { withInternalFallback } from "../hoc/withInternalFallback";
@@ -32,9 +26,7 @@ const MainMenu = Object.assign(
       onSelect?: (event: Event) => void;
     }) => {
       const { MainMenuTunnel } = useTunnels();
-      const editorInterface = useEditorInterface();
       const appState = useUIAppState();
-      const appProps = useAppProps();
       const setAppState = useExcalidrawSetAppState();
 
       return (
@@ -62,18 +54,6 @@ const MainMenu = Object.assign(
               align="start"
             >
               {children}
-              {editorInterface.formFactor === "phone" &&
-                appState.collaborators.size > 0 && (
-                  <fieldset className="UserList-Wrapper">
-                    <legend>{t("labels.collaborators")}</legend>
-                    <UserList
-                      mobile={true}
-                      collaborators={appState.collaborators}
-                      userToFollow={appProps.userToFollow?.socketId || null}
-                      currentUserControls={appProps.currentUserControls}
-                    />
-                  </fieldset>
-                )}
             </DropdownMenu.Content>
           </DropdownMenu>
         </MainMenuTunnel.In>

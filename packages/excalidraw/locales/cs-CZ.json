@@ -102,7 +102,6 @@
     "layers": "Vrstvy",
     "actions": "Akce",
     "language": "Jazyk",
-    "liveCollaboration": "Živá spolupráce...",
     "duplicateSelection": "Duplikovat",
     "untitled": "Bez názvu",
     "name": "Název",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Vytvořeno v Excalidraw",
     "group": "Sloučit výběr do skupiny",
     "ungroup": "Zrušit sloučení skupiny",
-    "collaborators": "Spolupracovníci",
     "you": "",
     "toggleGrid": "Přepínač mřížky",
     "addToLibrary": "Přidat do knihovny",
@@ -273,7 +271,6 @@
     "decryptFailed": "Nelze dešifrovat data.",
     "uploadedSecurly": "Nahrávání je zabezpečeno koncovým šifrováním, což znamená, že server Excalidraw ani třetí strany nemohou obsah přečíst.",
     "loadSceneOverridePrompt": "Načítání externího výkresu nahradí váš existující obsah. Přejete si pokračovat?",
-    "collabStopOverridePrompt": "Zastavení relace přepíše vaše předchozí, lokálně uložené kresby. Jste si jisti?\n\n(Pokud chcete zachovat místní kresbu, jednoduše zavřete kartu prohlížeče)",
     "errorAddingToLibrary": "Položku nelze přidat do knihovny",
     "errorRemovingFromLibrary": "Položku nelze odstranit z knihovny",
     "confirmAddLibrary": "Tímto přidáte {{numShapes}} tvarů do tvé knihovny. Jste si jisti?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Nelze importovat scénu z zadané URL. Je buď poškozená, nebo neobsahuje platná JSON data Excalidraw.",
     "resetLibrary": "Tímto vymažete vaši knihovnu. Jste si jisti?",
     "removeItemsFromsLibrary": "Smazat {{count}} položek z knihovny?",
-    "invalidEncryptionKey": "Šifrovací klíč musí mít 22 znaků. Live spolupráce je zakázána.",
-    "collabOfflineWarning": "Není k dispozici žádné internetové připojení.\nVaše změny nebudou uloženy!",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Soubor je příliš velký. Maximální povolená velikost je {{maxSize}}.",
     "svgImageInsertError": "Nelze vložit SVG obrázek. Značení SVG je neplatné.",
     "failedToFetchImage": "Nepodařilo se načíst obrázek.",
-    "cannotResolveCollabServer": "Nelze se připojit ke sdílenému serveru. Prosím obnovte stránku a zkuste to znovu.",
     "importLibraryError": "Nelze načíst knihovnu",
     "saveLibraryError": "",
-    "collabSaveFailed": "Nelze uložit do databáze na serveru. Pokud problémy přetrvávají, měli byste uložit soubor lokálně, abyste se ujistili, že neztratíte svou práci.",
-    "collabSaveFailed_sizeExceeded": "Nelze uložit do databáze na serveru, plátno se zdá být příliš velké. Měli byste uložit soubor lokálně, abyste se ujistili, že neztratíte svou práci.",
     "imageToolNotSupported": "Obrázky jsou vypnuty.",
     "brave_measure_text_error": {
       "line1": "Vypadá to, že používáte Brave prohlížeč s povoleným nastavením <bold>Aggressively Block Fingerprinting</bold>.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": ""
-  },
-  "roomDialog": {
-    "desc_intro": "",
-    "desc_privacy": "",
-    "button_startSession": "Zahájit relaci",
-    "button_stopSession": "Ukončit relaci",
-    "desc_inProgressIntro": "Živá spolupráce právě probíhá.",
-    "desc_shareLink": "Sdílejte tento odkaz s každým, s kým chcete spolupracovat:",
-    "desc_exitSession": "Zastavením relace se odpojíte od místnosti, ale budete moci pokračovat v práci s touto scénou lokálně. Všimněte si, že to nebude mít vliv na ostatní lidi a budou stále moci spolupracovat na jejich verzi.",
-    "shareTitle": "Připojte se k aktivní spolupráci na Excalidraw"
   },
   "errorDialog": {
     "title": "Chyba"
@@ -680,16 +662,6 @@
     "sceneFonts": "V této scéně",
     "availableFonts": "Dostupná písma",
     "empty": "Nebyla nalezena žádná písma"
-  },
-  "userList": {
-    "empty": "Nebyli nalezeni žádní uživatelé",
-    "hint": {
-      "text": "Klikněte na uživatele pro sledování",
-      "followStatus": "Právě sledujete tohoto uživatele",
-      "inCall": "Uživatel je v hovoru",
-      "micMuted": "Mikrofon uživatele je ztlumen",
-      "isSpeaking": "Uživatel hovoří"
-    }
   },
   "commandPalette": {
     "title": "Paleta příkazů",

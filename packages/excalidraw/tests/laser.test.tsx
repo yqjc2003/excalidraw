@@ -10,7 +10,7 @@ import { API } from "./helpers/api";
 import { Pointer } from "./helpers/ui";
 import { act, GlobalTestState, render, waitFor } from "./test-utils";
 
-import type { Collaborator, ExcalidrawProps, SocketId } from "../types";
+import type { ExcalidrawProps } from "../types";
 
 describe("laser tool interactions", () => {
   const h = window.h;
@@ -170,38 +170,6 @@ describe("laser tool interactions", () => {
     expect(h.state.scrollX).toBe(initialScrollX);
     expect(h.state.scrollY).toBe(initialScrollY);
     expect(GlobalTestState.interactiveCanvas.style.cursor).toContain("");
-  });
-
-  it("cleans up remote laser trails when the last collaborator leaves", async () => {
-    await render(<Excalidraw />);
-
-    const socketId = "socket-id" as SocketId;
-    const collaborators = new Map<SocketId, Collaborator>([
-      [
-        socketId,
-        {
-          pointer: {
-            x: 10,
-            y: 10,
-            tool: "laser",
-          },
-          button: "down",
-        },
-      ],
-    ]);
-    const svgLayer = document.querySelector(".SVGLayer svg")!;
-
-    act(() => {
-      h.app.updateScene({ collaborators });
-    });
-
-    expect(svgLayer.querySelectorAll("path")).toHaveLength(1);
-
-    act(() => {
-      h.app.updateScene({ collaborators: new Map() });
-    });
-
-    expect(svgLayer.querySelectorAll("path")).toHaveLength(0);
   });
 });
 

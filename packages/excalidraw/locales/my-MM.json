@@ -102,7 +102,6 @@
     "layers": "အလွှာများ",
     "actions": "လုပ်ဆောင်ချက်များ",
     "language": "ဘာသာစကား",
-    "liveCollaboration": "",
     "duplicateSelection": "ပွား",
     "untitled": "အမည်မရှိ",
     "name": "အမည်",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Excalidraw ဖြင့်ဖန်တီးသည်။",
     "group": "အုပ်စုဖွဲ့",
     "ungroup": "အုပ်စုဖျက်သိမ်း",
-    "collaborators": "ပူးပေါင်းပါဝင်သူများ",
     "you": "",
     "toggleGrid": "",
     "addToLibrary": "မှတ်တမ်းတင်",
@@ -273,7 +271,6 @@
     "decryptFailed": "အချက်အလက်ဖော်ယူ၍မရပါ။",
     "uploadedSecurly": "တင်သွင်းအချက်အလက်များအား နှစ်ဘက်စွန်းတိုင်လျှို့ဝှက်စနစ်အသုံးပြု၍လုံခြုံစွာထိန်းသိမ်းထားပါသဖြင့် Excalidraw ဆာဗာနှင့်ဆက်စပ်အဖွဲ့အစည်းများပင်လျှင်မဖတ်ရှုနိုင်ပါ။",
     "loadSceneOverridePrompt": "လက်ရှိရေးဆွဲထားသမျှအား ပြင်ပမှတင်သွင်းသောပုံနှင့်အစားထိုးပါမည်။ ဆက်လက်ဆောင်ရွက်လိုပါသလား။",
-    "collabStopOverridePrompt": "",
     "errorAddingToLibrary": "",
     "errorRemovingFromLibrary": "",
     "confirmAddLibrary": "{{numShapes}} ခုသောပုံသဏ္ဌာန်အားမှတ်တမ်းတင်ပါမည်။ အတည်ပြုပါ။",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "",
     "resetLibrary": "",
     "removeItemsFromsLibrary": "",
-    "invalidEncryptionKey": "",
-    "collabOfflineWarning": "",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "",
     "svgImageInsertError": "",
     "failedToFetchImage": "",
-    "cannotResolveCollabServer": "",
     "importLibraryError": "",
     "saveLibraryError": "",
-    "collabSaveFailed": "",
-    "collabSaveFailed_sizeExceeded": "",
     "imageToolNotSupported": "",
     "brave_measure_text_error": {
       "line1": "",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": ""
-  },
-  "roomDialog": {
-    "desc_intro": "",
-    "desc_privacy": "",
-    "button_startSession": "ပူးပေါင်းမှုစတင်",
-    "button_stopSession": "ပူးပေါင်းမှုအဆုံးသတ်",
-    "desc_inProgressIntro": "တိုက်ရိုက်ပူးပေါင်းရေးဆွဲမှုများပြုလုပ်နေပါသည်။",
-    "desc_shareLink": "ဤလင့်ခ်အား ပူးပေါင်းရေးဆွဲလိုသူများထံပေးပို့ပါ။ ။ ",
-    "desc_exitSession": "ပူးပေါင်းမှုရပ်တန့်ပါက အဖွဲ့အတွင်းမှထွက်ခွာသွားမည်ဖြစ်သော်လည်း မိမိမြင်ကွင်းတွင်ဆက်လက်ရေးဆွဲနိုင်ပါမည်။ အဖွဲ့အတွင်းကျန်ရှိနေခဲ့သောအခြားပါဝင်သူများသည်လည်း ဆက်လက်ပူးပေါင်းရေးဆွဲနေနိုင်ပါလိမ့်မည်။",
-    "shareTitle": ""
   },
   "errorDialog": {
     "title": "ချို့ယွင်းချက်"
@@ -680,16 +662,6 @@
     "sceneFonts": "",
     "availableFonts": "",
     "empty": ""
-  },
-  "userList": {
-    "empty": "",
-    "hint": {
-      "text": "",
-      "followStatus": "",
-      "inCall": "",
-      "micMuted": "",
-      "isSpeaking": ""
-    }
   },
   "commandPalette": {
     "title": "",

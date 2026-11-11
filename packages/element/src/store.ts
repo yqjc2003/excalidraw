@@ -972,7 +972,7 @@ export class StoreSnapshot {
 
     for (const prevElement of toIterable(this.elements)) {
       // Clone previous elements, never delete, in case nextElements would be just a subset of previous elements
-      // i.e. during collab, persist or whenenever isDeleted elements get cleared
+      // i.e. when persisting, or whenever isDeleted elements get cleared
       clonedElements.set(prevElement.id, prevElement);
     }
 

@@ -14,9 +14,6 @@ import { saveDebugState } from "./DebugCanvas";
 import { boardsDialogStateAtom } from "./BoardsDialog";
 
 export const AppMainMenu: React.FC<{
-  onCollabDialogOpen: () => any;
-  isCollaborating: boolean;
-  isCollabEnabled: boolean;
   theme: Theme | "system";
   refresh: () => void;
 }> = React.memo((props) => {
@@ -34,12 +31,6 @@ export const AppMainMenu: React.FC<{
       <MainMenu.DefaultItems.SaveToActiveFile />
       <MainMenu.DefaultItems.Export />
       <MainMenu.DefaultItems.SaveAsImage />
-      {props.isCollabEnabled && (
-        <MainMenu.DefaultItems.LiveCollaborationTrigger
-          isCollaborating={props.isCollaborating}
-          onSelect={() => props.onCollabDialogOpen()}
-        />
-      )}
       <MainMenu.DefaultItems.CommandPalette className="highlighted" />
       <MainMenu.DefaultItems.SearchMenu />
       <MainMenu.DefaultItems.Help />

@@ -323,9 +323,6 @@ export default defineConfig(({ mode }) => {
             // via a static import from the main bundle, defeating lazy
             // loading. So we exclude it by name instead.
             "**/CodeMirrorEditor-*.js",
-            // lazy-loaded Firebase SDK, only needed for collab/sharing, which
-            // require network anyway
-            "**/firebaseSDK-*.js",
           ],
           // mermaid chunks are excluded here rather than via `globIgnores`
           // as their file names are arbitrary
@@ -474,11 +471,6 @@ export default defineConfig(({ mode }) => {
             },
             {
               src: "/screenshots/shapes.png",
-              type: "image/png",
-              sizes: "462x945",
-            },
-            {
-              src: "/screenshots/collaboration.png",
               type: "image/png",
               sizes: "462x945",
             },

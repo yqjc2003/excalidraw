@@ -102,7 +102,6 @@
     "layers": "Tissiyin",
     "actions": "Tigawin",
     "language": "Tutlayt",
-    "liveCollaboration": "Amɛiwen s srid...",
     "duplicateSelection": "Sisleg",
     "untitled": "War azwel",
     "name": "Isem",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Yettwaxdem s Excalidraw",
     "group": "Segrew tafrayt",
     "ungroup": "Kkess asegrew i tefrayt",
-    "collaborators": "Imɛiwnen",
     "you": "",
     "toggleGrid": "",
     "addToLibrary": "Rnu ɣer temkarḍit",
@@ -273,7 +271,6 @@
     "decryptFailed": "D awezɣi tukksa n uwgelhen i yisefka.",
     "uploadedSecurly": "Asili yettwasɣelles s uwgelhen ixef s ixef, ayagi yebɣa ad d-yini belli aqeddac n Excalidraw akked medden ur zmiren ara ad ɣren agbur.",
     "loadSceneOverridePrompt": "Asali n wunuɣ uffiɣ ad isemselsi agbur-inek (m) yellan. Tebɣiḍ ad tkemmeleḍ?",
-    "collabStopOverridePrompt": "Aḥbas n tɣimit ad yesefsex unuɣ-inek (m) yettwaḥerzen yakan s wudem adigan. Tetḥeqqeḍ?\n(Ma tebɣiḍ ad teǧǧeḍ unuɣ-inek (m) adigan, mdel iccer n yiminig, deg umḍiq.)",
     "errorAddingToLibrary": "Ulamek ara yettwarnu uferdis ɣer temkarḍit",
     "errorRemovingFromLibrary": "Ulamek ara yettwakkes uferdis si temkarḍit",
     "confirmAddLibrary": "Ayagi adirnu talɣa (win) {{numShapes}} ɣer temkarḍit-inek (m). Tetḥeqqeḍ?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Ulamek taktert n usayes seg URL i d-ittunefken. Ahat mačči d tameɣtut neɣ ur tegbir ara isefka JSON n Excalidraw.",
     "resetLibrary": "Ayagi ad isfeḍ tamkarḍit-inek•m. Tetḥeqqeḍ?",
     "removeItemsFromsLibrary": "Ad tekkseḍ {{count}} n uferdis (en) si temkarḍit?",
-    "invalidEncryptionKey": "Tasarut n uwgelhen isefk ad tesɛu 22 n yiekkilen. Amɛiwen srid yensa.",
-    "collabOfflineWarning": "Ulac tuqqna n internet.\nIbedilen-ik ur ttwaklasen ara!",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Afaylu meqqer aṭas. Tiddi tafellayt yurgen d {{maxSize}}.",
     "svgImageInsertError": "D awezɣi tugra n tugna SVG. Acraḍ SVG yettban-d d armeɣtu.",
     "failedToFetchImage": "",
-    "cannotResolveCollabServer": "Ulamek tuqqna s aqeddac n umyalel. Ma ulac uɣilif ales asali n usebter sakin eɛreḍ tikkelt-nniḍen.",
     "importLibraryError": "Ur d-ssalay ara tamkarḍit",
     "saveLibraryError": "",
-    "collabSaveFailed": "Ulamek asekles deg uzadur n yisefka deg ugilal. Ma ikemmel wugur, isefk ad teskelseḍ afaylu s wudem adigan akken ad tetḥeqqeḍ ur tesruḥuyeḍ ara amahil-inek•inem.",
-    "collabSaveFailed_sizeExceeded": "Ulamek asekles deg uzadur n yisefka deg ugilal, taɣzut n usuneɣ tettban-d temqer aṭas. Isefk ad teskelseḍ afaylu s wudem adigan akken ad tetḥeqqeḍ ur tesruḥuyeḍ ara amahil-inek•inem.",
     "imageToolNotSupported": "",
     "brave_measure_text_error": {
       "line1": "",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Neɣ"
-  },
-  "roomDialog": {
-    "desc_intro": "",
-    "desc_privacy": "",
-    "button_startSession": "Bdu tiɣimit",
-    "button_stopSession": "Ḥbes tiɣimit",
-    "desc_inProgressIntro": "Tiɣimit n umɛawen s srid tetteddu akka tura.",
-    "desc_shareLink": "Bḍu aseɣwen-agi akked medden ukud tebɣiḍ ad temɛawaneḍ:",
-    "desc_exitSession": "Aḥbas n tɣimit ad k (m) yesenser si texxamt, maca ad tizmireḍ ad tkemmeleḍ amahil s usayes, s wudem adigan. Ẓer belli ayagi ur yettḥaz ara imdanen-nniḍen, yerna ad izmiren ad kemmelen ad mɛawanen di tsuffeɣt-nnsen.",
-    "shareTitle": "Rnu ɣer tɣimit n umɛiwen s srid n Excalidraw"
   },
   "errorDialog": {
     "title": "Tuccḍa"
@@ -680,16 +662,6 @@
     "sceneFonts": "",
     "availableFonts": "",
     "empty": ""
-  },
-  "userList": {
-    "empty": "",
-    "hint": {
-      "text": "",
-      "followStatus": "",
-      "inCall": "",
-      "micMuted": "",
-      "isSpeaking": ""
-    }
   },
   "commandPalette": {
     "title": "",

@@ -34,7 +34,6 @@ export const getDefaultAppState = (): Omit<
   return {
     showWelcomeScreen: false,
     theme: THEME.LIGHT,
-    collaborators: new Map(),
     currentItemBackgroundColor: DEFAULT_ELEMENT_PROPS.backgroundColor,
     currentItemEndArrowhead: "arrow",
     currentItemFillStyle: DEFAULT_ELEMENT_PROPS.fillStyle,
@@ -162,7 +161,7 @@ const APP_STATE_STORAGE_CONF = (<
     browser: boolean;
     /** whether to keep when exporting to file/database */
     export: boolean;
-    /** server (shareLink/collab/...) */
+    /** server (shareLink/...) */
     server: boolean;
   },
   T extends Record<keyof AppState, Values>,
@@ -170,7 +169,6 @@ const APP_STATE_STORAGE_CONF = (<
   config)({
   showWelcomeScreen: { browser: true, export: false, server: false },
   theme: { browser: true, export: false, server: false },
-  collaborators: { browser: false, export: false, server: false },
   currentItemBackgroundColor: { browser: true, export: false, server: false },
   currentItemEndArrowhead: { browser: true, export: false, server: false },
   currentItemFillStyle: { browser: true, export: false, server: false },

@@ -30,9 +30,9 @@ export type ElementUpdate<TElement extends ExcalidrawElement> = Omit<
 >;
 
 /**
- * This function tracks updates of text elements for the purposes for collaboration.
- * The version is used to compare updates when more than one user is working in
- * the same drawing.
+ * This function tracks updates of text elements.
+ * The version is used to compare updates when the same drawing is edited
+ * from more than one place.
  *
  * WARNING: this won't trigger the component to update, so if you need to trigger component update,
  * use `scene.mutateElement` or `ExcalidrawImperativeAPI.mutateElement` instead.

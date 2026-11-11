@@ -88,10 +88,7 @@ const ExtraToolsDropdown = ({
             (isFullStylesPanel && drawShapeToolSelected) ||
             lassoToolSelected ||
             bucketFillToolSelected ||
-            // in collab we're already highlighting the laser button
-            // outside toolbar, so let's not highlight extra-tools button
-            // on top of it
-            (laserToolSelected && !app.props.isCollaborating),
+            laserToolSelected,
         })}
         onToggle={() => {
           setIsExtraToolsMenuOpen(!isExtraToolsMenuOpen);
@@ -107,7 +104,7 @@ const ExtraToolsDropdown = ({
           ? EmbedIcon
           : isFullStylesPanel && drawShapeToolSelected
           ? drawShapeToolIcon
-          : laserToolSelected && !app.props.isCollaborating
+          : laserToolSelected
           ? laserPointerToolIcon
           : lassoToolSelected
           ? LassoIcon

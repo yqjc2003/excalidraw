@@ -102,7 +102,6 @@
     "layers": "Capes",
     "actions": "Accions",
     "language": "Llengua",
-    "liveCollaboration": "Col·laboració en directe...",
     "duplicateSelection": "Duplica",
     "untitled": "Sense títol",
     "name": "Nom",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Fet amb Excalidraw",
     "group": "Agrupa la selecció",
     "ungroup": "Desagrupa la selecció",
-    "collaborators": "Col·laboradors",
     "you": "",
     "toggleGrid": "Alterna la quadrícula",
     "addToLibrary": "Afegir a la biblioteca",
@@ -273,7 +271,6 @@
     "decryptFailed": "No s'ha pogut desencriptar.",
     "uploadedSecurly": "La càrrega s'ha assegurat amb xifratge punta a punta, cosa que significa que el servidor Excalidraw i tercers no poden llegir el contingut.",
     "loadSceneOverridePrompt": "Si carregas aquest dibuix extern, substituirá el que tens. Vols continuar?",
-    "collabStopOverridePrompt": "Aturar la sessió provocarà la sobreescriptura del dibuix previ, que hi ha desat en l'emmagatzematge local. N'esteu segur?\n\n(Si voleu conservar el dibuix local, tanqueu la pentanya del navegador en comptes d'aturar la sessió).",
     "errorAddingToLibrary": "No s'ha pogut afegir l'element a la biblioteca",
     "errorRemovingFromLibrary": "No s'ha pogut eliminar l'element de la biblioteca",
     "confirmAddLibrary": "Això afegirà {{numShapes}} forma(es) a la vostra biblioteca. Estàs segur?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "No s'ha pogut importar l'escena des de l'adreça URL proporcionada. Està malformada o no conté dades Excalidraw JSON vàlides.",
     "resetLibrary": "Això buidarà la biblioteca. N'esteu segur?",
     "removeItemsFromsLibrary": "Suprimir {{count}} element(s) de la biblioteca?",
-    "invalidEncryptionKey": "La clau d'encriptació ha de tenir 22 caràcters. La col·laboració en directe està desactivada.",
-    "collabOfflineWarning": "Sense connexió a internet disponible.\nEls vostres canvis no seran guardats!",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "El fitxer és massa gros. La mida màxima permesa és {{maxSize}}.",
     "svgImageInsertError": "No ha estat possible inserir la imatge SVG. Les marques SVG semblen invàlides.",
     "failedToFetchImage": "No s'ha pogut obtenir la imatge.",
-    "cannotResolveCollabServer": "No ha estat possible connectar amb el servidor collab. Si us plau recarregueu la pàgina i torneu a provar.",
     "importLibraryError": "No s'ha pogut carregar la biblioteca",
     "saveLibraryError": "No hem pogut desar la llibreria a l'emmagatzematge. Si us plau, deseu la vostra llibreria a un fitxer local per assegurar que no perds els canvis.",
-    "collabSaveFailed": "No s'ha pogut desar a la base de dades de fons. Si els problemes persisteixen, hauríeu de desar el fitxer localment per assegurar-vos que no perdeu el vostre treball.",
-    "collabSaveFailed_sizeExceeded": "No s'ha pogut desar a la base de dades de fons, sembla que el llenç és massa gran. Hauríeu de desar el fitxer localment per assegurar-vos que no perdeu el vostre treball.",
     "imageToolNotSupported": "Les imatges no estan habilitades.",
     "brave_measure_text_error": {
       "line1": "Sembla que feu servir el navegador Brave amb el <bold>blocatge agressiu d'indentificació única</bold> activat.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "O"
-  },
-  "roomDialog": {
-    "desc_intro": "Convideu gent a col·laborar en el vostre disseny.",
-    "desc_privacy": "No us amoïneu, la sessió està encriptada d'extrem a extrem i és totalment privada. Ni tan sols el nostre servidor pot veure què dibuixeu.",
-    "button_startSession": "Inicia la sessió",
-    "button_stopSession": "Atura la sessió",
-    "desc_inProgressIntro": "La sessió de col·laboració en directe està en marxa.",
-    "desc_shareLink": "Comparteix aquest enllaç amb qualsevol persona amb qui vulgueu col·laborar:",
-    "desc_exitSession": "Si atureu la sessió, us desconectareu de la sala, però podreu continuar treballant amb el dibuix localment. Tingues en compte que això no afectarà a altres persones, i encara podran col·laborar en la seva versió.",
-    "shareTitle": "Uniu-vos a una sessió de col·laboració en directe a Excalidraw"
   },
   "errorDialog": {
     "title": "Error"
@@ -680,16 +662,6 @@
     "sceneFonts": "En aquesta escena",
     "availableFonts": "Lletres tipogràfiques disponibles",
     "empty": "No s'ha trobat cap lletra tipogràfica"
-  },
-  "userList": {
-    "empty": "No s'ha trobat cap usuari",
-    "hint": {
-      "text": "Feu clic sobre un usuari per seguir-lo",
-      "followStatus": "Ara per ara seguiu aquest usuari",
-      "inCall": "L'usuari es troba en una trucada de veu",
-      "micMuted": "El micròfon de l'usuari és silenciat",
-      "isSpeaking": "L'usuari parla ara"
-    }
   },
   "commandPalette": {
     "title": "Paleta d'ordres",

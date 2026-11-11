@@ -102,7 +102,6 @@
     "layers": "Straturi",
     "actions": "Acțiuni",
     "language": "Limbă",
-    "liveCollaboration": "Colaborare în direct...",
     "duplicateSelection": "Duplicare",
     "untitled": "Nedenumit",
     "name": "Nume",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Realizat cu Excalidraw",
     "group": "Grupare selecție",
     "ungroup": "Degrupare selecție",
-    "collaborators": "Colaboratori",
     "you": "Tu",
     "toggleGrid": "Comutare grilă",
     "addToLibrary": "Adăugare la bibliotecă",
@@ -273,7 +271,6 @@
     "decryptFailed": "Datele nu au putut fi decriptate.",
     "uploadedSecurly": "Încărcarea a fost securizată prin criptare integrală, însemnând că serverul Excalidraw și terții nu pot citi conținutul.",
     "loadSceneOverridePrompt": "Încărcarea desenului extern va înlocui conținutul existent. Dorești să continui?",
-    "collabStopOverridePrompt": "Oprirea sesiunii va suprascrie desenul anterior stocat local. Confirmi alegerea?\n\n(Dacă vrei să păstrezi desenul local, pur și simplu închide fila navigatorului în schimb.)",
     "errorAddingToLibrary": "Elementul nu a putut fi adăugat în bibliotecă",
     "errorRemovingFromLibrary": "Elementul nu a putut fi eliminat din bibliotecă",
     "confirmAddLibrary": "Această acțiune va adăuga {{numShapes}} formă(e) la biblioteca ta. Confirmi?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Scena nu a putut fi importată din URL-ul furnizat. Este fie incorect formată, fie nu conține date JSON Excalidraw valide.",
     "resetLibrary": "Această opțiune va elimina conținutul din bibliotecă. Confirmi?",
     "removeItemsFromsLibrary": "Ștergi {{count}} element(e) din bibliotecă?",
-    "invalidEncryptionKey": "Cheia de criptare trebuie să aibă 22 de caractere. Colaborarea în direct este dezactivată.",
-    "collabOfflineWarning": "Nu este disponibilă nicio conexiune la internet.\nModificările nu vor fi salvate!",
     "localStorageQuotaExceeded": "Cota pentru spațiul de stocare al navigatorului a fost depășită. Modificările nu vor fi salvate."
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Fișierul este prea mare. Dimensiunea maximă permisă este de {{maxSize}}.",
     "svgImageInsertError": "Imaginea SVG nu a putut fi introdus. Marcajul SVG pare invalid.",
     "failedToFetchImage": "Preluarea imaginii a eșuat.",
-    "cannotResolveCollabServer": "Nu a putut fi realizată conexiunea la serverul de colaborare. Reîncarcă pagina și încearcă din nou.",
     "importLibraryError": "Biblioteca nu a putut fi încărcată",
     "saveLibraryError": "Nu s-a putut salva biblioteca în spațiul de stocare. Salvează-ți biblioteca într-un fișier local pentru a te asigura că nu pierzi modificările.",
-    "collabSaveFailed": "Nu s-a putut salva în baza de date la nivel de server. Dacă problemele persistă, ar trebui să salvezi fișierul la nivel local pentru a te asigura că nu îți pierzi munca.",
-    "collabSaveFailed_sizeExceeded": "Nu s-a putut salva în baza de date la nivel de server, întrucât se pare că pânza este prea mare. Ar trebui să salvezi fișierul la nivel local pentru a te asigura că nu îți pierzi munca.",
     "imageToolNotSupported": "Imaginile sunt dezactivate.",
     "brave_measure_text_error": {
       "line1": "Se pare că folosești navigatorul Brave cu opțiunea <bold>strictă pentru blocarea amprentării</bold>.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Sau"
-  },
-  "roomDialog": {
-    "desc_intro": "Invită persoane să colaboreze la desenul tău.",
-    "desc_privacy": "Nu-ți face griji, sesiunea este criptată integral și complet privată. Nici măcar serverul nostru nu poate vedea ce desenezi.",
-    "button_startSession": "Pornire sesiune",
-    "button_stopSession": "Oprire sesiune",
-    "desc_inProgressIntro": "Sesiunea de colaborare în direct este în curs de desfășurare.",
-    "desc_shareLink": "Distribuie acest URL persoanelor cu care dorești să colaborezi:",
-    "desc_exitSession": "Oprirea sesiunii te va deconecta de la sală, însă vei putea lucra în continuare, pe plan local, cu scena. Reține că această opțiune nu va afecta alte persoane, iar acestea vor putea să colaboreze în continuare pe versiunea lor.",
-    "shareTitle": "Alătură-te unei sesiuni de colaborare în direct pe Excalidraw"
   },
   "errorDialog": {
     "title": "Eroare"
@@ -680,16 +662,6 @@
     "sceneFonts": "În această scenă",
     "availableFonts": "Fonturi disponibile",
     "empty": "Niciun font găsit"
-  },
-  "userList": {
-    "empty": "Niciun utilizator găsit",
-    "hint": {
-      "text": "Dă clic pe un utilizator pentru a-l urmări",
-      "followStatus": "În prezent urmărești acest utilizator",
-      "inCall": "Utilizatorul este angajat într-un apel vocal",
-      "micMuted": "Microfonul utilizatorul este pus pe mut",
-      "isSpeaking": "Utilizatorul vorbește"
-    }
   },
   "commandPalette": {
     "title": "Paletă de comenzi",

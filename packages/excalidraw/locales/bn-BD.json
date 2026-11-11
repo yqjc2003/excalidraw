@@ -102,7 +102,6 @@
     "layers": "মাত্রা",
     "actions": "ক্রিয়া",
     "language": "ভাষা",
-    "liveCollaboration": "সরাসরি পারস্পরিক সহযোগিতা...",
     "duplicateSelection": "সদৃশ সিলেক্ট",
     "untitled": "অনামী",
     "name": "নাম",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "এক্সক্যালিড্র দ্বারা তৈরি",
     "group": "দল গঠন করুন",
     "ungroup": "দল বিভেদ করুন",
-    "collaborators": "সহযোগী",
     "you": "",
     "toggleGrid": "",
     "addToLibrary": "সংগ্রহে যোগ করুন",
@@ -273,7 +271,6 @@
     "decryptFailed": "তথ্য ডিক্রিপ্ট করা যায়নি।",
     "uploadedSecurly": "আপলোডটি এন্ড-টু-এন্ড এনক্রিপশনের মাধ্যমে সুরক্ষিত করা হয়েছে, যার অর্থ হল এক্সক্যালিড্র সার্ভার এবং তৃতীয় পক্ষের দ্বারা পড়তে পারা সম্ভব নয়।",
     "loadSceneOverridePrompt": "বাহ্যিক অঙ্কন লোড করা আপনার বিদ্যমান দৃশ্য প্রতিস্থাপন করবে। আপনি কি অবিরত করতে চান?",
-    "collabStopOverridePrompt": "অধিবেশন বন্ধ করা আপনার পূর্ববর্তী, স্থানীয়ভাবে সঞ্চিত অঙ্কন ওভাররাইট করবে। আপনি কি নিশ্চিত?\n\n(যদি আপনি আপনার স্থানীয় অঙ্কন রাখতে চান, তাহলে শুধু ব্রাউজার ট্যাবটি বন্ধ করুন।)",
     "errorAddingToLibrary": "বস্তুটি সংগ্রহে যোগ করা যায়নি",
     "errorRemovingFromLibrary": "বস্তুটি সংগ্রহ থেকে বিয়োগ করা যায়নি",
     "confirmAddLibrary": "এটি আপনার সংগ্রহে {{numShapes}} আকার(গুলি) যোগ করবে। আপনি কি নিশ্চিত?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "সরবরাহ করা লিঙ্ক থেকে দৃশ্য লোড করা যায়নি৷ এটি হয় বিকৃত, অথবা বৈধ এক্সক্যালিড্র জেসন তথ্য নেই৷",
     "resetLibrary": "এটি আপনার সংগ্রহ পরিষ্কার করবে। আপনি কি নিশ্চিত?",
     "removeItemsFromsLibrary": "সংগ্রহ থেকে {{count}} বস্তু বিয়োগ করা হবে। আপনি কি নিশ্চিত?",
-    "invalidEncryptionKey": "অবৈধ এনক্রীপশন কী।",
-    "collabOfflineWarning": "",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "ফাইলটি খুব বড়। সর্বাধিক অনুমোদিত আকার হল {{maxSize}}৷",
     "svgImageInsertError": "এসভীজী ছবি সন্নিবেশ করা যায়নি। এসভীজী মার্কআপটি অবৈধ মনে হচ্ছে৷",
     "failedToFetchImage": "",
-    "cannotResolveCollabServer": "কোল্যাব সার্ভারের সাথে সংযোগ করা যায়নি। পৃষ্ঠাটি পুনরায় লোড করে আবার চেষ্টা করুন।",
     "importLibraryError": "সংগ্রহ লোড করা যায়নি",
     "saveLibraryError": "",
-    "collabSaveFailed": "",
-    "collabSaveFailed_sizeExceeded": "",
     "imageToolNotSupported": "",
     "brave_measure_text_error": {
       "line1": "",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": ""
-  },
-  "roomDialog": {
-    "desc_intro": "",
-    "desc_privacy": "",
-    "button_startSession": "সেশন শুরু করুন",
-    "button_stopSession": "সেশন বন্ধ করুন",
-    "desc_inProgressIntro": "লাইভ-সহযোগীতার সেশন এখন চলছে।",
-    "desc_shareLink": "আপনি যার সাথে সহযোগিতা করতে চান তাদের সাথে এই লিঙ্কটি ভাগ করুন: ",
-    "desc_exitSession": "অধিবেশন বন্ধ করা আপনাকে রুম থেকে সংযোগ বিচ্ছিন্ন করবে, কিন্তু আপনি স্থানীয়ভাবে দৃশ্যের সাথে কাজ চালিয়ে যেতে সক্ষম হবেন। মনে রাখবেন যে এটি অন্য লোকেদের প্রভাবিত করবে না এবং তারা এখনও তাদের সংস্করণে সহযোগিতা করতে সক্ষম হবে।",
-    "shareTitle": "এক্সক্যালিড্র লাইভ সহযোগিতা সেশনে যোগ দিন"
   },
   "errorDialog": {
     "title": "ত্রুটি"
@@ -680,16 +662,6 @@
     "sceneFonts": "",
     "availableFonts": "",
     "empty": ""
-  },
-  "userList": {
-    "empty": "",
-    "hint": {
-      "text": "",
-      "followStatus": "",
-      "inCall": "",
-      "micMuted": "",
-      "isSpeaking": ""
-    }
   },
   "commandPalette": {
     "title": "",

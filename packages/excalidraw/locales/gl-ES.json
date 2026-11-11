@@ -102,7 +102,6 @@
     "layers": "Capas",
     "actions": "Accións",
     "language": "Idioma",
-    "liveCollaboration": "Colaboración en directo...",
     "duplicateSelection": "Duplicar",
     "untitled": "Sen título",
     "name": "Nome",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Feito con Excalidraw",
     "group": "Agrupar selección",
     "ungroup": "Desagrupar selección",
-    "collaborators": "Colaboradores",
     "you": "",
     "toggleGrid": "",
     "addToLibrary": "Engadir á biblioteca",
@@ -273,7 +271,6 @@
     "decryptFailed": "Non se poideron descifrar os datos.",
     "uploadedSecurly": "A carga foi asegurada con cifrado de extremo a extremo, o que significa que o servidor de Excalidraw e terceiros non poden ler o contido.",
     "loadSceneOverridePrompt": "A carga dun debuxo externo substituirá o contido existente. Desexa continuar?",
-    "collabStopOverridePrompt": "Deter a sesión, sobrescribirá o seu debuxo local previamente almacenado. Está seguro?\n\n(Se quere manter o seu debuxo local, simplemente peche a lapela do navegador.)",
     "errorAddingToLibrary": "Non se puido engadir o elemento á biblioteca",
     "errorRemovingFromLibrary": "Non se puido eliminar o elemento da biblioteca",
     "confirmAddLibrary": "Isto engadirá {{numShapes}} forma(s) a túa biblioteca. Estás seguro?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Non se puido importar a escena dende a URL proporcionada. Ou ben está malformada ou non contén un JSON con información válida para Excalidraw.",
     "resetLibrary": "Isto limpará a súa biblioteca. Está seguro?",
     "removeItemsFromsLibrary": "Eliminar {{count}} elemento(s) da biblioteca?",
-    "invalidEncryptionKey": "A clave de cifrado debe ter 22 caracteres. A colaboración en directo está desactivada.",
-    "collabOfflineWarning": "Non hai conexión a Internet dispoñible.\nOs teus cambios non serán gardados!",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "O ficheiro é demasiado grande. O tamaño máximo permitido é {{maxSize}}.",
     "svgImageInsertError": "Non se puido inserir como imaxe SVG. O marcado SVG semella inválido.",
     "failedToFetchImage": "Non se puido obter a imaxe.",
-    "cannotResolveCollabServer": "Non se puido conectar ao servidor de colaboración. Por favor recargue a páxina e probe de novo.",
     "importLibraryError": "Non se puido cargar a biblioteca",
     "saveLibraryError": "",
-    "collabSaveFailed": "Non se puido gardar na base de datos. Se o problema persiste, deberías gardar o teu arquivo de maneira local para asegurarte de non perdelo teu traballo.",
-    "collabSaveFailed_sizeExceeded": "Non se puido gardar na base de datos, o lenzo semella demasiado grande. Deberías gardar o teu arquivo de maneira local para asegurarte de non perdelo teu traballo.",
     "imageToolNotSupported": "As imaxes están desactivadas.",
     "brave_measure_text_error": {
       "line1": "",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Ou"
-  },
-  "roomDialog": {
-    "desc_intro": "Invita xente a colaborar no teu diagrama.",
-    "desc_privacy": "",
-    "button_startSession": "Comezar sesión",
-    "button_stopSession": "Rematar sesión",
-    "desc_inProgressIntro": "A sesión de colaboración en directo está agora en progreso.",
-    "desc_shareLink": "Comparte esta ligazón con calquera que queiras colaborar:",
-    "desc_exitSession": "Deter a sesión desconectarao da sala, pero poderá seguir traballando coa escena de maneira local. Teña en conta que isto non afectará a outras persoas, que poderán seguir colaborando na súa versión.",
-    "shareTitle": "Únase a unha sesión de colaboración en directo en Excalidraw"
   },
   "errorDialog": {
     "title": "Erro"
@@ -680,16 +662,6 @@
     "sceneFonts": "",
     "availableFonts": "",
     "empty": ""
-  },
-  "userList": {
-    "empty": "",
-    "hint": {
-      "text": "Fai clic no usuario para seguilo",
-      "followStatus": "Xa estás a seguir a este usuario",
-      "inCall": "",
-      "micMuted": "",
-      "isSpeaking": ""
-    }
   },
   "commandPalette": {
     "title": "",

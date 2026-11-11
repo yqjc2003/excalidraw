@@ -102,7 +102,6 @@
     "layers": "Ebenen",
     "actions": "Aktionen",
     "language": "Sprache",
-    "liveCollaboration": "Live-Zusammenarbeit...",
     "duplicateSelection": "Duplizieren",
     "untitled": "Unbenannt",
     "name": "Name",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Made with Excalidraw",
     "group": "Auswahl gruppieren",
     "ungroup": "Gruppierung aufheben",
-    "collaborators": "Mitarbeitende",
     "you": "",
     "toggleGrid": "Raster umschalten",
     "addToLibrary": "Zur Bibliothek hinzufügen",
@@ -273,7 +271,6 @@
     "decryptFailed": "Daten konnten nicht entschlüsselt werden.",
     "uploadedSecurly": "Der Upload wurde mit Ende-zu-Ende-Verschlüsselung gespeichert. Weder Excalidraw noch Dritte können den Inhalt einsehen.",
     "loadSceneOverridePrompt": "Das Laden einer externen Zeichnung ersetzt den vorhandenen Inhalt. Möchtest du fortfahren?",
-    "collabStopOverridePrompt": "Das Stoppen der Sitzung wird deine vorherige, lokal gespeicherte Zeichnung überschreiben. Bist du dir sicher?\n\n(Wenn du deine lokale Zeichnung behalten möchtest, schließe stattdessen den Browser-Tab.)",
     "errorAddingToLibrary": "Das Element konnte nicht zur Bibliothek hinzugefügt werden",
     "errorRemovingFromLibrary": "Das Element konnte nicht aus der Bibliothek entfernt werden",
     "confirmAddLibrary": "Dies fügt {{numShapes}} Form(en) zu deiner Bibliothek hinzu. Bist du dir sicher?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Die Szene konnte nicht von der angegebenen URL importiert werden. Die URL ist entweder fehlerhaft oder enthält keine gültigen Excalidraw-JSON-Daten.",
     "resetLibrary": "Dies löscht deine Bibliothek. Bist du sicher?",
     "removeItemsFromsLibrary": "{{count}} Element(e) aus der Bibliothek löschen?",
-    "invalidEncryptionKey": "Verschlüsselungsschlüssel muss 22 Zeichen lang sein. Die Live-Zusammenarbeit ist deaktiviert.",
-    "collabOfflineWarning": "Keine Internetverbindung verfügbar.\nDeine Änderungen werden nicht gespeichert!",
     "localStorageQuotaExceeded": "Browserspeicher voll. Änderungen werden nicht gespeichert."
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Die Datei ist zu groß. Die maximal zulässige Größe ist {{maxSize}}.",
     "svgImageInsertError": "SVG-Bild konnte nicht eingefügt werden. Das SVG-Markup sieht ungültig aus.",
     "failedToFetchImage": "Bild konnte nicht abgerufen werden.",
-    "cannotResolveCollabServer": "Konnte keine Verbindung zum Collab-Server herstellen. Bitte lade die Seite neu und versuche es erneut.",
     "importLibraryError": "Bibliothek konnte nicht geladen werden",
     "saveLibraryError": "Bibliothek konnte nicht gespeichert werden. Bitte speichere deine Bibliothek lokal in einer Datei, um sicherzustellen, dass keine Änderungen verloren gehen.",
-    "collabSaveFailed": "Keine Speicherung in der Backend-Datenbank möglich. Wenn die Probleme weiterhin bestehen, solltest du deine Datei lokal speichern, um sicherzustellen, dass du deine Arbeit nicht verlierst.",
-    "collabSaveFailed_sizeExceeded": "Keine Speicherung in der Backend-Datenbank möglich, die Zeichenfläche scheint zu groß zu sein. Du solltest deine Datei lokal speichern, um sicherzustellen, dass du deine Arbeit nicht verlierst.",
     "imageToolNotSupported": "Bilder sind deaktiviert.",
     "brave_measure_text_error": {
       "line1": "Sieht so aus, als ob du den Brave-Browser verwendest und die <bold>aggressive Blockierung von Fingerabdrücken</bold> aktiviert hast.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Oder"
-  },
-  "roomDialog": {
-    "desc_intro": "Lade Leute ein, an deiner Zeichnung mitzuarbeiten.",
-    "desc_privacy": "Keine Sorge, die Sitzung ist Ende-zu-Ende verschlüsselt und vollständig privat. Nicht einmal unser Server kann sehen, was du zeichnest.",
-    "button_startSession": "Sitzung starten",
-    "button_stopSession": "Sitzung beenden",
-    "desc_inProgressIntro": "Die Live-Sitzung wird nun ausgeführt.",
-    "desc_shareLink": "Teile diesen Link mit allen, mit denen du zusammenarbeiten möchtest:",
-    "desc_exitSession": "Wenn du die Sitzung beendest, wird deine Verbindung zum Raum getrennt. Du kannst jedoch lokal weiter an der Zeichnung arbeiten. Beachte, dass dies keine Auswirkungen auf andere hat und diese weiterhin gemeinsam an ihrer Version arbeiten können.",
-    "shareTitle": "An einer Live-Kollaborationssitzung auf Excalidraw teilnehmen"
   },
   "errorDialog": {
     "title": "Fehler"
@@ -680,16 +662,6 @@
     "sceneFonts": "In dieser Szene",
     "availableFonts": "Verfügbare Schriftarten",
     "empty": "Keine Schriftarten gefunden"
-  },
-  "userList": {
-    "empty": "Keine Benutzer gefunden",
-    "hint": {
-      "text": "Klicke auf Benutzer um zu folgen",
-      "followStatus": "Du folgst derzeit diesem Benutzer",
-      "inCall": "Benutzer ist in einem Sprachanruf",
-      "micMuted": "Mikrofon des Benutzers ist stumm geschaltet",
-      "isSpeaking": "Benutzer spricht"
-    }
   },
   "commandPalette": {
     "title": "Befehlspalette",

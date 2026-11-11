@@ -3082,7 +3082,7 @@ describe("textWysiwyg", () => {
       mouse.downAt(55, 57.5);
       expect(h.elements.length).toBe(1);
 
-      // a collaborator deletes the container mid-press
+      // the container is deleted mid-press
       API.setElements([newElementWith(rectangle, { isDeleted: true })]);
       mouse.upAt(55, 57.5);
 

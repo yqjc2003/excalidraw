@@ -89,7 +89,6 @@ import {
   SCROLLBAR_WIDTH,
 } from "../scene/scrollbars";
 
-import { getClientColor, renderRemoteCursors } from "../clients";
 import {
   getTextAutoResizeHandle,
   getTextBoxPadding,
@@ -1505,8 +1504,8 @@ const renderTextBox = (
  *
  * Purely presentational: `AppTextTool` keeps the state current at every event
  * that can change it. The element lookup only guards against the element
- * vanishing through channels no local event covers, e.g. a collaborator
- * deleting it.
+ * vanishing through channels no local event covers, e.g. the element being
+ * deleted from another code path.
  */
 const renderTextToolHover = (
   app: AppClassProperties,
@@ -1657,7 +1656,7 @@ const _renderInteractiveScene = ({
     undefined;
 
   visibleElements.forEach((element) => {
-    // Getting the element using LinearElementEditor during collab mismatches version - being one head of visible elements due to
+    // Getting the element using LinearElementEditor when the version mismatches - being one head of visible elements due to
     // ShapeCache returns empty hence making sure that we get the
     // correct element from visible elements
     if (
@@ -1782,7 +1781,7 @@ const _renderInteractiveScene = ({
     isFrameLikeElement(element),
   );
 
-  // Getting the element using LinearElementEditor during collab mismatches version - being one head of visible elements due to
+  // Getting the element using LinearElementEditor when the version mismatches - being one head of visible elements due to
   // ShapeCache returns empty hence making sure that we get the
   // correct element from visible elements
   if (
@@ -1878,9 +1877,6 @@ const _renderInteractiveScene = ({
 
       for (const element of elementsMap.values()) {
         const selectionColors = [];
-        const remoteClients = renderConfig.remoteSelectedElementIds.get(
-          element.id,
-        );
         if (
           !(
             // Elbow arrow elements cannot be selected when bound on either end
@@ -1897,18 +1893,6 @@ const _renderInteractiveScene = ({
             !isSelectedViaGroup(appState, element)
           ) {
             selectionColors.push(selectionColor);
-          }
-          // remote users
-          if (remoteClients) {
-            selectionColors.push(
-              ...remoteClients.map((socketId) => {
-                const background = getClientColor(
-                  socketId,
-                  appState.collaborators.get(socketId),
-                );
-                return background;
-              }),
-            );
           }
         }
 
@@ -1927,7 +1911,7 @@ const _renderInteractiveScene = ({
             selectionColors: element.locked
               ? [lockedSelectionColor]
               : selectionColors,
-            dashed: !!remoteClients || element.locked,
+            dashed: element.locked,
             cx,
             cy,
             activeEmbeddable:
@@ -1962,7 +1946,6 @@ const _renderInteractiveScene = ({
       };
 
       for (const groupId of getSelectedGroupIds(appState)) {
-        // TODO: support multiplayer selected group IDs
         addSelectionForGroupId(groupId);
       }
 
@@ -2105,14 +2088,6 @@ const _renderInteractiveScene = ({
   renderSnaps(context, appState);
 
   context.restore();
-
-  renderRemoteCursors({
-    context,
-    renderConfig,
-    appState,
-    normalizedWidth,
-    normalizedHeight,
-  });
 
   // Paint scrollbars
   let scrollBars;

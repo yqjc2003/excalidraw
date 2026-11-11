@@ -102,7 +102,6 @@
     "layers": "Warstwy",
     "actions": "Akcje",
     "language": "Język",
-    "liveCollaboration": "Współpraca w czasie rzeczywistym...",
     "duplicateSelection": "Powiel",
     "untitled": "Bez tytułu",
     "name": "Nazwa",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Zrobione w Excalidraw",
     "group": "Zgrupuj wybrane",
     "ungroup": "Rozgrupuj wybrane",
-    "collaborators": "Współtwórcy",
     "you": "",
     "toggleGrid": "Przełącz widoczność siatki",
     "addToLibrary": "Dodaj do biblioteki",
@@ -273,7 +271,6 @@
     "decryptFailed": "Nie udało się odszyfrować danych.",
     "uploadedSecurly": "By zapewnić Ci prywatność, udostępnianie projektu jest zabezpieczone szyfrowaniem end-to-end, co oznacza, że poza tobą i osobą z którą podzielisz się linkiem, nikt nie ma dostępu do tego co udostępniasz.",
     "loadSceneOverridePrompt": "Wczytanie zewnętrznego rysunku zastąpi istniejącą zawartość. Czy chcesz kontynuować?",
-    "collabStopOverridePrompt": "Zatrzymanie sesji nadpisze poprzedni, zapisany lokalnie rysunek. Czy jesteś pewien?\n\n(Jeśli chcesz zachować swój lokalny rysunek, po prostu zamknij zakładkę przeglądarki.)",
     "errorAddingToLibrary": "Nie udało się dodać elementu do biblioteki",
     "errorRemovingFromLibrary": "Nie udało się usunąć elementu z biblioteki",
     "confirmAddLibrary": "To doda {{numShapes}} kształtów do twojej biblioteki. Jesteś pewien?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Nie udało się zaimportować sceny z podanego adresu URL. Jest ona wadliwa lub nie zawiera poprawnych danych Excalidraw w formacie JSON.",
     "resetLibrary": "To wyczyści twoją bibliotekę. Jesteś pewien?",
     "removeItemsFromsLibrary": "Usunąć {{count}} element(ów) z biblioteki?",
-    "invalidEncryptionKey": "Klucz szyfrowania musi składać się z 22 znaków. Współpraca na żywo jest wyłączona.",
-    "collabOfflineWarning": "Brak połączenia z Internetem.\nTwoje zmiany nie zostaną zapisane!",
     "localStorageQuotaExceeded": "Przekroczono limit pamięci przeglądarki. Zmiany nie zostaną zapisane."
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Plik jest zbyt duży. Maksymalny dozwolony rozmiar to {{maxSize}}.",
     "svgImageInsertError": "Nie udało się wstawić obrazu SVG. Znacznik SVG wygląda na nieprawidłowy.",
     "failedToFetchImage": "Nie udało się załadować obrazu.",
-    "cannotResolveCollabServer": "Nie można połączyć się z serwerem współpracy w czasie rzeczywistym. Proszę odświeżyć stronę i spróbować ponownie.",
     "importLibraryError": "Wystąpił błąd w trakcie ładowania biblioteki",
     "saveLibraryError": "Nie można zapisać biblioteki do pamięci. Proszę zapisać bibliotekę do pliku lokalnie, aby upewnić się, że nie stracisz zmian.",
-    "collabSaveFailed": "Nie udało się zapisać w bazie danych. Jeśli problemy nie ustąpią, zapisz plik lokalnie, aby nie utracić swojej pracy.",
-    "collabSaveFailed_sizeExceeded": "Nie udało się zapisać w bazie danych — dokument jest za duży. Zapisz plik lokalnie, aby nie utracić swojej pracy.",
     "imageToolNotSupported": "Dodawanie obrazów jest wyłączone.",
     "brave_measure_text_error": {
       "line1": "Wygląda na to, że używasz przeglądarki Brave z włączonym ustawieniem <bold>Agressively Block Fingerprinting</bold>.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Lub"
-  },
-  "roomDialog": {
-    "desc_intro": "Zaproś ludzi do wspólnego rysunku.",
-    "desc_privacy": "Nie martw się, sesja jest szyfrowana end-to-end i w pełni prywatna. Nawet nasz serwer nie widzi co rysujesz.",
-    "button_startSession": "Rozpocznij sesję",
-    "button_stopSession": "Zakończ sesję",
-    "desc_inProgressIntro": "Sesja współpracy na żywo właśnie się rozpoczęła.",
-    "desc_shareLink": "Udostępnij ten link osobom, z którymi chcesz współpracować:",
-    "desc_exitSession": "Zakończenie sesji spowoduje odłączenie ciebie od pokoju, ale nadal będziesz mógł lokalnie kontynuować pracę. Zauważ, że osoby z którymi współpracowałeś nadal będą mogły współpracować.",
-    "shareTitle": "Dołącz do sesji współpracy na żywo w Excalidraw"
   },
   "errorDialog": {
     "title": "Wystąpił błąd"
@@ -680,16 +662,6 @@
     "sceneFonts": "W tej scenie",
     "availableFonts": "Dostępne czcionki",
     "empty": "Nie znaleziono czcionek"
-  },
-  "userList": {
-    "empty": "Nie znaleziono użytkowników",
-    "hint": {
-      "text": "Kliknij na użytkownika, aby obserwować",
-      "followStatus": "Obserwujesz tego użytkownika",
-      "inCall": "Użytkownik jest w trakcie połączenia głosowego",
-      "micMuted": "Mikrofon użytkownik jest wyciszony",
-      "isSpeaking": "Użytkownik przemawia"
-    }
   },
   "commandPalette": {
     "title": "Paleta poleceń",

@@ -20,7 +20,6 @@ import App, {
 } from "./components/App";
 import { InitializeApp } from "./components/InitializeApp";
 import Footer from "./components/footer/FooterCenter";
-import LiveCollaborationTrigger from "./components/live-collaboration/LiveCollaborationTrigger";
 import MainMenu from "./components/main-menu/MainMenu";
 import WelcomeScreen from "./components/welcome-screen/WelcomeScreen";
 import { defaultLang } from "./i18n";
@@ -79,7 +78,6 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
     onMount,
     onUnmount,
     onInitialize,
-    isCollaborating = false,
     onPointerUpdate,
     renderTopLeftUI,
     renderTopRightUI,
@@ -105,8 +103,6 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
     onPointerDown,
     onPointerUp,
     onScrollChange,
-    onUserFollow,
-    userToFollow,
     onDuplicate,
     children,
     validateEmbeddable,
@@ -115,7 +111,6 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
     showDeprecatedFonts,
     renderScrollbars,
     viewportStatusFrame,
-    currentUserControls,
     imageOptions,
   } = props;
 
@@ -222,7 +217,6 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
           onMount={onMount}
           onUnmount={onUnmount}
           onInitialize={onInitialize}
-          isCollaborating={isCollaborating}
           onPointerUpdate={onPointerUpdate}
           renderTopLeftUI={renderTopLeftUI}
           renderTopRightUI={renderTopRightUI}
@@ -249,8 +243,6 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
           onPointerDown={onPointerDown}
           onPointerUp={onPointerUp}
           onScrollChange={onScrollChange}
-          onUserFollow={onUserFollow}
-          userToFollow={userToFollow}
           onDuplicate={onDuplicate}
           validateEmbeddable={validateEmbeddable}
           renderEmbeddable={renderEmbeddable}
@@ -258,7 +250,6 @@ const ExcalidrawBase = (props: ExcalidrawProps) => {
           showDeprecatedFonts={showDeprecatedFonts}
           renderScrollbars={renderScrollbars}
           viewportStatusFrame={viewportStatusFrame}
-          currentUserControls={currentUserControls}
           imageOptions={normalizedImageOptions}
         >
           {children}
@@ -421,8 +412,6 @@ export {
   restoreLibraryItems,
 } from "./data/restore";
 
-export { reconcileElements } from "./data/reconcile";
-
 export { exportScene, exportToClipboard } from "./scene/export";
 
 export type {
@@ -477,7 +466,6 @@ export {
 } from "./components/App";
 
 export { WelcomeScreen };
-export { LiveCollaborationTrigger };
 export { Stats } from "./components/Stats";
 
 export { DefaultSidebar } from "./components/DefaultSidebar";

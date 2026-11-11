@@ -102,7 +102,6 @@
     "layers": "Lag",
     "actions": "Handlinger",
     "language": "Språk",
-    "liveCollaboration": "Sanntids-samarbeid...",
     "duplicateSelection": "Dupliser",
     "untitled": "Uten navn",
     "name": "Navn",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Laget med Excalidraw",
     "group": "Gruppér utvalg",
     "ungroup": "Avgruppér utvalg",
-    "collaborators": "Samarbeidspartnere",
     "you": "",
     "toggleGrid": "Vis/skjul rutenett",
     "addToLibrary": "Legg til i bibliotek",
@@ -273,7 +271,6 @@
     "decryptFailed": "Kunne ikke dekryptere data.",
     "uploadedSecurly": "Opplastingen er kryptert og kan ikke leses av Excalidraw-serveren eller tredjeparter.",
     "loadSceneOverridePrompt": "Å laste inn ekstern tegning vil erstatte det eksisterende innholdet. Ønsker du å fortsette?",
-    "collabStopOverridePrompt": "Hvis du slutter økten, overskrives din forrige, lokalt lagrede tegning. Er du sikker?\n\n(Hvis du ønsker å beholde din lokale tegning, bare lukk nettleserfanen i stedet.)",
     "errorAddingToLibrary": "Kunne ikke legge element i biblioteket",
     "errorRemovingFromLibrary": "Kunne ikke fjerne element fra biblioteket",
     "confirmAddLibrary": "Dette vil legge til {{numShapes}} figur(er) i biblioteket ditt. Er du sikker?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Kunne ikke importere scene fra den oppgitte URL-en. Den er enten ødelagt, eller inneholder ikke gyldig Excalidraw JSON-data.",
     "resetLibrary": "Dette vil tømme biblioteket ditt. Er du sikker?",
     "removeItemsFromsLibrary": "Slett {{count}} element(er) fra biblioteket?",
-    "invalidEncryptionKey": "Krypteringsnøkkel må ha 22 tegn. Live-samarbeid er deaktivert.",
-    "collabOfflineWarning": "Ingen Internett-tilkobling tilgjengelig.\nEndringer dine vil ikke bli lagret!",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Filen er for stor. Maksimal tillatt størrelse er {{maxSize}}.",
     "svgImageInsertError": "Kunne ikke sette inn SVG-bilde. SVG-koden ser ugyldig ut.",
     "failedToFetchImage": "Kunne ikke hente bilde.",
-    "cannotResolveCollabServer": "Kunne ikke koble til samarbeidsserveren. Vennligst oppdater siden og prøv på nytt.",
     "importLibraryError": "Kunne ikke laste bibliotek",
     "saveLibraryError": "Kunne ikke lagre biblioteket ditt. Vennligst lagre biblioteket til en fil lokalt for å sikre at du ikke mister endringer.",
-    "collabSaveFailed": "Kan ikke lagre i backend-databasen. Hvis problemer vedvarer, bør du lagre filen lokalt for å sikre at du ikke mister arbeidet.",
-    "collabSaveFailed_sizeExceeded": "Kunne ikke lagre til backend-databasen, lerretet ser ut til å være for stort. Du bør lagre filen lokalt for å sikre at du ikke mister arbeidet ditt.",
     "imageToolNotSupported": "Bilder er deaktivert.",
     "brave_measure_text_error": {
       "line1": "Ser ut som om du bruker Brave nettleser med <bold>Aggressivt Block Finger</bold> -innstillingen aktivert.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Eller"
-  },
-  "roomDialog": {
-    "desc_intro": "Inviter folk til å samarbeide om tegningen din.",
-    "desc_privacy": "Ikke bekymre deg, økten er ende-til-ende kryptert og fullt privat. Ikke engang vår server kan se hva du tegner.",
-    "button_startSession": "Start økt",
-    "button_stopSession": "Stopp sesjon",
-    "desc_inProgressIntro": "Sanntids-samarbeidsøkt er nå i gang.",
-    "desc_shareLink": "Del denne linken med de du vil samarbeide med:",
-    "desc_exitSession": "Dersom du avslutter sesjonen blir du frakoblet rommet, men du kan fortsette å arbeide med scenen lokalt. Vær oppmerksom på at dette ikke vil påvirke andre personer, og de vil fortsatt ha mulighet til å samarbeide på deres versjon.",
-    "shareTitle": "Bli med i en live samarbeidsøkt på Excalidraw"
   },
   "errorDialog": {
     "title": "Feil"
@@ -680,16 +662,6 @@
     "sceneFonts": "I denne scenen",
     "availableFonts": "Tilgjengelige skrifttyper",
     "empty": "Ingen skrifttyper funnet"
-  },
-  "userList": {
-    "empty": "Ingen brukere funnet",
-    "hint": {
-      "text": "Klikk på en bruker for å følge",
-      "followStatus": "Du følger denne brukeren",
-      "inCall": "Brukeren er i et taleanrop",
-      "micMuted": "Brukerens mikrofon er dempet",
-      "isSpeaking": "Bruker snakker"
-    }
   },
   "commandPalette": {
     "title": "Kommandopalett",

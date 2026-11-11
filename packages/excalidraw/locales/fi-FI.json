@@ -102,7 +102,6 @@
     "layers": "Tasot",
     "actions": "Toiminnot",
     "language": "Kieli",
-    "liveCollaboration": "Live Yhteistyö...",
     "duplicateSelection": "Monista",
     "untitled": "Nimetön",
     "name": "Nimi",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Tehty Excalidrawilla",
     "group": "Ryhmitä valinta",
     "ungroup": "Pura valittu ryhmä",
-    "collaborators": "Yhteistyökumppanit",
     "you": "",
     "toggleGrid": "Näytä tai piilota ruudukko",
     "addToLibrary": "Lisää kirjastoon",
@@ -273,7 +271,6 @@
     "decryptFailed": "Salauksen purkaminen epäonnistui.",
     "uploadedSecurly": "Lähetys on turvattu päästä-päähän-salauksella. Excalidrawin palvelin ja kolmannet osapuolet eivät voi lukea sisältöä.",
     "loadSceneOverridePrompt": "Ulkopuolisen piirroksen lataaminen korvaa nykyisen sisältösi. Jatketaanko?",
-    "collabStopOverridePrompt": "Istunnon lopettaminen korvaa aiemman, paikallisesti tallennetun piirustuksen. Jatketaanko?\n\n(Jos haluat säilyttää paikallisesti tallennetun piirustuksen, sulje selaimen välilehti lopettamisen sijaan.)",
     "errorAddingToLibrary": "Kohdetta ei voitu lisätä kirjastoon",
     "errorRemovingFromLibrary": "Kohdetta ei voitu poistaa kirjastosta",
     "confirmAddLibrary": "Tämä lisää {{numShapes}} muotoa kirjastoosi. Jatketaanko?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Teosta ei voitu tuoda annetusta URL-osoitteesta. Tallenne on vioittunut, tai osoitteessa ei ole Excalidraw JSON-dataa.",
     "resetLibrary": "Tämä tyhjentää kirjastosi. Jatketaanko?",
     "removeItemsFromsLibrary": "Poista {{count}} kohdetta kirjastosta?",
-    "invalidEncryptionKey": "Salausavaimen on oltava 22 merkkiä pitkä. Live-yhteistyö ei ole käytössä.",
-    "collabOfflineWarning": "Internet-yhteyttä ei ole saatavilla.\nMuutoksiasi ei tallenneta!",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Tiedosto on liian suuri. Suurin sallittu koko on {{maxSize}}.",
     "svgImageInsertError": "SVG- kuvaa ei voitu lisätä. Tiedoston SVG-sisältö näyttää virheelliseltä.",
     "failedToFetchImage": "",
-    "cannotResolveCollabServer": "Yhteyden muodostaminen collab-palvelimeen epäonnistui. Virkistä sivu ja yritä uudelleen.",
     "importLibraryError": "Kokoelman lataaminen epäonnistui",
     "saveLibraryError": "",
-    "collabSaveFailed": "Ei voitu tallentaan palvelimen tietokantaan. Jos ongelmia esiintyy, sinun kannatta tallentaa tallentaa tiedosto paikallisesti varmistaaksesi, että et menetä työtäsi.",
-    "collabSaveFailed_sizeExceeded": "Ei voitu tallentaan palvelimen tietokantaan. Jos ongelmia esiintyy, sinun kannatta tallentaa tallentaa tiedosto paikallisesti varmistaaksesi, että et menetä työtäsi.",
     "imageToolNotSupported": "",
     "brave_measure_text_error": {
       "line1": "",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Tai"
-  },
-  "roomDialog": {
-    "desc_intro": "",
-    "desc_privacy": "",
-    "button_startSession": "Aloita istunto",
-    "button_stopSession": "Lopeta istunto",
-    "desc_inProgressIntro": "Jaettu istunto on nyt käynnissä.",
-    "desc_shareLink": "Jaa tämä linkki kenelle tahansa, jonka kanssa haluat tehdä yhteistyötä:",
-    "desc_exitSession": "Istunnon pysäyttäminen katkaisee yhteyden huoneeseen, mutta voit vielä jatkaa työskentelyä paikallisesti. Huomaa, että tämä ei vaikuta muihin käyttäjiin ja he voivat jatkaa oman versionsa parissa työskentelyä.",
-    "shareTitle": "Liity Excalidraw live-yhteistyöistuntoon"
   },
   "errorDialog": {
     "title": "Virhe"
@@ -680,16 +662,6 @@
     "sceneFonts": "",
     "availableFonts": "",
     "empty": ""
-  },
-  "userList": {
-    "empty": "",
-    "hint": {
-      "text": "",
-      "followStatus": "",
-      "inCall": "",
-      "micMuted": "",
-      "isSpeaking": ""
-    }
   },
   "commandPalette": {
     "title": "",

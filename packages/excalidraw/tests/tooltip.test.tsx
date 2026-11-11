@@ -98,7 +98,7 @@ describe("Tooltip", () => {
     fireEvent.pointerEnter(wrapperOf(container, "a"));
     expect(isTooltipVisible()).toBe(true);
 
-    // "b" unmounts for its own reasons (e.g. a collaborator leaving)
+    // "b" unmounts for its own reasons (e.g. the host unmounting it)
     rerender(<Harness labels={["a"]} />);
     await Promise.resolve();
 

@@ -143,7 +143,7 @@ describe("history", () => {
     checkpoint("end of test");
   });
 
-  describe("singleplayer undo/redo", () => {
+  describe("local undo/redo", () => {
     it("should not collapse when applying corrupted history entry", async () => {
       await render(<Excalidraw handleKeyboardGlobally={true} />);
       const rect = API.createElement({ type: "rectangle" });
@@ -2109,7 +2109,7 @@ describe("history", () => {
     });
   });
 
-  describe("multiplayer undo/redo", () => {
+  describe("concurrent undo/redo", () => {
     // Util to check that we end up in the same state after series of undo / redo
     function runTwice(callback: () => void) {
       for (let i = 0; i < 2; i++) {
@@ -2118,12 +2118,10 @@ describe("history", () => {
     }
 
     beforeEach(async () => {
-      await render(
-        <Excalidraw handleKeyboardGlobally={true} isCollaborating={true} />,
-      );
+      await render(<Excalidraw handleKeyboardGlobally={true} />);
     });
 
-    it("should not override remote changes on different elements", async () => {
+    it("should not override external changes on different elements", async () => {
       UI.createElement("rectangle", { x: 10 });
       togglePopover("Background");
       UI.clickOnTestId("color-red");
@@ -2134,7 +2132,7 @@ describe("history", () => {
         expect.objectContaining({ backgroundColor: red }),
       ]);
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           ...h.elements,
@@ -2167,14 +2165,14 @@ describe("history", () => {
       ]);
     });
 
-    it("should not override remote changes on different properties", async () => {
+    it("should not override external changes on different properties", async () => {
       UI.createElement("rectangle", { x: 10 });
       togglePopover("Background");
       UI.clickOnTestId("color-red");
 
       expect(API.getUndoStack().length).toBe(2);
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           newElementWith(h.elements[0], {
@@ -2201,9 +2199,10 @@ describe("history", () => {
       ]);
     });
 
-    // https://www.figma.com/blog/how-figmas-multiplayer-technology-works/#implementing-undo
-    // This is due to the fact that deltas are updated in `applyLatestChanges`.
-    it("should update history entries after remote changes on the same properties", async () => {
+    // Deltas are updated in `applyLatestChanges`, so a change applied
+    // outside the local history stack is folded into the existing history
+    // entries instead of adding a new one.
+    it("should update history entries after external changes on the same properties", async () => {
       UI.createElement("rectangle", { x: 10 });
       togglePopover("Background");
       UI.clickOnTestId("color-red");
@@ -2222,7 +2221,7 @@ describe("history", () => {
         expect.objectContaining({ backgroundColor: blue }),
       ]);
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           newElementWith(h.elements[0], {
@@ -2238,7 +2237,7 @@ describe("history", () => {
         expect.objectContaining({ backgroundColor: red }),
       ]);
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           newElementWith(h.elements[0], {
@@ -2369,7 +2368,7 @@ describe("history", () => {
 
     // TODO: #7348 ideally we should not override, but since the order of groupIds matters, right now we cannot ensure that with postprocssed groupIds the order will be consistent after series or undos/redos, we don't postprocess them at all
     //       in other words, if we would postprocess groupIds, the groupIds order on "redo" below would be ["B", "A"] instead of ["A", "B"]
-    it("should override remotely added groups on undo, but restore them on redo", async () => {
+    it("should override externally added groups on undo, but restore them on redo", async () => {
       const rect1 = API.createElement({ type: "rectangle" });
       const rect2 = API.createElement({ type: "rectangle" });
 
@@ -2391,7 +2390,7 @@ describe("history", () => {
       const rect3 = API.createElement({ type: "rectangle", groupIds: ["B"] });
       const rect4 = API.createElement({ type: "rectangle", groupIds: ["B"] });
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           newElementWith(h.elements[0], { groupIds: ["A", "B"] }),
@@ -2423,7 +2422,7 @@ describe("history", () => {
       ]);
     });
 
-    it("should override remotely added points on undo, but restore them on redo", async () => {
+    it("should override externally added points on undo, but restore them on redo", async () => {
       UI.clickTool("arrow");
       mouse.click(0, 0);
       mouse.click(10, 10);
@@ -2432,7 +2431,7 @@ describe("history", () => {
       // actionFinalize
       Keyboard.keyPress(KEYS.ENTER);
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           newElementWith(h.elements[0] as ExcalidrawLinearElement, {
@@ -2455,7 +2454,7 @@ describe("history", () => {
         expect.objectContaining({
           points: [
             [0, 0],
-            // overriding all the remote points as they are not being postprocessed (as we cannot ensure the order consistency similar to groupIds)
+            // overriding all the external points as they are not being postprocessed (as we cannot ensure the order consistency similar to groupIds)
             // but in this case it might not make even sense to combine the points, as in some cases the linear element might lead unexpected results
             [10, 10],
           ],
@@ -2504,7 +2503,7 @@ describe("history", () => {
       ]);
     });
 
-    it("should redistribute deltas when element gets removed locally but is restored remotely", async () => {
+    it("should redistribute deltas when element gets removed locally but is restored externally", async () => {
       UI.createElement("rectangle", { x: 10 });
       Keyboard.keyDown(KEYS.DELETE);
 
@@ -2516,7 +2515,7 @@ describe("history", () => {
         }),
       ]);
 
-      // Simulate remote update & restore
+      // Simulate external update & restore
       API.updateScene({
         elements: [
           newElementWith(h.elements[0], {
@@ -2582,7 +2581,7 @@ describe("history", () => {
       ]);
     });
 
-    it("should iterate through the history when when element change relates to remotely deleted element", async () => {
+    it("should iterate through the history when when element change relates to externally deleted element", async () => {
       UI.createElement("rectangle", { x: 10 });
       togglePopover("Background");
       UI.clickOnTestId("color-red");
@@ -2593,7 +2592,7 @@ describe("history", () => {
         expect.objectContaining({ backgroundColor: red }),
       ]);
 
-      // Simulate remote update & deletion
+      // Simulate external update & deletion
       API.updateScene({
         elements: [
           newElementWith(h.elements[0], {
@@ -2636,7 +2635,7 @@ describe("history", () => {
       ]);
     });
 
-    it("should iterate through the history when element changes relate only to remotely deleted elements", async () => {
+    it("should iterate through the history when element changes relate only to externally deleted elements", async () => {
       const rect1 = UI.createElement("rectangle", { x: 10 });
 
       const rect2 = UI.createElement("rectangle", { x: 20 });
@@ -2652,7 +2651,7 @@ describe("history", () => {
 
       expect(API.getUndoStack().length).toBe(5);
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           h.elements[0],
@@ -2713,7 +2712,7 @@ describe("history", () => {
       ]);
     });
 
-    it("should iterate through the history when selected elements relate only to remotely deleted elements", async () => {
+    it("should iterate through the history when selected elements relate only to externally deleted elements", async () => {
       const rect1 = API.createElement({ type: "rectangle", x: 10, y: 10 });
       const rect2 = API.createElement({ type: "rectangle", x: 20, y: 20 });
       const rect3 = API.createElement({ type: "rectangle", x: 30, y: 30 });
@@ -2728,7 +2727,7 @@ describe("history", () => {
         expect.objectContaining({ id: rect3.id }),
       ]);
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           h.elements[0],
@@ -2767,7 +2766,7 @@ describe("history", () => {
         expect.objectContaining({ id: rect1.id, isDeleted: false }),
       ]);
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           h.elements[0],
@@ -2791,7 +2790,7 @@ describe("history", () => {
       Keyboard.redo();
       expect(API.getUndoStack().length).toBe(3);
       expect(API.getRedoStack().length).toBe(0);
-      // now we again expect these as selected, as they got restored remotely
+      // now we again expect these as selected, as they got restored externally
       expect(API.getSelectedElements()).toEqual([
         expect.objectContaining({ id: rect2.id }),
         expect.objectContaining({ id: rect3.id }),
@@ -2803,7 +2802,7 @@ describe("history", () => {
       ]);
     });
 
-    it("should iterate through the history when selected groups contain only remotely deleted elements", async () => {
+    it("should iterate through the history when selected groups contain only externally deleted elements", async () => {
       const rect1 = API.createElement({
         type: "rectangle",
         groupIds: ["A"],
@@ -2821,7 +2820,7 @@ describe("history", () => {
         groupIds: ["B"],
       });
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [rect1, rect2],
         captureUpdate: CaptureUpdateAction.NEVER,
@@ -2831,7 +2830,7 @@ describe("history", () => {
         Keyboard.keyPress(KEYS.A);
       });
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [h.elements[0], h.elements[1], rect3, rect4],
         captureUpdate: CaptureUpdateAction.NEVER,
@@ -2845,7 +2844,7 @@ describe("history", () => {
       expect(API.getRedoStack().length).toBe(0);
       expect(h.state.selectedGroupIds).toEqual({ A: true, B: true });
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           newElementWith(h.elements[0], {
@@ -2870,7 +2869,7 @@ describe("history", () => {
 
       Keyboard.undo();
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           newElementWith(h.elements[0], {
@@ -2888,7 +2887,7 @@ describe("history", () => {
       expect(API.getRedoStack().length).toBe(1);
       expect(h.state.selectedGroupIds).toEqual({ A: true });
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [h.elements[0], h.elements[1], rect3, rect4],
         captureUpdate: CaptureUpdateAction.NEVER,
@@ -2900,7 +2899,7 @@ describe("history", () => {
       expect(h.state.selectedGroupIds).toEqual({ A: true, B: true });
     });
 
-    it("should iterate through the history when editing group contains only remotely deleted elements", async () => {
+    it("should iterate through the history when editing group contains only externally deleted elements", async () => {
       const rect1 = API.createElement({
         type: "rectangle",
         groupIds: ["A"],
@@ -2927,7 +2926,7 @@ describe("history", () => {
       expect(API.getRedoStack().length).toBe(0);
       expect(h.state.editingGroupId).toBeNull();
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           newElementWith(h.elements[0], {
@@ -2950,7 +2949,7 @@ describe("history", () => {
       expect(API.getRedoStack().length).toBe(0);
       expect(h.state.editingGroupId).toBeNull();
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           newElementWith(h.elements[0], {
@@ -3048,7 +3047,7 @@ describe("history", () => {
       expect(h.state.selectedGroupIds).toEqual({});
     });
 
-    it("should iterate through the history when selected or editing linear element was remotely deleted", async () => {
+    it("should iterate through the history when selected or editing linear element was externally deleted", async () => {
       // create three point arrow
       UI.clickTool("arrow");
       mouse.click(0, 0);
@@ -3070,7 +3069,7 @@ describe("history", () => {
       expect(h.state.selectedLinearElement).not.toBeNull();
       expect(h.state.selectedLinearElement?.isEditing).toBe(false);
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           newElementWith(h.elements[0], {
@@ -3112,7 +3111,7 @@ describe("history", () => {
         expect.objectContaining({ id: rect3.id }), // c "a2"
       ]);
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           newElementWith(h.elements[2], { index: "Zy" as FractionalIndex }),
@@ -3151,7 +3150,7 @@ describe("history", () => {
         expect.objectContaining({ id: rect1.id }), // a "a0"
       ]);
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           newElementWith(h.elements[2], { index: "Zx" as FractionalIndex }),
@@ -3202,7 +3201,7 @@ describe("history", () => {
         expect.objectContaining({ id: rect3.id }),
       ]);
 
-      // Simulate remote update (fixes all invalid z-indices)
+      // Simulate external update (fixes all invalid z-indices)
       API.updateScene({
         elements: [
           h.elements[2], // rect3
@@ -3232,7 +3231,7 @@ describe("history", () => {
         expect.objectContaining({ id: rect1.id }),
       ]);
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [
           h.elements[1], // rect2
@@ -3253,7 +3252,7 @@ describe("history", () => {
       ]);
     });
 
-    it("should not let remote changes to interfere with in progress freedraw", async () => {
+    it("should not let external changes to interfere with in progress freedraw", async () => {
       UI.clickTool("freedraw");
       mouse.down(10, 10);
       mouse.moveTo(30, 30);
@@ -3263,10 +3262,10 @@ describe("history", () => {
         strokeColor: blue,
       } as const;
 
-      // Simulate remote update
+      // Simulate external update
       const rect = API.createElement({ ...rectProps });
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [...h.elements, rect],
         captureUpdate: CaptureUpdateAction.NEVER,
@@ -3301,7 +3300,7 @@ describe("history", () => {
       ]);
     });
 
-    it("should not let remote changes to interfere with in progress resizing", async () => {
+    it("should not let external changes to interfere with in progress resizing", async () => {
       const props1 = { x: 10, y: 10, width: 10, height: 10 };
       const rect1 = UI.createElement("rectangle", { ...props1 });
 
@@ -3318,7 +3317,7 @@ describe("history", () => {
 
       const rect3 = API.createElement({ ...rect3Props });
 
-      // // Simulate remote update
+      // // Simulate external update
       API.updateScene({
         elements: [...h.elements, rect3],
         captureUpdate: CaptureUpdateAction.NEVER,
@@ -3390,7 +3389,7 @@ describe("history", () => {
       ]);
     });
 
-    it("should not let remote changes to interfere with in progress dragging", async () => {
+    it("should not let external changes to interfere with in progress dragging", async () => {
       const rect1 = UI.createElement("rectangle", { x: 10, y: 10 });
       const rect2 = UI.createElement("rectangle", { x: 30, y: 30 });
 
@@ -3408,7 +3407,7 @@ describe("history", () => {
 
       const rect3 = API.createElement({ ...rect3Props });
 
-      // Simulate remote update
+      // Simulate external update
       API.updateScene({
         elements: [...h.elements, rect3],
         captureUpdate: CaptureUpdateAction.NEVER,
@@ -3620,7 +3619,7 @@ describe("history", () => {
           }),
         ]);
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(h.elements[0], {
@@ -3707,19 +3706,19 @@ describe("history", () => {
           }),
         ]);
 
-        const remoteText = API.createElement({
+        const externalText = API.createElement({
           type: "text",
           text: "ola",
           containerId: container.id,
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(h.elements[0], {
-              boundElements: [{ id: remoteText.id, type: "text" }],
+              boundElements: [{ id: externalText.id, type: "text" }],
             }),
-            remoteText,
+            externalText,
             h.elements[1],
           ],
           captureUpdate: CaptureUpdateAction.NEVER,
@@ -3732,13 +3731,13 @@ describe("history", () => {
           expect(h.elements).toEqual([
             expect.objectContaining({
               id: container.id,
-              // last added was `text.id`, removing `remoteText.id`
+              // last added was `text.id`, removing `externalText.id`
               boundElements: [{ id: text.id, type: "text" }],
               isDeleted: false,
             }),
             expect.objectContaining({
-              id: remoteText.id,
-              // unbound as `remoteText.id` was removed
+              id: externalText.id,
+              // unbound as `externalText.id` was removed
               containerId: null,
               isDeleted: false,
             }),
@@ -3756,11 +3755,11 @@ describe("history", () => {
           expect(h.elements).toEqual([
             expect.objectContaining({
               id: container.id,
-              boundElements: [{ id: remoteText.id, type: "text" }],
+              boundElements: [{ id: externalText.id, type: "text" }],
               isDeleted: false,
             }),
             expect.objectContaining({
-              id: remoteText.id,
+              id: externalText.id,
               containerId: container.id,
               isDeleted: false,
             }),
@@ -3810,22 +3809,22 @@ describe("history", () => {
           }),
         ]);
 
-        const remoteContainer = API.createElement({
+        const externalContainer = API.createElement({
           type: "rectangle",
           width: 50,
           x: 100,
           boundElements: [{ id: text.id, type: "text" }],
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             h.elements[0],
-            newElementWith(remoteContainer, {
+            newElementWith(externalContainer, {
               boundElements: [{ id: text.id, type: "text" }],
             }),
             newElementWith(h.elements[1] as ExcalidrawTextElement, {
-              containerId: remoteContainer.id,
+              containerId: externalContainer.id,
             }),
           ],
           captureUpdate: CaptureUpdateAction.NEVER,
@@ -3843,7 +3842,7 @@ describe("history", () => {
               isDeleted: false,
             }),
             expect.objectContaining({
-              id: remoteContainer.id,
+              id: externalContainer.id,
               // previous binding got unbound, as text is no longer bound to this element
               boundElements: [],
               isDeleted: false,
@@ -3867,29 +3866,29 @@ describe("history", () => {
               isDeleted: false,
             }),
             expect.objectContaining({
-              id: remoteContainer.id,
-              // #2 due to restored binding in #1, we could rebind the remote container!
+              id: externalContainer.id,
+              // #2 due to restored binding in #1, we could rebind the external container!
               boundElements: [{ id: text.id, type: "text" }],
               isDeleted: false,
             }),
             expect.objectContaining({
               id: text.id,
               // #1 due to applying latest changes to the history entries, we could restore this binding
-              containerId: remoteContainer.id,
+              containerId: externalContainer.id,
               isDeleted: false,
             }),
           ]);
         });
       });
 
-      it("should rebind remotely added bound text when it's container is added through the history", async () => {
+      it("should rebind externally added bound text when it's container is added through the history", async () => {
         // Simulate local update
         API.updateScene({
           elements: [container],
           captureUpdate: CaptureUpdateAction.IMMEDIATELY,
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(h.elements[0], {
@@ -3943,14 +3942,14 @@ describe("history", () => {
         });
       });
 
-      it("should rebind remotely added container when it's bound text is added through the history", async () => {
+      it("should rebind externally added container when it's bound text is added through the history", async () => {
         // Simulate local update
         API.updateScene({
           elements: [text],
           captureUpdate: CaptureUpdateAction.IMMEDIATELY,
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(container, {
@@ -4003,14 +4002,14 @@ describe("history", () => {
         });
       });
 
-      it("should preserve latest remotely added binding and unbind previous one when the container is added through the history", async () => {
+      it("should preserve latest externally added binding and unbind previous one when the container is added through the history", async () => {
         // Simulate local update
         API.updateScene({
           elements: [container],
           captureUpdate: CaptureUpdateAction.IMMEDIATELY,
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(h.elements[0], {
@@ -4040,22 +4039,22 @@ describe("history", () => {
           }),
         ]);
 
-        const remoteText = API.createElement({
+        const externalText = API.createElement({
           type: "text",
           text: "ola",
           containerId: container.id,
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(h.elements[0], {
-              boundElements: [{ id: remoteText.id, type: "text" }],
+              boundElements: [{ id: externalText.id, type: "text" }],
               isDeleted: false, // purposefully undeleting, mimicing concurrenct update
             }),
             h.elements[1],
             // rebinding the container with a new text element!
-            remoteText,
+            externalText,
           ],
           captureUpdate: CaptureUpdateAction.NEVER,
         });
@@ -4069,7 +4068,7 @@ describe("history", () => {
               id: container.id,
               // previously bound text is preserved
               // text bindings are not duplicated
-              boundElements: [{ id: remoteText.id, type: "text" }],
+              boundElements: [{ id: externalText.id, type: "text" }],
               isDeleted: false,
             }),
             expect.objectContaining({
@@ -4079,7 +4078,7 @@ describe("history", () => {
               isDeleted: false,
             }),
             expect.objectContaining({
-              id: remoteText.id,
+              id: externalText.id,
               // preserved existing binding!
               containerId: container.id,
               isDeleted: false,
@@ -4092,7 +4091,7 @@ describe("history", () => {
           expect(h.elements).toEqual([
             expect.objectContaining({
               id: container.id,
-              boundElements: [{ id: remoteText.id, type: "text" }],
+              boundElements: [{ id: externalText.id, type: "text" }],
               isDeleted: false,
             }),
             expect.objectContaining({
@@ -4101,7 +4100,7 @@ describe("history", () => {
               isDeleted: false,
             }),
             expect.objectContaining({
-              id: remoteText.id,
+              id: externalText.id,
               containerId: container.id,
               isDeleted: false,
             }),
@@ -4109,14 +4108,14 @@ describe("history", () => {
         });
       });
 
-      it("should preserve latest remotely added binding and unbind previous one when the text is added through history", async () => {
+      it("should preserve latest externally added binding and unbind previous one when the text is added through history", async () => {
         // Simulate local update
         API.updateScene({
           elements: [text],
           captureUpdate: CaptureUpdateAction.IMMEDIATELY,
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(container, {
@@ -4146,20 +4145,20 @@ describe("history", () => {
           }),
         ]);
 
-        const remoteText = API.createElement({
+        const externalText = API.createElement({
           type: "text",
           text: "ola",
           containerId: container.id,
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(h.elements[0], {
-              boundElements: [{ id: remoteText.id, type: "text" }],
+              boundElements: [{ id: externalText.id, type: "text" }],
             }),
             h.elements[1],
-            newElementWith(remoteText as ExcalidrawTextElement, {
+            newElementWith(externalText as ExcalidrawTextElement, {
               containerId: container.id,
             }),
           ],
@@ -4175,7 +4174,7 @@ describe("history", () => {
               id: container.id,
               // previously bound text is preserved
               // text bindings are not duplicated
-              boundElements: [{ id: remoteText.id, type: "text" }],
+              boundElements: [{ id: externalText.id, type: "text" }],
               isDeleted: false,
             }),
             expect.objectContaining({
@@ -4185,7 +4184,7 @@ describe("history", () => {
               isDeleted: false,
             }),
             expect.objectContaining({
-              id: remoteText.id,
+              id: externalText.id,
               // preserved existing binding!
               containerId: container.id,
               isDeleted: false,
@@ -4198,7 +4197,7 @@ describe("history", () => {
           expect(h.elements).toEqual([
             expect.objectContaining({
               id: container.id,
-              boundElements: [{ id: remoteText.id, type: "text" }],
+              boundElements: [{ id: externalText.id, type: "text" }],
               isDeleted: false,
             }),
             expect.objectContaining({
@@ -4207,7 +4206,7 @@ describe("history", () => {
               isDeleted: true,
             }),
             expect.objectContaining({
-              id: remoteText.id,
+              id: externalText.id,
               containerId: container.id,
               isDeleted: false,
             }),
@@ -4215,14 +4214,14 @@ describe("history", () => {
         });
       });
 
-      it("should unbind remotely deleted bound text from container when the container is added through the history", async () => {
+      it("should unbind externally deleted bound text from container when the container is added through the history", async () => {
         // Simulate local update
         API.updateScene({
           elements: [container],
           captureUpdate: CaptureUpdateAction.IMMEDIATELY,
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(h.elements[0], {
@@ -4272,14 +4271,14 @@ describe("history", () => {
         });
       });
 
-      it("should unbind remotely deleted container from bound text when the text is added through the history", async () => {
+      it("should unbind externally deleted container from bound text when the text is added through the history", async () => {
         // Simulate local update
         API.updateScene({
           elements: [text],
           captureUpdate: CaptureUpdateAction.IMMEDIATELY,
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(container, {
@@ -4329,7 +4328,7 @@ describe("history", () => {
         });
       });
 
-      it("should redraw remotely added bound text when it's container is updated through the history", async () => {
+      it("should redraw externally added bound text when it's container is updated through the history", async () => {
         // Initialize the scene
         API.updateScene({
           elements: [container],
@@ -4350,7 +4349,7 @@ describe("history", () => {
 
         Keyboard.undo();
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(h.elements[0], {
@@ -4468,7 +4467,7 @@ describe("history", () => {
 
         Keyboard.undo();
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(container, {
@@ -4660,7 +4659,7 @@ describe("history", () => {
           }),
         ]);
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(h.elements[0], {
@@ -4800,26 +4799,26 @@ describe("history", () => {
           }),
         ]);
 
-        const remoteContainer = API.createElement({
+        const externalContainer = API.createElement({
           type: "rectangle",
           width: 50,
           x: 100,
           boundElements: [{ id: arrowId, type: "arrow" }],
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             h.elements[0],
             newElementWith(h.elements[1], { boundElements: [] }),
             newElementWith(h.elements[2] as ExcalidrawElbowArrowElement, {
               endBinding: {
-                elementId: remoteContainer.id,
+                elementId: externalContainer.id,
                 fixedPoint: [0.5001, 1],
                 mode: "orbit",
               },
             }),
-            remoteContainer,
+            externalContainer,
           ],
           captureUpdate: CaptureUpdateAction.NEVER,
         });
@@ -4854,7 +4853,7 @@ describe("history", () => {
                 }),
               }),
               expect.objectContaining({
-                id: remoteContainer.id,
+                id: externalContainer.id,
                 boundElements: [],
               }),
             ]),
@@ -4879,13 +4878,13 @@ describe("history", () => {
                 startBinding: null,
                 endBinding: expect.objectContaining({
                   // now we are back in the previous state!
-                  elementId: remoteContainer.id,
+                  elementId: externalContainer.id,
                   fixedPoint: [0.5001, 1],
                   mode: "orbit",
                 }),
               }),
               expect.objectContaining({
-                id: remoteContainer.id,
+                id: externalContainer.id,
                 // leaving as bound until we can rebind arrows!
                 boundElements: [{ id: arrowId, type: "arrow" }],
               }),
@@ -4894,7 +4893,7 @@ describe("history", () => {
         });
       });
 
-      it("should rebind remotely added arrow when it's bindable elements are added through the history", async () => {
+      it("should rebind externally added arrow when it's bindable elements are added through the history", async () => {
         const arrow = API.createElement({
           type: "arrow",
           startBinding: {
@@ -4909,7 +4908,7 @@ describe("history", () => {
           },
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             arrow,
@@ -4986,7 +4985,7 @@ describe("history", () => {
         });
       });
 
-      it("should rebind remotely added bindable elements when it's arrow is added through the history", async () => {
+      it("should rebind externally added bindable elements when it's arrow is added through the history", async () => {
         Keyboard.undo();
         const arrow = API.createElement({
           type: "arrow",
@@ -4998,7 +4997,7 @@ describe("history", () => {
           captureUpdate: CaptureUpdateAction.IMMEDIATELY,
         });
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             newElementWith(h.elements[0] as ExcalidrawElbowArrowElement, {
@@ -5102,9 +5101,9 @@ describe("history", () => {
         });
       });
 
-      it("should unbind remotely deleted bindable elements from arrow when the arrow is added through the history", async () => {});
+      it("should unbind externally deleted bindable elements from arrow when the arrow is added through the history", async () => {});
 
-      it("should update bound element points when rectangle was remotely moved and arrow is added back through the history", async () => {
+      it("should update bound element points when rectangle was externally moved and arrow is added back through the history", async () => {
         // bind arrow to rect1 and rect2
         UI.clickTool("arrow");
         mouse.down(0, 0);
@@ -5140,7 +5139,7 @@ describe("history", () => {
           ]),
         );
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             h.elements[0],
@@ -5219,7 +5218,7 @@ describe("history", () => {
         rect = API.createElement({ ...rectProps });
       });
 
-      it("should not rebind frame child with frame when frame was remotely deleted and frame child is added back through the history ", async () => {
+      it("should not rebind frame child with frame when frame was externally deleted and frame child is added back through the history ", async () => {
         // Initialize the scene
         API.updateScene({
           elements: [frame],
@@ -5276,7 +5275,7 @@ describe("history", () => {
         Keyboard.undo();
         Keyboard.undo();
 
-        // Simulate remote update
+        // Simulate external update
         API.updateScene({
           elements: [
             h.elements[0],

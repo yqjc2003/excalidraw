@@ -454,9 +454,7 @@ import type {
   SidebarName,
   SidebarTabName,
   KeyboardModifiersObject,
-  CollaboratorPointer,
   ToolType,
-  OnUserFollowedPayload,
   UnsubscribeCallback,
   EmbedsValidationStatus,
   ElementsPendingErasure,
@@ -758,7 +756,6 @@ class App extends React.Component<AppProps, AppState> {
       event: PointerEvent,
     ]
   >();
-  onUserFollowEmitter = new Emitter<[payload: OnUserFollowedPayload]>();
   onScrollChangeEmitter = new Emitter<
     [scrollX: number, scrollY: number, zoom: AppState["zoom"]]
   >();
@@ -830,7 +827,6 @@ class App extends React.Component<AppProps, AppState> {
       onPointerDown: (cb) => this.onPointerDownEmitter.on(cb),
       onPointerUp: (cb) => this.onPointerUpEmitter.on(cb),
       onScrollChange: (cb) => this.onScrollChangeEmitter.on(cb),
-      onUserFollow: (cb) => this.onUserFollowEmitter.on(cb),
       onStateChange: this.onStateChange,
       onEvent: this.onEvent,
     };
@@ -2490,11 +2486,9 @@ class App extends React.Component<AppProps, AppState> {
                               !this.scene.getElementsIncludingDeleted().length
                             }
                             app={this}
-                            isCollaborating={this.props.isCollaborating}
                             generateLinkForSelection={
                               this.props.generateLinkForSelection
                             }
-                            currentUserControls={this.props.currentUserControls}
                           >
                             {this.props.children}
                           </LayerUI>
@@ -3447,7 +3441,7 @@ class App extends React.Component<AppProps, AppState> {
     // invariant: while non-interactive, the active tool is either
     // input-enabled (`interaction.enabled.tools`) or the neutral default —
     // reset stale tool state (e.g. a presenter's laser after handing off)
-    // so it doesn't leak through `onChange` / collab pointer payloads or
+    // so it doesn't leak through `onChange` / pointer payloads or
     // linger until interaction is re-enabled
     if (
       !this.isInteractionEnabled() &&
@@ -4848,26 +4842,6 @@ class App extends React.Component<AppProps, AppState> {
     });
   };
 
-  /** emits a follow/unfollow intent to the host (which owns the
-   *  `userToFollow` state) via both the `onUserFollow` prop and the
-   *  imperative API emitter */
-  public emitUserFollowIntent = (payload: OnUserFollowedPayload) => {
-    this.onUserFollowEmitter.trigger(payload);
-    this.props.onUserFollow?.(payload);
-  };
-
-  /** emits an UNFOLLOW intent if currently following someone — use on
-   *  viewport changes that take the view over from the followed user (user
-   *  pans and zooms, `setViewport` navigation) */
-  public requestUnfollow = () => {
-    if (this.props.userToFollow) {
-      this.emitUserFollowIntent({
-        userToFollow: this.props.userToFollow,
-        action: "UNFOLLOW",
-      });
-    }
-  };
-
   setToast = (toast: AppState["toast"]) => {
     this.setState({ toast });
   };
@@ -4961,7 +4935,6 @@ class App extends React.Component<AppProps, AppState> {
     <K extends keyof AppState>(sceneData: {
       elements?: SceneData["elements"];
       appState?: Pick<AppState, K> | null;
-      collaborators?: SceneData["collaborators"];
       /**
        *  Controls which updates should be captured by the `Store`. Captured updates are emmitted and listened to by other components, such as `History` for undo / redo purposes.
        *
@@ -4975,7 +4948,7 @@ class App extends React.Component<AppProps, AppState> {
        */
       captureUpdate?: SceneData["captureUpdate"];
     }) => {
-      const { elements, appState, collaborators, captureUpdate } = sceneData;
+      const { elements, appState, captureUpdate } = sceneData;
 
       if (captureUpdate) {
         const nextElements = elements ? elements : undefined;
@@ -4999,11 +4972,6 @@ class App extends React.Component<AppProps, AppState> {
 
       if (elements) {
         this.scene.replaceAllElements(elements);
-      }
-
-      if (collaborators) {
-        this.laserTrails.updateCollabTrails(collaborators);
-        this.setState({ collaborators });
       }
     },
   );
@@ -6827,7 +6795,7 @@ class App extends React.Component<AppProps, AppState> {
       if (this.isToolSupported(this.state.activeTool.type)) {
         // keep broadcasting the pointer (`props.onPointerUpdate`) between
         // strokes of the enabled tool, so e.g. a presenter's cursor stays
-        // visible to collaborators while the laser isn't drawing
+        // visible to the host while the laser isn't drawing
         this.savePointer(event.clientX, event.clientY, this.state.cursorButton);
       }
       if (this.isNavigationEnabled()) {
@@ -7550,11 +7518,6 @@ class App extends React.Component<AppProps, AppState> {
     }
 
     this.maybeCleanupAfterMissingPointerUp(event.nativeEvent);
-    // laser pointer is a presentation aid, not an edit — using it while
-    // following someone shouldn't break follow
-    if (this.state.activeTool.type !== "laser") {
-      this.requestUnfollow();
-    }
 
     if (this.state.searchMatches) {
       this.setState((state) => {
@@ -7671,7 +7634,7 @@ class App extends React.Component<AppProps, AppState> {
     this.lastPointerDownEvent = event;
 
     // we must exit before we set `cursorButton` state and `savePointer`
-    // else it will send pointer state & laser pointer events in collab when
+    // else it will send pointer state & laser pointer events while
     // panning
     if (this.pan.start(event)) {
       return;
@@ -10290,8 +10253,8 @@ class App extends React.Component<AppProps, AppState> {
           const bindable = this.scene.getElement(
             element.startBinding.elementId,
           )!;
-          // NOTE: We use the raw mutateElement() because we don't want history
-          // entries or multiplayer updates
+          // NOTE: We use the raw mutateElement() so that no history entry is
+          // created
           mutateElement(bindable, this.scene.getElementsMapIncludingDeleted(), {
             boundElements: bindable.boundElements!.filter(
               (e) => e.id !== element.id,
@@ -10300,8 +10263,8 @@ class App extends React.Component<AppProps, AppState> {
         }
         if (element.endBinding) {
           const bindable = this.scene.getElement(element.endBinding.elementId)!;
-          // NOTE: We use the raw mutateElement() because we don't want history
-          // entries or multiplayer updates
+          // NOTE: We use the raw mutateElement() so that no history entry is
+          // created
           mutateElement(bindable, this.scene.getElementsMapIncludingDeleted(), {
             boundElements: bindable.boundElements!.filter(
               (e) => e.id !== element.id,
@@ -10315,8 +10278,8 @@ class App extends React.Component<AppProps, AppState> {
               boundElement.id,
             ) as ExcalidrawArrowElement;
             if (arrow?.startBinding?.elementId === element.id) {
-              // NOTE: We use the raw mutateElement() because we don't want history
-              // entries or multiplayer updates
+              // NOTE: We use the raw mutateElement() so that no history entry is
+              // created
               mutateElement(
                 arrow,
                 this.scene.getElementsMapIncludingDeleted(),
@@ -10326,8 +10289,8 @@ class App extends React.Component<AppProps, AppState> {
               );
             }
             if (arrow?.endBinding?.elementId === element.id) {
-              // NOTE: We use the raw mutateElement() because we don't want history
-              // entries or multiplayer updates
+              // NOTE: We use the raw mutateElement() so that no history entry is
+              // created
               mutateElement(
                 arrow,
                 this.scene.getElementsMapIncludingDeleted(),
@@ -11303,7 +11266,7 @@ class App extends React.Component<AppProps, AppState> {
     }
     // don't broadcast pointer updates (props.onPointerUpdate) when
     // non-interactive, unless the active tool stays user-driven via
-    // `interaction.enabled.tools` — collaborators render e.g. a presenter's
+    // `interaction.enabled.tools` — the host app can render e.g. a presenter's
     // laser through these updates
     if (
       !this.isInteractionEnabled() &&
@@ -11323,7 +11286,11 @@ class App extends React.Component<AppProps, AppState> {
       // sometimes the pointer goes off screen
     }
 
-    const pointer: CollaboratorPointer = {
+    const pointer: {
+      x: number;
+      y: number;
+      tool: "pointer" | "laser";
+    } = {
       x: sceneX,
       y: sceneY,
       tool: this.state.activeTool.type === "laser" ? "laser" : "pointer",

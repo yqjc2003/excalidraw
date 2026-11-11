@@ -102,7 +102,6 @@
     "layers": "Lapisan",
     "actions": "Aksi",
     "language": "Bahasa",
-    "liveCollaboration": "Kolaborasi langsung...",
     "duplicateSelection": "Duplikat",
     "untitled": "Tanpa judul",
     "name": "Nama",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Dibuat dengan Excalidraw",
     "group": "Kelompokan pilihan",
     "ungroup": "Pisahkan pilihan",
-    "collaborators": "Kolaborator",
     "you": "Kamu",
     "toggleGrid": "Toggle grid",
     "addToLibrary": "Tambahkan ke pustaka",
@@ -273,7 +271,6 @@
     "decryptFailed": "Tidak dapat mengdekripsi data.",
     "uploadedSecurly": "Pengunggahan ini telah diamankan menggunakan enkripsi end-to-end, artinya server Excalidraw dan pihak ketiga tidak data membaca nya",
     "loadSceneOverridePrompt": "Memuat gambar external akan mengganti konten Anda yang ada. Apakah Anda ingin melanjutkan?",
-    "collabStopOverridePrompt": "Menghentikan sesi akan menimpa gambar Anda yang tersimpan secara lokal. Anda yakin?\n\n(Jika Anda ingin menyimpan gambar lokal Anda, gantinya cukup tutup tab browser.)",
     "errorAddingToLibrary": "Tidak dapat menambahkan item ke pustaka",
     "errorRemovingFromLibrary": "Tidak dapat membuang item dari pustaka",
     "confirmAddLibrary": "Ini akan menambahkan {{numShapes}} bentuk ke pustaka Anda. Anda yakin?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Tidak dapat impor pemandangan dari URL. Kemungkinan URL itu rusak atau tidak berisi data JSON Excalidraw yang valid.",
     "resetLibrary": "Ini akan menghapus pustaka Anda. Anda yakin?",
     "removeItemsFromsLibrary": "Hapus {{count}} item dari pustaka?",
-    "invalidEncryptionKey": "Sandi enkripsi harus 22 karakter. Kolaborasi langsung dinonaktifkan.",
-    "collabOfflineWarning": "Tidak ada koneksi internet.\nPerubahan tidak akan disimpan!",
     "localStorageQuotaExceeded": "Kuota penyimpanan browser telah terlampaui. Perubahan tidak akan disimpan."
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "File terlalu besar. Ukuran maksimum yang dibolehkan {{maxSize}}.",
     "svgImageInsertError": "Tidak dapat menyisipkan gambar SVG. Markup SVG sepertinya tidak valid.",
     "failedToFetchImage": "Gagal memuat gambar.",
-    "cannotResolveCollabServer": "Tidak dapat terhubung ke server kolab. Muat ulang laman dan coba lagi.",
     "importLibraryError": "Tidak dapat memuat pustaka",
     "saveLibraryError": "Tidak dapat menyimpan library ke penyimpanan. Simpanlah library Anda ke file secara lokal untuk memastikan Anda tidak kehilangan perubahan.",
-    "collabSaveFailed": "Tidak dapat menyimpan ke dalam basis data server. Jika masih berlanjut, Anda sebaiknya simpan berkas Anda secara lokal untuk memastikan pekerjaan Anda tidak hilang.",
-    "collabSaveFailed_sizeExceeded": "Tidak dapat menyimpan ke dalam basis data server, tampaknya ukuran kanvas terlalu besar. Anda sebaiknya simpan berkas Anda secara lokal untuk memastikan pekerjaan Anda tidak hilang.",
     "imageToolNotSupported": "Gambar dinonaktifkan.",
     "brave_measure_text_error": {
       "line1": "Sepertinya Anda menggunkan peramban Brave dengan pengaturan <bold>Blokir Fingerprinting yang Agresif</bold> diaktifkan.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Atau"
-  },
-  "roomDialog": {
-    "desc_intro": "Ajak orang-orang ikut menggambar denganmu.",
-    "desc_privacy": "Tenang, sesi ini terenkripsi ujung-ke-ujung, sepenuhnya privat. Bahkan gambarmu tidak terlihat server kami.",
-    "button_startSession": "Mulai sesi",
-    "button_stopSession": "Hentikan sesi",
-    "desc_inProgressIntro": "Sesi kolaborasi sedang berlangsung sekarang.",
-    "desc_shareLink": "Bagikan tautan ini dengan siapa pun yang Anda inginkan untuk kolaborasi bersama:",
-    "desc_exitSession": "Menghentikan sesi akan memutuskan hubungan Anda dari ruangan, tetapi Anda dapat melanjutkan bekerja dengan pemandangan Anda secara lokal. Perhatikan bahwa ini tidak memengaruhi orang lain, dan mereka masih dapat berkolaborasi pada versi mereka.",
-    "shareTitle": "Gabung sesi kolaborasi langsung di Excalidraw"
   },
   "errorDialog": {
     "title": "Kesalahan"
@@ -680,16 +662,6 @@
     "sceneFonts": "Pada layar ini",
     "availableFonts": "Font yang tersedia",
     "empty": "Tidak ada font yang ditemukan"
-  },
-  "userList": {
-    "empty": "Tidak ada pengguna yang ditemukan",
-    "hint": {
-      "text": "Klik pada pengguna untuk mengikuti",
-      "followStatus": "Anda saat ini mengikuti pengguna ini",
-      "inCall": "Pengguna sedang dalam panggilan telephon",
-      "micMuted": "Mikrofon user sedang dimatikan",
-      "isSpeaking": "Pengguna sedang berbicara"
-    }
   },
   "commandPalette": {
     "title": "Daftar Perintah",

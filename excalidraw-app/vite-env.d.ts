@@ -9,16 +9,8 @@ interface ImportMetaEnv {
   VITE_APP_BACKEND_V2_GET_URL?: string;
   VITE_APP_BACKEND_V2_POST_URL?: string;
 
-  // collaboration WebSocket server (https: string
-  VITE_APP_WS_SERVER_URL: string;
-
-  // set this only if using the collaboration workflow we use on excalidraw.com
-  VITE_APP_PORTAL_URL: string;
-
   // AI backend, disabled when unset
   VITE_APP_AI_BACKEND?: string;
-
-  VITE_APP_FIREBASE_CONFIG: string;
 
   // whether to disable live reload / HMR. Usuaully what you want to do when
   // debugging Service Workers.

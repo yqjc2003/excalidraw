@@ -103,7 +103,6 @@ export type ActionName =
   | "toggleShortcuts"
   | "group"
   | "ungroup"
-  | "goToCollaborator"
   | "addToLibrary"
   | "changeRoundness"
   | "alignTop"

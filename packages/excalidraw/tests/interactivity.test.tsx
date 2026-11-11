@@ -617,8 +617,8 @@ describe("ui={false}", () => {
           ],
         }}
       >
-        {/* children may be functional (e.g. excalidraw.com's <Collab/>),
-            so they must mount even with the default UI disabled */}
+        {/* children may be functional, so they must mount even with the
+            default UI disabled */}
         <div data-testid="host-child" />
       </Excalidraw>,
     );
@@ -640,7 +640,7 @@ describe("ui={false}", () => {
   });
 
   it("host children still mount", () => {
-    // functional children (e.g. collab) keep working
+    // functional children keep working
     expect(queryContainer("[data-testid='host-child']")).not.toBe(null);
   });
 

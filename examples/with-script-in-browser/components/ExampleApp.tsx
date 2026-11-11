@@ -91,7 +91,6 @@ export default function ExampleApp({
     Footer,
     WelcomeScreen,
     MainMenu,
-    LiveCollaborationTrigger,
     convertToExcalidrawElements,
     TTDDialog,
     TTDDialogTrigger,
@@ -119,7 +118,6 @@ export default function ExampleApp({
   } as const;
   const [theme, setTheme] = useState<Theme>("light");
   const [disableImageTool, setDisableImageTool] = useState(false);
-  const [isCollaborating, setIsCollaborating] = useState(false);
   const [commentIcons, setCommentIcons] = useState<{ [id: string]: Comment }>(
     {},
   );
@@ -284,14 +282,6 @@ export default function ExampleApp({
   const renderTopRightUI = (isMobile: boolean) => {
     return (
       <>
-        {!isMobile && (
-          <LiveCollaborationTrigger
-            isCollaborating={isCollaborating}
-            onSelect={() => {
-              window.alert("Collab dialog clicked");
-            }}
-          />
-        )}
         <button
           onClick={() => alert("This is an empty top right UI")}
           style={{ height: "2.5rem" }}
@@ -639,11 +629,6 @@ export default function ExampleApp({
         <MainMenu.DefaultItems.SaveAsImage />
         <MainMenu.DefaultItems.Export />
         <MainMenu.Separator />
-        <MainMenu.DefaultItems.LiveCollaborationTrigger
-          isCollaborating={isCollaborating}
-          onSelect={() => window.alert("You clicked on collab button")}
-        />
-        <MainMenu.Separator />
         <MainMenu.ItemCustom>
           <button
             style={{ height: "2rem" }}
@@ -803,40 +788,6 @@ export default function ExampleApp({
               }}
             />
             Disable Image Tool
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={isCollaborating}
-              onChange={() => {
-                if (!isCollaborating) {
-                  const collaborators = new Map();
-                  collaborators.set("id1", {
-                    username: "Doremon",
-                    avatarUrl: "images/doremon.png",
-                  });
-                  collaborators.set("id2", {
-                    username: "Excalibot",
-                    avatarUrl: "images/excalibot.png",
-                  });
-                  collaborators.set("id3", {
-                    username: "Pika",
-                    avatarUrl: "images/pika.jpeg",
-                  });
-                  collaborators.set("id4", {
-                    username: "fallback",
-                    avatarUrl: "https://example.com",
-                  });
-                  excalidrawAPI?.updateScene({ collaborators });
-                } else {
-                  excalidrawAPI?.updateScene({
-                    collaborators: new Map(),
-                  });
-                }
-                setIsCollaborating(!isCollaborating);
-              }}
-            />
-            Show collaborators
           </label>
           <div>
             <button onClick={onCopy.bind(null, "png")}>

@@ -102,7 +102,6 @@
     "layers": "레이어",
     "actions": "동작",
     "language": "언어",
-    "liveCollaboration": "실시간 협업...",
     "duplicateSelection": "복제",
     "untitled": "제목 없음",
     "name": "이름",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Excalidraw에서 생성됨",
     "group": "그룹 생성",
     "ungroup": "그룹 해제",
-    "collaborators": "공동 작업자",
     "you": "",
     "toggleGrid": "격자 켜기/끄기",
     "addToLibrary": "라이브러리에 추가",
@@ -273,7 +271,6 @@
     "decryptFailed": "데이터를 복호화하지 못했습니다.",
     "uploadedSecurly": "업로드는 종단 간 암호화로 보호되므로 Excalidraw 서버 및 타사가 콘텐츠를 읽을 수 없습니다.",
     "loadSceneOverridePrompt": "외부 파일을 불러 오면 기존 콘텐츠가 대체됩니다. 계속 진행할까요?",
-    "collabStopOverridePrompt": "협업 세션을 종료하면 로컬 저장소에 있는 그림이 협업 세션의 그림으로 대체됩니다. 진행하겠습니까?\n\n(로컬 저장소에 있는 그림을 유지하려면 현재 브라우저 탭을 닫아주세요.)",
     "errorAddingToLibrary": "아이템을 라이브러리에 추가 할수 없습니다",
     "errorRemovingFromLibrary": "라이브러리에서 아이템을 삭제할수 없습니다",
     "confirmAddLibrary": "{{numShapes}}개의 모양이 라이브러리에 추가됩니다. 계속하시겠어요?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "제공된 URL에서 화면을 가져오는데 실패했습니다. 주소가 잘못되거나, 유효한 Excalidraw JSON 데이터를 포함하고 있지 않은 것일 수 있습니다.",
     "resetLibrary": "당신의 라이브러리를 초기화 합니다. 계속하시겠습니까?",
     "removeItemsFromsLibrary": "{{count}}개의 아이템을 라이브러리에서 삭제하시겠습니까?",
-    "invalidEncryptionKey": "암호화 키는 반드시 22글자여야 합니다. 실시간 협업이 비활성화됩니다.",
-    "collabOfflineWarning": "인터넷에 연결되어 있지 않습니다.\n변경 사항들이 저장되지 않습니다!",
     "localStorageQuotaExceeded": "브라우저 저장 한도를 초과했습니다. 변경 사항이 저장되지 않습니다."
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "파일이 너무 큽니다. 최대 크기는 {{maxSize}} 입니다.",
     "svgImageInsertError": "SVG 이미지를 삽입하지 못했습니다. SVG 문법이 유효하지 않은 것 같습니다.",
     "failedToFetchImage": "이미지를 가져오는데 실패했습니다.",
-    "cannotResolveCollabServer": "협업 서버에 접속하는데 실패했습니다. 페이지를 새로고침하고 다시 시도해보세요.",
     "importLibraryError": "라이브러리를 불러오지 못했습니다.",
     "saveLibraryError": "라이브러리를 저장공간에 저장하지 못했습니다. 변경 사항들을 잃지 않으려면 라이브러리를 로컬 저장소에 저장하여 주세요.",
-    "collabSaveFailed": "데이터베이스에 저장하지 못했습니다. 문제가 계속 된다면, 작업 내용을 잃지 않도록 로컬 저장소에 저장해 주세요.",
-    "collabSaveFailed_sizeExceeded": "데이터베이스에 저장하지 못했습니다. 캔버스가 너무 큰 거 같습니다. 문제가 계속 된다면, 작업 내용을 잃지 않도록 로컬 저장소에 저장해 주세요.",
     "imageToolNotSupported": "이미지가 비활성화되어 있습니다.",
     "brave_measure_text_error": {
       "line1": "귀하께서는 <bold>강력한 지문 차단 설정</bold>이 활성화된 Brave browser를 사용하고 계신 것 같습니다.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "또는"
-  },
-  "roomDialog": {
-    "desc_intro": "",
-    "desc_privacy": "",
-    "button_startSession": "세션 시작",
-    "button_stopSession": "세션 중단",
-    "desc_inProgressIntro": "실시간 협업 세션이 진행 중입니다.",
-    "desc_shareLink": "공동 작업자에게 이 링크를 공유하세요.",
-    "desc_exitSession": "세션을 중단하면 연결은 끊어지나 작업을 이어갈 수 있습니다. 이 작업은 다른 작업자에게 영향을 미치지 않으며 각자의 공동 작업은 계속 유지됩니다.",
-    "shareTitle": "Excalidraw의 실시간 협업 세션에 참가하기"
   },
   "errorDialog": {
     "title": "오류"
@@ -680,16 +662,6 @@
     "sceneFonts": "",
     "availableFonts": "",
     "empty": ""
-  },
-  "userList": {
-    "empty": "사용자를 찾을 수 없습니다",
-    "hint": {
-      "text": "유저를 클릭해서 따라가기",
-      "followStatus": "이 사용자를 따라가고 있습니다",
-      "inCall": "사용자가 음성 통화 중입니다",
-      "micMuted": "사용자의 마이크가 꺼진 상태 입니다",
-      "isSpeaking": "사용자가 말하는 중입니다"
-    }
   },
   "commandPalette": {
     "title": "명령 팔레트",

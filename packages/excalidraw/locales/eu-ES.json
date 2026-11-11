@@ -102,7 +102,6 @@
     "layers": "Geruzak",
     "actions": "Ekintzak",
     "language": "Hizkuntza",
-    "liveCollaboration": "Zuzeneko elkarlana...",
     "duplicateSelection": "Bikoiztu",
     "untitled": "Izengabea",
     "name": "Izena",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Excalidraw bidez egina",
     "group": "Hautapena taldea bihurtu",
     "ungroup": "Desegin hautapenaren taldea",
-    "collaborators": "Kolaboratzaileak",
     "you": "",
     "toggleGrid": "Txandakatu sareta",
     "addToLibrary": "Gehitu liburutegira",
@@ -273,7 +271,6 @@
     "decryptFailed": "Ezin izan da deszifratu.",
     "uploadedSecurly": "Kargatzea muturretik muturrerako zifratze bidez ziurtatu da, hau da, Excalidraw zerbitzariak eta hirugarrenek ezin dutela edukia irakurri.",
     "loadSceneOverridePrompt": "Kanpoko marrazkia kargatzeak lehendik duzun edukia ordezkatuko du. Jarraitu nahi duzu?",
-    "collabStopOverridePrompt": "Saioa gelditzeak lokalean gordetako zure aurreko marrazkia gainidatziko du. Ziur zaude?\n\n(Zure marrazki lokala mantendu nahi baduzu, itxi arakatzailearen fitxa.)",
     "errorAddingToLibrary": "Ezin izan da elementua liburutegian gehitu",
     "errorRemovingFromLibrary": "Ezin izan da elementua liburutegitik kendu",
     "confirmAddLibrary": "Honek {{numShapes}} forma gehituko ditu zure liburutegian. Ziur zaude?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Ezin izan da eszena inportatu emandako URLtik. Gaizki eratuta dago edo ez du baliozko Excalidraw JSON daturik.",
     "resetLibrary": "Honek zure liburutegia garbituko du. Ziur zaude?",
     "removeItemsFromsLibrary": "Liburutegitik {{count}} elementu ezabatu?",
-    "invalidEncryptionKey": "Enkriptazio-gakoak 22 karaktere izan behar ditu. Zuzeneko lankidetza desgaituta dago.",
-    "collabOfflineWarning": "Ez dago Interneteko konexiorik.\nZure aldaketak ez dira gordeko!",
     "localStorageQuotaExceeded": "Nabigatzailearen biltegiratze muga bete da. Aldaketak ez dira gordeko."
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Fitxategia handiegia da. Onartutako gehienezko tamaina {{maxSize}} da.",
     "svgImageInsertError": "Ezin izan da SVG irudia txertatu. SVG markak baliogabea dirudi.",
     "failedToFetchImage": "Ezin izan da irudia eskuratu.",
-    "cannotResolveCollabServer": "Ezin izan da elkarlaneko zerbitzarira konektatu. Mesedez, berriro kargatu orria eta saiatu berriro.",
     "importLibraryError": "Ezin izan da liburutegia kargatu",
     "saveLibraryError": "Ezin izan da liburutegian gorde. Mesedez, gorde fitxategi lokal batetara aldaketarik ez galtzeko.",
-    "collabSaveFailed": "Ezin izan da backend datu-basean gorde. Arazoak jarraitzen badu, zure fitxategia lokalean gorde beharko zenuke zure lana ez duzula galtzen ziurtatzeko.",
-    "collabSaveFailed_sizeExceeded": "Ezin izan da backend datu-basean gorde, ohiala handiegia dela dirudi. Fitxategia lokalean gorde beharko zenuke zure lana galtzen ez duzula ziurtatzeko.",
     "imageToolNotSupported": "Irudiak desgaituak daude.",
     "brave_measure_text_error": {
       "line1": "Brave arakatzailea erabiltzen ari zarela dirudi <bold>Blokeatu hatz-markak erasokorki</bold> ezarpena gaituta.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Edo"
-  },
-  "roomDialog": {
-    "desc_intro": "Gonbidatu jendea zure marrazkira.",
-    "desc_privacy": "Lasai, sesioa encriptatua dago eta erabat pribatua da. Gure zerbitzarian ere ezin da ikusi zure marrazkia.",
-    "button_startSession": "Hasi saioa",
-    "button_stopSession": "Itxi saioa",
-    "desc_inProgressIntro": "Zuzeneko lankidetza saioa abian da.",
-    "desc_shareLink": "Partekatu esteka hau elkarlanean aritu nahi duzun edonorekin:",
-    "desc_exitSession": "Saioa ixteak aretotik deskonektatuko zaitu, baina eszenarekin lanean jarraitu ahal izango duzu lokalean. Kontuan izan honek ez diela beste pertsonei eragingo, eta euren bertsioan elkarlanean aritu ahal izango dira.",
-    "shareTitle": "Sartu Excalidraw-en zuzeneko lankidetza-saio batean"
   },
   "errorDialog": {
     "title": "Errorea"
@@ -680,16 +662,6 @@
     "sceneFonts": "Eszena honetan",
     "availableFonts": "Letra mota erabilgarriak",
     "empty": "Ez da letra motarik aurkitu"
-  },
-  "userList": {
-    "empty": "Ez da erabiltzailerik aurkitu",
-    "hint": {
-      "text": "Klik erabiltzailean jarraitzeko",
-      "followStatus": "Dagoeneko erabiltzaile hau jarraitzen ari zara",
-      "inCall": "Erabiltzailea dei batean dago",
-      "micMuted": "Erabiltzailearen mikronofoa isildua dago",
-      "isSpeaking": "Erabiltzailea hitz egiten ari da"
-    }
   },
   "commandPalette": {
     "title": "Komandoen paleta",

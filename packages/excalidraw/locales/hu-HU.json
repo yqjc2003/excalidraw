@@ -102,7 +102,6 @@
     "layers": "Rétegek",
     "actions": "Műveletek",
     "language": "Nyelv",
-    "liveCollaboration": "Élő együttműködés...",
     "duplicateSelection": "Duplikálás",
     "untitled": "Névtelen",
     "name": "Név",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Excalidraw-val készült",
     "group": "Csoportosítás",
     "ungroup": "Csoportbontás",
-    "collaborators": "Közreműködők",
     "you": "",
     "toggleGrid": "Keresés törlése",
     "addToLibrary": "Hozzáadás a könyvtárhoz",
@@ -273,7 +271,6 @@
     "decryptFailed": "Nem sikerült visszafejteni a titkosított adatot.",
     "uploadedSecurly": "A feltöltést végpontok közötti titkosítással biztosítottuk, ami azt jelenti, hogy egy harmadik fél nem tudja megnézni a tartalmát, beleértve az Excalidraw szervereit is.",
     "loadSceneOverridePrompt": "A betöltött külső rajz felül fogja írnia meglévőt. Szeretnéd folytatni?",
-    "collabStopOverridePrompt": "A munkamenet leállítása felül fogja írni az előzőleg helyben tárolt rajzot. Biztosan ezt akarod?\n(Ha meg akarod tartani a helyben tárolt rajzot, egyszerűen csak zárd be a böngésző fület)",
     "errorAddingToLibrary": "A tétel nem addható hozzá a könyvtárhoz",
     "errorRemovingFromLibrary": "A tétel nem távolítható el a könyvtárból",
     "confirmAddLibrary": "Ez a művelet {{numShapes}} formát fog hozzáadni a könyvtáradhoz. Biztos vagy benne?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Nem sikerült importálni a jelenetet a megadott URL-ről. Rossz formátumú, vagy nem tartalmaz érvényes Excalidraw JSON-adatokat.",
     "resetLibrary": "Ezzel törlöd a könyvtárát. biztos vagy ebben?",
     "removeItemsFromsLibrary": "{{count}} elemet törölsz a könyvtárból?",
-    "invalidEncryptionKey": "A titkosítási kulcsnak 22 karakterből kell állnia. Az élő együttműködés le van tiltva.",
-    "collabOfflineWarning": "",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "A fájl túl nagy. A megengedett maximális méret {{maxSize}}.",
     "svgImageInsertError": "Nem sikerült beszúrni az SVG-képet. Az SVG szintaktika érvénytelennek tűnik.",
     "failedToFetchImage": "",
-    "cannotResolveCollabServer": "",
     "importLibraryError": "",
     "saveLibraryError": "",
-    "collabSaveFailed": "",
-    "collabSaveFailed_sizeExceeded": "",
     "imageToolNotSupported": "",
     "brave_measure_text_error": {
       "line1": "",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Vagy"
-  },
-  "roomDialog": {
-    "desc_intro": "",
-    "desc_privacy": "",
-    "button_startSession": "Munkamenet indítása",
-    "button_stopSession": "Munkamenet leállítása",
-    "desc_inProgressIntro": "Az élő együttműködési munkamenet folyamatban van.",
-    "desc_shareLink": "Ossza meg ezt a linket bárkivel, akivel együtt szeretne működni:",
-    "desc_exitSession": "Az munkamenet leállítása kilépteti önt a szobából, de folytathatja a munkát a saját gépén. Vegye figyelembe, hogy ez nem érinti más emberek munkáját és ők továbbra is együttműködhetnek a saját változatukon.",
-    "shareTitle": "Csatlakozás egy élő együttműködési munkamenethez az Excalidraw-ban"
   },
   "errorDialog": {
     "title": "Hiba"
@@ -680,16 +662,6 @@
     "sceneFonts": "",
     "availableFonts": "Elérhető betűtípusok",
     "empty": "Nem találhatóak betűtípusok"
-  },
-  "userList": {
-    "empty": "",
-    "hint": {
-      "text": "",
-      "followStatus": "",
-      "inCall": "",
-      "micMuted": "",
-      "isSpeaking": ""
-    }
   },
   "commandPalette": {
     "title": "Parancspanel",

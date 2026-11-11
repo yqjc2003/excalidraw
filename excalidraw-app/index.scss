@@ -16,25 +16,12 @@
 
   .dropdown-menu-container {
     .dropdown-menu-item {
-      &.active-collab {
-        background-color: #ecfdf5;
-        color: #064e3c;
-      }
       &.highlighted {
         color: var(--color-promo);
         font-weight: 700;
         .dropdown-menu-item__icon g {
           stroke-width: 2;
         }
-      }
-    }
-  }
-
-  &.theme--dark {
-    .dropdown-menu-item {
-      &.active-collab {
-        background-color: #064e3c;
-        color: #ecfdf5;
       }
     }
   }
@@ -62,11 +49,5 @@
       background-color: var(--color-danger-dark);
       color: var(--color-danger-text);
     }
-  }
-}
-
-.excalidraw-app.is-collaborating {
-  [data-testid="clear-canvas-button"] {
-    display: none;
   }
 }

@@ -67,7 +67,7 @@ describe("dragging a tool out of the toolbar", () => {
       DEFAULT_STICKY_NOTE_SIZE,
       DEFAULT_STICKY_NOTE_SIZE,
     ]);
-    // the preview is not an element yet: nothing for collaborators or history
+    // the preview is not an element yet: nothing in the scene or the history
     expect(h.elements).toHaveLength(0);
     expect(API.getUndoStack()).toHaveLength(0);
 

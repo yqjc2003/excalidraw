@@ -102,7 +102,6 @@
     "layers": "Lớp",
     "actions": "Chức năng",
     "language": "Ngôn ngữ",
-    "liveCollaboration": "Hợp tác trực tiếp...",
     "duplicateSelection": "Tạo bản sao",
     "untitled": "Không có tiêu đề",
     "name": "Tên",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Làm với Excalidraw",
     "group": "Gộp nhóm lại lựa chọn",
     "ungroup": "Tách nhóm lựa chọn",
-    "collaborators": "Cộng tác viên",
     "you": "",
     "toggleGrid": "Bật/tắt lưới",
     "addToLibrary": "Thêm vào thư viện",
@@ -273,7 +271,6 @@
     "decryptFailed": "Không thể giải mã dữ liệu.",
     "uploadedSecurly": "Việc tải lên đã được bảo mật với mã hóa đầu cuối, có nghĩa là máy chủ Excalidraw và bên thứ ba không thể đọc nội dung.",
     "loadSceneOverridePrompt": "Mở bản vẽ bên ngoài sẽ thay thế nội dung hiện tại của bạn. Bạn có muốn tiếp tục không?",
-    "collabStopOverridePrompt": "Dừng phiên sẽ ghi đè lên bản vẽ được lưu trữ cục bộ trước đó của bạn. Bạn có chắc không?\n\n(Nếu bạn muốn giữ bản vẽ cục bộ của mình, chỉ cần đóng tab trình duyệt.)",
     "errorAddingToLibrary": "Không thể thêm món vào thư viện",
     "errorRemovingFromLibrary": "Không thể xoá món khỏi thư viện",
     "confirmAddLibrary": "Hình {{numShapes}} sẽ được thêm vào thư viện. Bạn chắc chứ?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Không thể nhập nội dung từ URL đã cung cấp. Đó có thể là do URL không đúng cú pháp hoặc không chứa dữ liệu JSON hợp lệ với Excalidraw.",
     "resetLibrary": "Hành động này sẽ xóa toàn bộ thư viện của bạn. Bạn chắc chắn chứ?",
     "removeItemsFromsLibrary": "Xoá {{count}} món từ thư viện?",
-    "invalidEncryptionKey": "Khóa mã hóa phải có 22 ký tự. Hợp tác trực tiếp bị vô hiệu hóa.",
-    "collabOfflineWarning": "Không có kết nối internet.\nThay đổi của bạn sẽ không được lưu!",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Tệp tin quá lớn. Dung lượng tối đa cho phép là {{maxSize}}.",
     "svgImageInsertError": "Không thể thêm ảnh SVG. Mã SVG có vẻ sai.",
     "failedToFetchImage": "Có lỗi khi tải ảnh.",
-    "cannotResolveCollabServer": "Không thể kết nối với máy chủ hợp tác. Hãy tải lại trang và thử lại.",
     "importLibraryError": "Không thể tải thư viện",
     "saveLibraryError": "Không thể lưu thư viện vào bộ nhớ. Hãy lưu thành tệp trên máy để đảm bảo bạn không mất các thay đổi.",
-    "collabSaveFailed": "Không thể lưu vào cơ sở dữ liệu. Nếu vấn đề tiếp tục xảy ra, bạn nên lưu tệp vào máy để đảm bảo bạn không bị mất công việc.",
-    "collabSaveFailed_sizeExceeded": "Không thể lưu vào cơ sở dữ liệu, canvas có vẻ quá lớn. Bạn nên lưu tệp cục bộ để đảm bảo bạn không bị mất công việc.",
     "imageToolNotSupported": "Hình ảnh đã được vô hiệu hóa.",
     "brave_measure_text_error": {
       "line1": "Dường như bạn đang sử dụng trình duyệt Brave với cài đặt <bold>Aggressively Block Fingerprinting</bold> được bật.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Hoặc"
-  },
-  "roomDialog": {
-    "desc_intro": "Mời mọi người cùng cộng tác trong bản vẽ của bạn.",
-    "desc_privacy": "Đừng lo, phiên hoạt động đã được mã hóa đầu cuối, và hoàn toàn riêng tư. Ngay cả máy chủ của chúng tôi cũng không thể thấy những gì bạn vẽ.",
-    "button_startSession": "Bắt đầu phiên",
-    "button_stopSession": "Kết thúc phiên",
-    "desc_inProgressIntro": "Phiên làm việc trực tiếp hiện đang diễn ra.",
-    "desc_shareLink": "Chia sẻ liên kết này với người bạn muốn cộng tác cùng:",
-    "desc_exitSession": "Dừng phiên sẽ đưa bạn ra khỏi phòng, nhưng bạn vẫn có thể làm việc tiếp trên máy. Những người khác sẽ không bị ảnh hưởng và vẫn cộng tác trên bản của họ.",
-    "shareTitle": "Vào phiên làm việc chung trên Excalidraw"
   },
   "errorDialog": {
     "title": "Lỗi"
@@ -680,16 +662,6 @@
     "sceneFonts": "",
     "availableFonts": "",
     "empty": ""
-  },
-  "userList": {
-    "empty": "",
-    "hint": {
-      "text": "",
-      "followStatus": "",
-      "inCall": "",
-      "micMuted": "",
-      "isSpeaking": ""
-    }
   },
   "commandPalette": {
     "title": "",

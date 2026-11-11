@@ -405,7 +405,7 @@ export class AppTextTool {
     const { containerId, origin } = this.pending!;
     this.pending = null;
 
-    // gone mid-press (a collaborator deleted it): nothing to create, but the
+    // gone mid-press (deleted from another code path): nothing to create, but the
     // click still ends the tool's turn
     const container = this.app.scene.getNonDeletedElement(containerId);
     const created = isTextBindableContainer(container, false);

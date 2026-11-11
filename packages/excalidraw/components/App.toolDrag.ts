@@ -83,7 +83,7 @@ export const TOOL_DRAG_PREVIEW_OPACITY = 0.5;
 /**
  * Dragging a tool out of the toolbar. The preview element exists only here
  * until the drop — it is not in the scene, the store or the history, so
- * collaborators never see it and an aborted drag leaves nothing behind. It
+ * nothing observes it and an aborted drag leaves nothing behind. It
  * is painted by the `NewElementCanvas`, drawn exactly as it will land, with
  * the canvas itself made translucent.
  *

@@ -132,7 +132,6 @@ export const actionZoomIn = register({
   icon: ZoomInIcon,
   predicate: (elements, appState, appProps, app) => app.isNavigationEnabled(),
   perform: (_elements, appState, _, app) => {
-    app.requestUnfollow();
     const nextState = {
       ...appState,
       ...getViewportForZoomWithScrollConstraints(
@@ -185,7 +184,6 @@ export const actionZoomOut = register({
   navigation: true,
   predicate: (elements, appState, appProps, app) => app.isNavigationEnabled(),
   perform: (_elements, appState, _, app) => {
-    app.requestUnfollow();
     const nextState = {
       ...appState,
       ...getViewportForZoomWithScrollConstraints(
@@ -238,7 +236,6 @@ export const actionResetZoom = register({
   navigation: true,
   predicate: (elements, appState, appProps, app) => app.isNavigationEnabled(),
   perform: (_elements, appState, _, app) => {
-    app.requestUnfollow();
     // reset to 100%, unless a zoom lock floors the zoom higher — then reset to
     // the locked minimum zoom (the lock's resting zoom level)
     const nextZoom = appState.scrollConstraints?.lockZoom
@@ -314,7 +311,6 @@ export const actionZoomToFitSelectionInViewport = register({
   navigation: true,
   predicate: (elements, appState, appProps, app) => app.isNavigationEnabled(),
   perform: (elements, appState, _, app) => {
-    app.requestUnfollow();
     const selectedElements = app.scene.getSelectedElements(appState);
     const bounds = selectedElements.length
       ? getCommonBounds(getNonDeletedElements(selectedElements))
@@ -356,7 +352,6 @@ export const actionZoomToFitSelection = register({
   navigation: true,
   predicate: (elements, appState, appProps, app) => app.isNavigationEnabled(),
   perform: (elements, appState, _, app) => {
-    app.requestUnfollow();
     const selectedElements = app.scene.getSelectedElements(appState);
     const bounds = selectedElements.length
       ? getCommonBounds(getNonDeletedElements(selectedElements))
@@ -394,7 +389,6 @@ export const actionZoomToFit = register({
   navigation: true,
   predicate: (elements, appState, appProps, app) => app.isNavigationEnabled(),
   perform: (elements, appState, _, app) => {
-    app.requestUnfollow();
     // under a viewport lock, fits the locked box rather than the elements
     const bounds = appState.scrollConstraints
       ? getScrollConstraintsBounds(appState.scrollConstraints)

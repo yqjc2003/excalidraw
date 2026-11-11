@@ -3,14 +3,11 @@ import { CaptureUpdateAction, newElementWith } from "@excalidraw/element";
 
 import type { FractionalIndex } from "@excalidraw/element/types";
 
-import { reconcileElements } from "../data/reconcile";
 import { Excalidraw } from "../index";
 
 import { API } from "./helpers/api";
 import { Keyboard } from "./helpers/ui";
 import { act, render } from "./test-utils";
-
-import type { RemoteExcalidrawElement } from "../data/reconcile";
 
 const { h } = window;
 
@@ -131,37 +128,5 @@ describe("element creation timestamps", () => {
     expect(h.elements[0]).toMatchObject({ x: 10, created: null });
     expect(API.getUndoStack()).toHaveLength(0);
     expect(API.getRedoStack()).toHaveLength(2);
-  });
-
-  it("preserves the remote creation timestamp and revision during reconciliation", () => {
-    const element = API.createElement({ type: "rectangle", created: 123 });
-    API.updateScene({
-      elements: [element],
-      captureUpdate: CaptureUpdateAction.NEVER,
-    });
-    const remoteElement = newElementWith(h.elements[0], { x: 50 });
-    const reconciled = reconcileElements(
-      h.app.scene.getElementsIncludingDeleted(),
-      [remoteElement as RemoteExcalidrawElement],
-      h.state,
-    );
-
-    API.updateScene({
-      elements: reconciled,
-      captureUpdate: CaptureUpdateAction.NEVER,
-    });
-
-    expect(h.elements[0]).toMatchObject({
-      x: 50,
-      created: 123,
-      version: remoteElement.version,
-      versionNonce: remoteElement.versionNonce,
-    });
-    expect(h.store.snapshot.elements.get(element.id)).toMatchObject({
-      created: 123,
-      version: remoteElement.version,
-      versionNonce: remoteElement.versionNonce,
-    });
-    expect(API.getUndoStack()).toHaveLength(0);
   });
 });

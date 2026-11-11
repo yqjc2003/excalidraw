@@ -6,7 +6,6 @@ All `props` are _optional_.
 | --- | --- | --- | --- |
 | [`initialData`](/docs/@excalidraw/excalidraw/api/props/initialdata) | `object` &#124; `null` &#124; <code>Promise<object &#124; null></code> | `null` | The initial data with which app loads. |
 | [`excalidrawAPI`](/docs/@excalidraw/excalidraw/api/props/excalidraw-api) | `function` | \_ | Callback triggered with the excalidraw api once rendered |
-| [`isCollaborating`](#iscollaborating) | `boolean` | \_ | This indicates if the app is in `collaboration` mode |
 | [`onChange`](#onchange) | `function` | \_ | This callback is triggered whenever the component updates due to any change. This callback will receive the excalidraw `elements` and the current `app state`. |
 | [`onPointerUpdate`](#onpointerupdate) | `function` | \_ | Callback triggered when mouse pointer is updated. |
 | [`onPointerDown`](#onpointerdown) | `function` | \_ | This prop if passed gets triggered on pointer down events |
@@ -48,10 +47,6 @@ You can add `customData` to elements when passing them as [`initialData`](/docs/
   customData: {customId: '162'},
 }
 ```
-
-### isCollaborating
-
-This prop indicates if the app is in `collaboration` mode.
 
 ### onChange
 

@@ -1,6 +1,5 @@
-import type { UserIdleState, EditorInterface } from "@excalidraw/common";
+import type { EditorInterface } from "@excalidraw/common";
 import type {
-  ExcalidrawElement,
   ExcalidrawFrameLikeElement,
   NonDeletedElementsMap,
   NonDeletedExcalidrawElement,
@@ -18,7 +17,6 @@ import type {
   ElementsPendingErasure,
   InteractiveCanvasAppState,
   StaticCanvasAppState,
-  SocketId,
   PendingExcalidrawElements,
 } from "../types";
 import type { RoughCanvas } from "roughjs/bin/canvas";
@@ -87,13 +85,6 @@ export type SVGRenderConfig = {
 };
 
 export type InteractiveCanvasRenderConfig = {
-  // collab-related state
-  // ---------------------------------------------------------------------------
-  remoteSelectedElementIds: Map<ExcalidrawElement["id"], SocketId[]>;
-  remotePointerViewportCoords: Map<SocketId, { x: number; y: number }>;
-  remotePointerUserStates: Map<SocketId, UserIdleState>;
-  remotePointerUsernames: Map<SocketId, string>;
-  remotePointerButton: Map<SocketId, string | undefined>;
   selectionColor: string;
   lastViewportPosition: { x: number; y: number };
   // extra options passed to the renderer

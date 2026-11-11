@@ -33,7 +33,7 @@ export class HistoryDelta extends StoreDelta {
       // due to a missing (force deleted) elements in the scene
       snapshot.elements,
       // we don't want to apply the `version` and `versionNonce` properties for history
-      // as we always need to end up with a new version due to collaboration,
+      // as we always need to end up with a new version,
       // approaching each undo / redo as a new user action
       {
         excludedProperties: new Set(["version", "versionNonce"]),

@@ -1180,7 +1180,7 @@ export class ElementsDelta implements DeltaContainer<SceneElementsMap> {
     const removed: Record<string, Delta<ElementPartial>> = {};
     const updated: Record<string, Delta<ElementPartial>> = {};
 
-    // this might be needed only in same edge cases, like during collab, when `isDeleted` elements get removed or when we (un)intentionally remove the elements
+    // this might be needed only in some edge cases, when `isDeleted` elements get removed or when we (un)intentionally remove the elements
     for (const prevElement of prevElements.values()) {
       const nextElement = nextElements.get(prevElement.id);
 
@@ -2192,7 +2192,7 @@ export class ElementsDelta implements DeltaContainer<SceneElementsMap> {
       Delta.diffArrays(deleted, inserted, "boundElements", (x) => x.id);
 
       // don't diff the points as:
-      // - we can't ensure the multiplayer order consistency without fractional index on each point
+      // - we can't ensure the order consistency without fractional index on each point
       // - we prefer to not merge the points, as it might just lead to unexpected / incosistent results
       const deletedPoints =
         (

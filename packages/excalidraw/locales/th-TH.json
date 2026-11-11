@@ -102,7 +102,6 @@
     "layers": "เลเยอร์",
     "actions": "การกระทำ",
     "language": "ภาษา",
-    "liveCollaboration": "ผู้ทำงานร่วมกันขณะนี้",
     "duplicateSelection": "ทำสำเนา",
     "untitled": "ไม่มีชื่อ",
     "name": "ชื่อ",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "เพิ่มลายน้ำ \"สร้างด้วย Excalidraw\"",
     "group": "จัดกลุ่ม",
     "ungroup": "ยกเลิกการจัดกลุ่ม",
-    "collaborators": "ผู้ทำงานร่วมกัน",
     "you": "",
     "toggleGrid": "แสดงกริด",
     "addToLibrary": "เพิ่มไปในคลัง",
@@ -273,7 +271,6 @@
     "decryptFailed": "ไม่สามารถถอดรหัสข้อมูลได้",
     "uploadedSecurly": "การอัพโหลดได้ถูกเข้ารหัสแบบ end-to-end หมายความว่าเซิร์ฟเวอร์ของ Excalidraw และบุคคลอื่นไม่สามารถอ่านข้อมูลได้",
     "loadSceneOverridePrompt": "",
-    "collabStopOverridePrompt": "",
     "errorAddingToLibrary": "ไม่สามารถเพิ่มรายการเข้าไปในคลังได้",
     "errorRemovingFromLibrary": "ไม่สามารถลบรายการนี้ออกจากคลังได้",
     "confirmAddLibrary": "",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "",
     "resetLibrary": "",
     "removeItemsFromsLibrary": "",
-    "invalidEncryptionKey": "",
-    "collabOfflineWarning": "",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "",
     "svgImageInsertError": "",
     "failedToFetchImage": "",
-    "cannotResolveCollabServer": "ไม่สามารถเชื่อต่อกับ collab เซิร์ฟเวอร์ได้ โปรดลองโหลดหน้านี้ใหม่และลองอีกครั้ง",
     "importLibraryError": "",
     "saveLibraryError": "",
-    "collabSaveFailed": "ไม่สามารถบันทึกลงในฐานข้อมูลแบ็กเอนด์ได้ หากยังมีปัญหาอยู่ คุณควรบันทึกไฟล์ลงในเครื่องของคุณเพื่อให้แน่ใจว่างานของคุณจะไม่สูญหาย",
-    "collabSaveFailed_sizeExceeded": "",
     "imageToolNotSupported": "",
     "brave_measure_text_error": {
       "line1": "",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": ""
-  },
-  "roomDialog": {
-    "desc_intro": "",
-    "desc_privacy": "",
-    "button_startSession": "เริ่มเซสชัน",
-    "button_stopSession": "หยุดเซสชัน",
-    "desc_inProgressIntro": "",
-    "desc_shareLink": "",
-    "desc_exitSession": "",
-    "shareTitle": ""
   },
   "errorDialog": {
     "title": "ข้อผิดพลาด"
@@ -680,16 +662,6 @@
     "sceneFonts": "ในฉากนี้",
     "availableFonts": "",
     "empty": "ไม่พบแบบอักษร"
-  },
-  "userList": {
-    "empty": "ไม่พบผู้ใช้",
-    "hint": {
-      "text": "คลิกที่ผู้ใช้เพื่อติดตาม",
-      "followStatus": "คุณกำลังติดตามผู้ใช้นี้",
-      "inCall": "ผู้ใช้นี้กำลังอยู่ในการโทรด้วยเสียง",
-      "micMuted": "ไมโครโฟนของผู้ใช้ถูกปิดเสียง",
-      "isSpeaking": "ผู้ใช้งานกำลังสนทนาอยู่"
-    }
   },
   "commandPalette": {
     "title": "คำสั่งทางลัด",

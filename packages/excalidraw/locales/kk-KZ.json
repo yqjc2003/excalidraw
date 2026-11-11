@@ -102,7 +102,6 @@
     "layers": "",
     "actions": "",
     "language": "Тіл",
-    "liveCollaboration": "",
     "duplicateSelection": "Көшірме",
     "untitled": "Атауысыз",
     "name": "",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "",
     "group": "",
     "ungroup": "",
-    "collaborators": "",
     "you": "",
     "toggleGrid": "",
     "addToLibrary": "",
@@ -273,7 +271,6 @@
     "decryptFailed": "",
     "uploadedSecurly": "",
     "loadSceneOverridePrompt": "",
-    "collabStopOverridePrompt": "",
     "errorAddingToLibrary": "",
     "errorRemovingFromLibrary": "",
     "confirmAddLibrary": "",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "",
     "resetLibrary": "",
     "removeItemsFromsLibrary": "",
-    "invalidEncryptionKey": "",
-    "collabOfflineWarning": "",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Файл өте үлкен. Максималды рұқсат етілген көлем {{maxSize}}.",
     "svgImageInsertError": "",
     "failedToFetchImage": "",
-    "cannotResolveCollabServer": "",
     "importLibraryError": "",
     "saveLibraryError": "",
-    "collabSaveFailed": "",
-    "collabSaveFailed_sizeExceeded": "",
     "imageToolNotSupported": "",
     "brave_measure_text_error": {
       "line1": "",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": ""
-  },
-  "roomDialog": {
-    "desc_intro": "",
-    "desc_privacy": "",
-    "button_startSession": "",
-    "button_stopSession": "",
-    "desc_inProgressIntro": "",
-    "desc_shareLink": "",
-    "desc_exitSession": "",
-    "shareTitle": ""
   },
   "errorDialog": {
     "title": "Қате"
@@ -680,16 +662,6 @@
     "sceneFonts": "",
     "availableFonts": "",
     "empty": ""
-  },
-  "userList": {
-    "empty": "",
-    "hint": {
-      "text": "",
-      "followStatus": "",
-      "inCall": "",
-      "micMuted": "",
-      "isSpeaking": ""
-    }
   },
   "commandPalette": {
     "title": "",

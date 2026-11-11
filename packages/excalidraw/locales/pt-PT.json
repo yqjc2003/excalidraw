@@ -102,7 +102,6 @@
     "layers": "Camadas",
     "actions": "Ações",
     "language": "Idioma",
-    "liveCollaboration": "Colaboração ao vivo...",
     "duplicateSelection": "Duplicar",
     "untitled": "Sem título",
     "name": "Nome",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Feito com Excalidraw",
     "group": "Agrupar seleção",
     "ungroup": "Desagrupar seleção",
-    "collaborators": "Colaboradores",
     "you": "",
     "toggleGrid": "Ativar/desativar grelha",
     "addToLibrary": "Adicionar à biblioteca",
@@ -273,7 +271,6 @@
     "decryptFailed": "Não foi possível desencriptar os dados.",
     "uploadedSecurly": "O envio foi protegido com encriptação de ponta a ponta, o que significa que o servidor do Excalidraw e terceiros não podem ler o conteúdo.",
     "loadSceneOverridePrompt": "Se carregar um desenho externo substituirá o conteúdo existente. Quer continuar?",
-    "collabStopOverridePrompt": "Ao interromper a sessão irá substituir o último desenho guardado. Tem a certeza?\n\n(Caso queira manter o último desenho, simplesmente feche a janela do navegador.)",
     "errorAddingToLibrary": "Não foi possível adicionar o item à biblioteca",
     "errorRemovingFromLibrary": "Não foi possível remover o item da biblioteca",
     "confirmAddLibrary": "Isto irá adicionar {{numShapes}} forma(s) à sua biblioteca. Tem a certeza?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Não foi possível importar a cena a partir do URL fornecido. Ou está mal formado ou não contém dados JSON do Excalidraw válidos.",
     "resetLibrary": "Isto irá limpar a sua biblioteca. Tem a certeza?",
     "removeItemsFromsLibrary": "Apagar {{count}} item(ns) da biblioteca?",
-    "invalidEncryptionKey": "A chave de encriptação deve ter 22 caracteres. A colaboração ao vivo está desativada.",
-    "collabOfflineWarning": "A ligação à Internet não está disponível.\nAs suas alterações não serão guardadas!",
     "localStorageQuotaExceeded": "A cota de armazenamento do navegador foi excedida. As alterações não serão guardadas."
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "O ficheiro é muito grande. O tamanho máximo permitido é {{maxSize}}.",
     "svgImageInsertError": "Não foi possível inserir a imagem SVG. A marcação SVG parece inválida.",
     "failedToFetchImage": "Falha ao processar a imagem.",
-    "cannotResolveCollabServer": "Não foi possível fazer a ligação ao servidor colaborativo. Por favor volte a carregar a página e tente novamente.",
     "importLibraryError": "Não foi possível carregar a biblioteca",
     "saveLibraryError": "Não foi possível guardar a biblioteca no armazenamento. Guarde a sua biblioteca num ficheiro local para garantir que não perde as alterações.",
-    "collabSaveFailed": "Não foi possível guardar na base de dados de backend. Se os problemas persistirem, guarde o ficheiro localmente para garantir que não perde o seu trabalho.",
-    "collabSaveFailed_sizeExceeded": "Não foi possível guardar na base de dados de backend, parece que a a área de desenho é muito grande. Deve guardar o ficheiro localmente para garantir que não perde o seu trabalho.",
     "imageToolNotSupported": "As imagens estão desativadas.",
     "brave_measure_text_error": {
       "line1": "Parece que está a utilizar o navegador Brave com a configuração <bold>Bloquear impressões digitais (fingerprinting) no modo restrito/agressivo</bold> ativada.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Ou"
-  },
-  "roomDialog": {
-    "desc_intro": "Convide pessoas para colaborar no seu desenho.",
-    "desc_privacy": "Não se preocupe, a sessão é encriptada e totalmente privada. Nem mesmo o nosso servidor pode ver o que está a desenhar.",
-    "button_startSession": "Iniciar sessão",
-    "button_stopSession": "Parar sessão",
-    "desc_inProgressIntro": "A sessão de colaboração ao vivo está agora a decorrer.",
-    "desc_shareLink": "Partilhe esta hiperligação com qualquer pessoa com quem queira colaborar:",
-    "desc_exitSession": "Se interromper a sessão, será desconectado da sala, mas poderá continuar a trabalhar com a cena localmente. Tenha em atenção que isto não afetará as outras pessoas, que poderão continuar a colaborar na sua versão.",
-    "shareTitle": "Participe numa sessão de colaboração ao vivo no Excalidraw"
   },
   "errorDialog": {
     "title": "Erro"
@@ -680,16 +662,6 @@
     "sceneFonts": "Nesta cena",
     "availableFonts": "Fontes disponíveis",
     "empty": "Nenhuma fonte encontrada"
-  },
-  "userList": {
-    "empty": "Nenhum utilizador encontrado",
-    "hint": {
-      "text": "Clique no utilizador para o seguir",
-      "followStatus": "Está a seguir este utilizador",
-      "inCall": "Utilizador está numa chamada de voz",
-      "micMuted": "O microfone do utilizador está desligado",
-      "isSpeaking": "O utilizador está a falar"
-    }
   },
   "commandPalette": {
     "title": "Paleta de comandos",

@@ -102,7 +102,6 @@
     "layers": "Lagen",
     "actions": "Acties",
     "language": "Taal",
-    "liveCollaboration": "Live Samenwerking...",
     "duplicateSelection": "Dupliceer",
     "untitled": "Naamloos",
     "name": "Naam",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Gemaakt met Excalidraw",
     "group": "Groeperen",
     "ungroup": "Groep opheffen",
-    "collaborators": "Deelnemers",
     "you": "",
     "toggleGrid": "Raster in-/uitschakelen",
     "addToLibrary": "Voeg toe aan bibliotheek",
@@ -273,7 +271,6 @@
     "decryptFailed": "Kan gegevens niet decoderen.",
     "uploadedSecurly": "De upload is beveiligd met end-to-end encryptie, wat betekent dat de Excalidraw server en derden de inhoud niet kunnen lezen.",
     "loadSceneOverridePrompt": "Het inladen van een externe tekening zal je bestaande inhoud vervangen. Wil je verdergaan?",
-    "collabStopOverridePrompt": "Wanneer de sessie wordt gestopt, overschrijft u de eerdere, lokaal opgeslagen tekening. Weet je het zeker?\n\n(Als je de lokale tekening wilt behouden, sluit je in plaats daarvan het browsertabblad)",
     "errorAddingToLibrary": "Kan item niet toevoegen aan de bibliotheek",
     "errorRemovingFromLibrary": "Kan item niet uit de bibliotheek verwijderen",
     "confirmAddLibrary": "Dit zal {{numShapes}} vorm(en) toevoegen aan je bibliotheek. Weet je het zeker?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Kan scène niet importeren vanuit de opgegeven URL. Het is onjuist of bevat geen geldige Excalidraw JSON-gegevens.",
     "resetLibrary": "Dit zal je bibliotheek wissen. Weet je het zeker?",
     "removeItemsFromsLibrary": "Verwijder {{count}} item(s) uit bibliotheek?",
-    "invalidEncryptionKey": "Encryptiesleutel moet 22 tekens zijn. Live samenwerking is uitgeschakeld.",
-    "collabOfflineWarning": "Geen internetverbinding beschikbaar.\nJe wijzigingen worden niet opgeslagen!",
     "localStorageQuotaExceeded": "Limiet voor browser opslag overschreden. Wijzigingen worden niet opgeslagen."
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Bestand is te groot. Maximale grootte is {{maxSize}}.",
     "svgImageInsertError": "Kon geen SVG-afbeelding invoegen. De SVG-opmaak ziet er niet geldig uit.",
     "failedToFetchImage": "Afbeeldingen ophalen mislukt.",
-    "cannotResolveCollabServer": "Kan geen verbinding maken met de collab server. Herlaad de pagina en probeer het opnieuw.",
     "importLibraryError": "Kon bibliotheek niet laden",
     "saveLibraryError": "Kan bibliotheek niet opslaan in opslag. Sla uw bibliotheek op lokaal bestand om ervoor te zorgen dat u geen wijzigingen verliest.",
-    "collabSaveFailed": "Kan niet opslaan in de backend database. Als de problemen blijven bestaan, moet u het bestand lokaal opslaan om ervoor te zorgen dat u uw werk niet verliest.",
-    "collabSaveFailed_sizeExceeded": "Kan de backend database niet opslaan, het canvas lijkt te groot te zijn. U moet het bestand lokaal opslaan om ervoor te zorgen dat u uw werk niet verliest.",
     "imageToolNotSupported": "Afbeeldingen zijn uitgeschakeld.",
     "brave_measure_text_error": {
       "line1": "Het lijkt erop dat je de Brave browser gebruikt met de instelling <bold>Agressief vingerafdrukken blokkeren</bold> ingeschakeld.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Of"
-  },
-  "roomDialog": {
-    "desc_intro": "Nodig mensen uit om samen te werken aan je tekening.",
-    "desc_privacy": "Geen zorgen, de sessie is end-to-end versleuteld en volledig privé. Niet eens onze server kan zien wat je tekent.",
-    "button_startSession": "Start sessie",
-    "button_stopSession": "Stop sessie",
-    "desc_inProgressIntro": "De live-samenwerkingssessie is nu gestart.",
-    "desc_shareLink": "Deel deze link met iedereen waarmee je wil samenwerken:",
-    "desc_exitSession": "Het stoppen van de sessie zal je loskoppelen van de kamer, maar je kunt lokaal doorwerken met de scène.\nPas op: dit heeft geen invloed op andere mensen en dat zij nog steeds in staat zullen zijn om samen te werken aan hun versie.",
-    "shareTitle": "Neem deel aan een live samenwerkingssessie op Excalidraw"
   },
   "errorDialog": {
     "title": "Fout"
@@ -680,16 +662,6 @@
     "sceneFonts": "In deze scène",
     "availableFonts": "Beschikbare lettertypen",
     "empty": "Geen lettertypes gevonden"
-  },
-  "userList": {
-    "empty": "Geen gebruikers gevonden",
-    "hint": {
-      "text": "Klik op de gebruiker om te volgen",
-      "followStatus": "Je volgt momenteel deze gebruiker",
-      "inCall": "Gebruiker is in een spraakoproep",
-      "micMuted": "Microfoon van gebruiker is gedempt",
-      "isSpeaking": "Gebruiker praat"
-    }
   },
   "commandPalette": {
     "title": "Opdrachtenpalet",

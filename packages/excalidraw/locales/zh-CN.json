@@ -102,7 +102,6 @@
     "layers": "图层",
     "actions": "操作",
     "language": "语言",
-    "liveCollaboration": "实时协作...",
     "duplicateSelection": "复制",
     "untitled": "无标题",
     "name": "名字",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "使用 Excalidraw 创建",
     "group": "编组",
     "ungroup": "解除编组",
-    "collaborators": "协作者",
     "you": "",
     "toggleGrid": "切换网格显示",
     "addToLibrary": "添加到素材库中",
@@ -305,7 +303,6 @@
     "decryptFailed": "无法解密数据。",
     "uploadedSecurly": "上传已被端到端加密保护，这意味着 Excalidraw 的服务器和第三方都无法读取内容。",
     "loadSceneOverridePrompt": "加载外部绘图将取代您现有的内容。您想要继续吗？",
-    "collabStopOverridePrompt": "停止会话将覆盖您先前本地存储的绘图。 您确定吗？\n\n(如果您想保持本地绘图，只需关闭浏览器选项卡。)",
     "errorAddingToLibrary": "无法将项目添加到素材库中",
     "errorRemovingFromLibrary": "无法从素材库中移除项目",
     "confirmAddLibrary": "这将添加 {{numShapes}} 个形状到您的素材库中。您确定吗？",
@@ -314,8 +311,6 @@
     "invalidSceneUrl": "无法从提供的 URL 导入场景。它或者格式不正确，或者不包含有效的 Excalidraw JSON 数据。",
     "resetLibrary": "这将会清除你的素材库。你确定要这么做吗？",
     "removeItemsFromsLibrary": "确定要从素材库中删除 {{count}} 个项目吗？",
-    "invalidEncryptionKey": "密钥必须包含22个字符。实时协作已被禁用。",
-    "collabOfflineWarning": "无网络连接。\n您的改动将不会被保存！",
     "localStorageQuotaExceeded": "超过浏览器存储配额。更改将不会被保存。"
   },
   "errors": {
@@ -324,11 +319,8 @@
     "fileTooBig": "文件过大。最大允许的大小为 {{maxSize}}。",
     "svgImageInsertError": "无法插入 SVG 图像。该 SVG 标记似乎是无效的。",
     "failedToFetchImage": "无法获取图片。",
-    "cannotResolveCollabServer": "无法连接到实时协作服务器。请重新加载页面并重试。",
     "importLibraryError": "无法加载素材库",
     "saveLibraryError": "无法将库保存至存储。请将库保存为本地文件，以确保您的更改不被丢失。",
-    "collabSaveFailed": "无法保存到后端数据库。如果问题持续存在，您应该保存文件到本地，以确保您的工作不会丢失。",
-    "collabSaveFailed_sizeExceeded": "无法保存到后端数据库，画布似乎过大。您应该保存文件到本地，以确保您的工作不会丢失。",
     "imageToolNotSupported": "图片已被禁用。",
     "brave_measure_text_error": {
       "line1": "您似乎正在使用 Brave 浏览器并启用了<bold>积极阻止指纹识别</bold>的设置。",
@@ -442,16 +434,6 @@
   },
   "shareDialog": {
     "or": "或"
-  },
-  "roomDialog": {
-    "desc_intro": "邀请他人协作绘图。",
-    "desc_privacy": "别担心，会话是端到端加密、完全私密的。即使是我们的服务器也无法看到您绘制的内容。",
-    "button_startSession": "开始会话",
-    "button_stopSession": "结束会话",
-    "desc_inProgressIntro": "实时协作会话进行中。",
-    "desc_shareLink": "分享此链接给你要协作的用户",
-    "desc_exitSession": "停止会话将中断您与房间的连接，但您依然可以在本地继续使用画布。请注意，这不会影响到其他用户，他们仍可以在他们的版本上继续协作。",
-    "shareTitle": "加入 Excalidraw 实时协作会话"
   },
   "errorDialog": {
     "title": "错误"
@@ -712,16 +694,6 @@
     "sceneFonts": "画布中的",
     "availableFonts": "可用字体",
     "empty": "未找到字体"
-  },
-  "userList": {
-    "empty": "未找到用户",
-    "hint": {
-      "text": "点击关注用户",
-      "followStatus": "您已关注此用户",
-      "inCall": "用户在语音通话中",
-      "micMuted": "用户的麦克风已静音",
-      "isSpeaking": "用户正在说话"
-    }
   },
   "commandPalette": {
     "title": "命令面板",

@@ -36,7 +36,7 @@ export class InvalidFractionalIndexError extends Error {
  *
  * 2) Fractional indices should be used to reorder the elements, whenever the cached order is expected to be invalidated.
  * - as the fractional indices are encoded as part of the elements, it opens up possibilities for incremental-like APIs
- * - re-order based on fractional indices should be part of (multiplayer) operations such as reconciliation & undo/redo
+ * - re-order based on fractional indices should be part of operations such as reconciliation & undo/redo
  * - technically all the z-index actions could perform also re-order based on fractional indices,but in current state it would not bring much benefits,
  *   as it's faster & more efficient to perform re-order based on array manipulation and later synchronisation of moved indices with the array order
  */

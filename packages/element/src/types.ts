@@ -56,14 +56,14 @@ type _ExcalidrawElementBase = Readonly<{
       doesn't differ across renders. */
   seed: number;
   /** Integer that is sequentially incremented on each change. Used to reconcile
-      elements during collaboration or when saving to server. */
+      elements when saving to server. */
   version: number;
   /** Random integer that is regenerated on each change.
-      Used for deterministic reconciliation of updates during collaboration,
+      Used for deterministic reconciliation of updates,
       in case the versions (see above) are identical. */
   versionNonce: number;
   /** String in a fractional form defined by https://github.com/rocicorp/fractional-indexing.
-      Used for ordering in multiplayer scenarios, such as during reconciliation or undo / redo.
+      Used for ordering elements in scenarios such as reconciliation or undo / redo.
       Always kept in sync with the array order by `syncMovedIndices` and `syncInvalidIndices`.
       Could be null, i.e. for new elements which were not yet assigned to the scene. */
   index: FractionalIndex | null;

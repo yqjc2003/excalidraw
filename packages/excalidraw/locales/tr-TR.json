@@ -102,7 +102,6 @@
     "layers": "Katmanlar",
     "actions": "Eylemler",
     "language": "Dil",
-    "liveCollaboration": "Canlı ortak çalışma alanı...",
     "duplicateSelection": "Çoğalt",
     "untitled": "Adsız",
     "name": "Ad",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Excalidraw ile yapıldı",
     "group": "Seçimi grup yap",
     "ungroup": "Seçilen grubu dağıt",
-    "collaborators": "Ortaklar",
     "you": "",
     "toggleGrid": "Izgarayı aç/kapat",
     "addToLibrary": "Kütüphaneye ekle",
@@ -273,7 +271,6 @@
     "decryptFailed": "Şifrelenmiş veri çözümlenemedi.",
     "uploadedSecurly": "Yükleme uçtan uca şifreleme ile korunmaktadır. Excalidraw sunucusu ve üçüncül şahıslar içeriği okuyamayacaktır.",
     "loadSceneOverridePrompt": "Harici çizimler yüklemek mevcut olan içeriği değiştirecektir. Devam etmek istiyor musunuz?",
-    "collabStopOverridePrompt": "Oturumu sonlandırmak daha önceki, yerel olarak kaydedilmiş çizimin üzerine kaydedilmesine sebep olacak. Emin misiniz?\n\n(Yerel çiziminizi kaybetmemek için tarayıcı sekmesini kapatabilirsiniz.)",
     "errorAddingToLibrary": "Öğe kütüphaneye eklenemedi",
     "errorRemovingFromLibrary": "Öğe kütüphaneden silinemedi",
     "confirmAddLibrary": "Bu, kitaplığınıza {{numShapes}} tane şekil(ler) ekleyecek. Emin misiniz?",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "Verilen bağlantıdan çalışma alanı yüklenemedi. Dosya bozuk olabilir veya geçerli bir Excalidraw JSON verisi bulundurmuyor olabilir.",
     "resetLibrary": "Bu işlem kütüphanenizi sıfırlayacak. Emin misiniz?",
     "removeItemsFromsLibrary": "{{count}} öğe(ler) kitaplıktan kaldırılsın mı?",
-    "invalidEncryptionKey": "Şifreleme anahtarı 22 karakter olmalı. Canlı işbirliği devre dışı bırakıldı.",
-    "collabOfflineWarning": "İnternet bağlantısı bulunamadı. Değişiklikleriniz kaydedilmeyecek!",
     "localStorageQuotaExceeded": "Tarayıcı depolama kotası aşıldı. Değişiklikler kaydedilmeyecek."
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "Dosya çok büyük. İzin verilen maksimum boyut {{maxSize}}.",
     "svgImageInsertError": "SVG resmi eklenemedi. SVG işaretlemesi geçersiz görünüyor.",
     "failedToFetchImage": "Görsel alınamadı.",
-    "cannotResolveCollabServer": "İş birliği sunucusuna bağlanılamıyor. Lütfen sayfayı yenileyip tekrar deneyin.",
     "importLibraryError": "Kütüphane yüklenemedi",
     "saveLibraryError": "Kitaplık depolama alanına kaydedilemedi. Değişikliklerinizi kaybetmediğinizden emin olmak için lütfen kitaplığınızı yerel olarak bir dosyaya kaydedin.",
-    "collabSaveFailed": "Backend veritabanına kaydedilemedi. Eğer problem devam ederse, çalışmanızı korumak için dosyayı yerel olarak kaydetmelisiniz.",
-    "collabSaveFailed_sizeExceeded": "Arka uç veritabanına kaydedilemedi; tuval çok büyük. Çalışmanızı korumak için dosyayı yerel olarak kaydetmelisiniz.",
     "imageToolNotSupported": "Görseller devre dışı.",
     "brave_measure_text_error": {
       "line1": "Görünüşe göre Brave tarayıcısını <bold>Agresif Olarak Parmak İzini Engelle</bold> ayarı etkin olarak kullanıyorsunuz.",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "Veya"
-  },
-  "roomDialog": {
-    "desc_intro": "İnsanları çiziminiz üzerinde birlikte çalışmaya davet edin.",
-    "desc_privacy": "Endişelenmeyin, oturum uçtan uca şifrelenmiştir ve tamamen gizlidir. Ne çizdiğinizi sunucumuz bile göremez.",
-    "button_startSession": "Oturumu başlat",
-    "button_stopSession": "Oturumu sonlandır",
-    "desc_inProgressIntro": "Ortak çalışma ortamı oluşturuldu.",
-    "desc_shareLink": "Bu bağlantıyı birlikte çalışacağınız kişilerle paylaşabilirsiniz:",
-    "desc_exitSession": "Çalışma ortamını kapattığınızda ortak çalışmadan ayrılmış olursunuz ancak kendi versiyonunuzda çalışmaya devam edebilirsiniz. Bu durumda ortak çalıştığınız diğer kişiler etkilenmeyecek, çalışma ortamındaki versiyon üzerinden çalışmaya devam edebilecekler.",
-    "shareTitle": "Excalidraw'da canlı ortak calışma oturumuna katıl"
   },
   "errorDialog": {
     "title": "Hata"
@@ -680,16 +662,6 @@
     "sceneFonts": "Bu sahnede",
     "availableFonts": "Kullanılabilir yazı tipleri",
     "empty": "Yazı tipi bulunamadı"
-  },
-  "userList": {
-    "empty": "Kullanıcı bulunamadı",
-    "hint": {
-      "text": "Takip etmek için kullanıcıya tıklayın",
-      "followStatus": "Şu anda bu kullanıcıyı takip ediyorsunuz",
-      "inCall": "Kullanıcı bir sesli aramada",
-      "micMuted": "Kullanıcının mikrofonu kapalı",
-      "isSpeaking": "Kullanıcı konuşuyor"
-    }
   },
   "commandPalette": {
     "title": "Komut paleti",

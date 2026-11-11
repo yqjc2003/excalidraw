@@ -102,7 +102,6 @@
     "layers": "レイヤー",
     "actions": "操作",
     "language": "言語",
-    "liveCollaboration": "共同編集...",
     "duplicateSelection": "複製",
     "untitled": "無題",
     "name": "名前",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "Excalidrawで作成",
     "group": "グループ化",
     "ungroup": "グループ化を解除",
-    "collaborators": "共同編集者",
     "you": "",
     "toggleGrid": "グリッドを切り替え",
     "addToLibrary": "ライブラリに追加",
@@ -273,7 +271,6 @@
     "decryptFailed": "データを復号できませんでした。",
     "uploadedSecurly": "データのアップロードはエンドツーエンド暗号化によって保護されています。Excalidrawサーバーと第三者はデータの内容を見ることができません。",
     "loadSceneOverridePrompt": "外部の描画データを読み込むと、既存のコンテンツが置き換わります。続行しますか？",
-    "collabStopOverridePrompt": "セッションを停止すると、ローカルに保存されている図が上書きされます。 本当によろしいですか？\n\n(ローカルの図を保持したい場合は、セッションを停止せずにブラウザーのタブを閉じてください。)",
     "errorAddingToLibrary": "アイテムをライブラリに追加できませんでした",
     "errorRemovingFromLibrary": "ライブラリからアイテムを削除できませんでした",
     "confirmAddLibrary": "{{numShapes}} 個の図形をライブラリに追加します。よろしいですか？",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "指定された URL からシーンをインポートできませんでした。不正な形式であるか、有効な Excalidraw JSON データが含まれていません。",
     "resetLibrary": "ライブラリを消去します。本当によろしいですか？",
     "removeItemsFromsLibrary": "{{count}} 個のアイテムをライブラリから削除しますか？",
-    "invalidEncryptionKey": "暗号化キーは22文字でなければなりません。共同編集は無効化されています。",
-    "collabOfflineWarning": "インターネットに接続されていません。\n変更は保存されません！",
     "localStorageQuotaExceeded": "ブラウザーのストレージ容量を超えました。変更は保存されません。"
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "ファイルが大きすぎます。許可される最大サイズは {{maxSize}} です。",
     "svgImageInsertError": "SVGイメージを挿入できませんでした。SVGマークアップは無効に見えます。",
     "failedToFetchImage": "画像の読み込みに失敗しました。",
-    "cannotResolveCollabServer": "コラボレーションサーバに接続できませんでした。ページを再読み込みして、もう一度お試しください。",
     "importLibraryError": "ライブラリを読み込めませんでした。",
     "saveLibraryError": "ライブラリをストレージに保存できませんでした。変更を失わないように、ローカルにファイルとして保存してください。",
-    "collabSaveFailed": "バックエンドデータベースに保存できませんでした。問題が解決しない場合は、作業を失わないようにローカルにファイルを保存してください。",
-    "collabSaveFailed_sizeExceeded": "キャンバスが大きすぎるため、バックエンドデータベースに保存できませんでした。問題が解決しない場合は、作業を失わないようにローカルにファイルを保存してください。",
     "imageToolNotSupported": "画像ツールは使用不可です。",
     "brave_measure_text_error": {
       "line1": "<bold>Aggressly Block Fingerprinting</bold> 設定が有効なBraveブラウザーを使用しているようです。",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": "または"
-  },
-  "roomDialog": {
-    "desc_intro": "他の人を描画の共同編集に招待しましょう。",
-    "desc_privacy": "心配しないでください、セッションはエンドツーエンドで暗号化されており、完全にプライベートです。私たちのサーバーでさえも、あなたが描いたものを見ることができません。",
-    "button_startSession": "セッションを開始する",
-    "button_stopSession": "セッションを終了する",
-    "desc_inProgressIntro": "共同編集セッションが有効になっています。",
-    "desc_shareLink": "下記URLを共同編集したい人に共有してください：",
-    "desc_exitSession": "セッションを終了するとあなたはルームから切断されますが、ローカルで作業を続けることができます。セッションを終了しても他のメンバには影響はなく、引き続き共同作業を行うことができます。",
-    "shareTitle": "Excalidrawの共同編集セッションに参加する"
   },
   "errorDialog": {
     "title": "エラー"
@@ -680,16 +662,6 @@
     "sceneFonts": "このシーン内",
     "availableFonts": "利用可能フォント",
     "empty": "フォントなし"
-  },
-  "userList": {
-    "empty": "ユーザーなし",
-    "hint": {
-      "text": "ユーザーをクリックしてフォロー",
-      "followStatus": "現在このユーザーをフォローしています",
-      "inCall": "ユーザーは音声通話中です",
-      "micMuted": "ユーザーのマイクはミュート中です",
-      "isSpeaking": "ユーザーは発話中です"
-    }
   },
   "commandPalette": {
     "title": "コマンドパレット",

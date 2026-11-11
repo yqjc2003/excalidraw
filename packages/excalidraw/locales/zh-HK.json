@@ -102,7 +102,6 @@
     "layers": "圖層",
     "actions": "動作",
     "language": "🌏 語言",
-    "liveCollaboration": "",
     "duplicateSelection": "製作副本",
     "untitled": "未命名的作品",
     "name": "",
@@ -110,7 +109,6 @@
     "madeWithExcalidraw": "使用 Excalidraw 製圖",
     "group": "建立物件群組",
     "ungroup": "取消物件群組",
-    "collaborators": "已連線的協作者",
     "you": "",
     "toggleGrid": "",
     "addToLibrary": "加入作品庫",
@@ -273,7 +271,6 @@
     "decryptFailed": "",
     "uploadedSecurly": "",
     "loadSceneOverridePrompt": "",
-    "collabStopOverridePrompt": "",
     "errorAddingToLibrary": "",
     "errorRemovingFromLibrary": "",
     "confirmAddLibrary": "",
@@ -282,8 +279,6 @@
     "invalidSceneUrl": "",
     "resetLibrary": "",
     "removeItemsFromsLibrary": "",
-    "invalidEncryptionKey": "",
-    "collabOfflineWarning": "",
     "localStorageQuotaExceeded": ""
   },
   "errors": {
@@ -292,11 +287,8 @@
     "fileTooBig": "",
     "svgImageInsertError": "",
     "failedToFetchImage": "",
-    "cannotResolveCollabServer": "",
     "importLibraryError": "",
     "saveLibraryError": "",
-    "collabSaveFailed": "",
-    "collabSaveFailed_sizeExceeded": "",
     "imageToolNotSupported": "",
     "brave_measure_text_error": {
       "line1": "",
@@ -410,16 +402,6 @@
   },
   "shareDialog": {
     "or": ""
-  },
-  "roomDialog": {
-    "desc_intro": "",
-    "desc_privacy": "",
-    "button_startSession": "",
-    "button_stopSession": "",
-    "desc_inProgressIntro": "",
-    "desc_shareLink": "",
-    "desc_exitSession": "",
-    "shareTitle": ""
   },
   "errorDialog": {
     "title": ""
@@ -680,16 +662,6 @@
     "sceneFonts": "",
     "availableFonts": "",
     "empty": ""
-  },
-  "userList": {
-    "empty": "",
-    "hint": {
-      "text": "",
-      "followStatus": "",
-      "inCall": "",
-      "micMuted": "",
-      "isSpeaking": ""
-    }
   },
   "commandPalette": {
     "title": "",
