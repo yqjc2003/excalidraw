@@ -407,7 +407,6 @@
     "headingMain": "<button>กำลังรีโหลดหน้า</button>",
     "clearCanvasMessage": "ถ้าโหลดไม่ได้ ให้ลอง <button>เคลียร์ผืนผ้าใบ</button>",
     "clearCanvasCaveat": "",
-    "trackedToSentry": "",
     "openIssueMessage": "",
     "sceneContent": ""
   },

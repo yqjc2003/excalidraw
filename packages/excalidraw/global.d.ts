@@ -5,8 +5,6 @@ interface Window {
   EXCALIDRAW_THROTTLE_RENDER: boolean | undefined;
   DEBUG_FRACTIONAL_INDICES: boolean | undefined;
   EXCALIDRAW_EXPORT_SOURCE: string;
-  gtag: Function;
-  fathom: { trackEvent: Function };
 }
 
 interface CanvasRenderingContext2D {

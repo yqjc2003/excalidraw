@@ -4,7 +4,6 @@ import { newTextElement } from "@excalidraw/element";
 
 import type { ChartType } from "@excalidraw/element/types";
 
-import { trackEvent } from "../analytics";
 import { isSpreadsheetValidForChartType, renderSpreadsheet } from "../charts";
 import { t } from "../i18n";
 import { exportScene } from "../scene/export";
@@ -208,7 +207,6 @@ export const PasteChartDialog = ({
 
   const handleChartClick = (chartType: ChartType, elements: ChartElements) => {
     onInsertElements(elements);
-    trackEvent("paste", "chart", chartType);
     onClose();
     focusContainer();
   };
@@ -221,7 +219,6 @@ export const PasteChartDialog = ({
       renderEnvironment,
     });
     onInsertElements([textElement]);
-    trackEvent("paste", "chart", "plaintext");
     onClose();
     focusContainer();
   };

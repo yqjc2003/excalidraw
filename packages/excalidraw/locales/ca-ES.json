@@ -407,7 +407,6 @@
     "headingMain": "S'ha produït un error. Proveu <button>recarregar la pàgina.</button>",
     "clearCanvasMessage": "Si la recàrrega no funciona, proveu <button>esborrar el llenç.</button>",
     "clearCanvasCaveat": " Això resultarà en la pèrdua de feina ",
-    "trackedToSentry": "L'error amb l'identificador {{eventId}} s'ha rastrejat en el nostre sistema.",
     "openIssueMessage": "Anàvem amb molta cura de no incloure la informació de la vostra escena en l'error. Si l'escena no és privada, podeu fer-ne el seguiment al nostre <button>rastrejador d'errors.</button> Incloeu la informació a continuació copiant i enganxant a GitHub Issues.",
     "sceneContent": "Contingut de l'escena:"
   },

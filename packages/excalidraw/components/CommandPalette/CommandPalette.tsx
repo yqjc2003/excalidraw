@@ -26,7 +26,6 @@ import {
   actionLinkToElement,
 } from "../../actions/actionElementLink";
 import { getShortcutFromShortcutName } from "../../actions/shortcuts";
-import { trackEvent } from "../../analytics";
 import { useUIAppState } from "../../context/ui-appState";
 import { deburr } from "../../deburr";
 import { atom, useAtom, editorJotaiStore } from "../../editor-jotai";
@@ -166,10 +165,6 @@ export const CommandPalette = Object.assign(
               appState.openDialog?.name === "commandPalette"
                 ? null
                 : ({ name: "commandPalette" } as const);
-
-            if (nextState) {
-              trackEvent("command_palette", "open", "shortcut");
-            }
 
             return {
               openDialog: nextState,

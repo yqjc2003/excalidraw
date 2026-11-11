@@ -407,7 +407,6 @@
     "headingMain": "Se encontró un error. Intente <button>recargando la página.</button>",
     "clearCanvasMessage": "Si la recarga no funciona, intente <button>limpiando el lienzo</button>.",
     "clearCanvasCaveat": " Esto provocará la pérdida de su trabajo ",
-    "trackedToSentry": "El error con el identificador {{eventId}} fue rastreado en nuestro sistema.",
     "openIssueMessage": "Fuimos muy cautelosos de no incluir la información de tu escena en el error. Si tu escena no es privada, por favor considera seguir nuestro <button>rastreador de errores.</button> Por favor, incluya la siguiente información copiándola y pegándola en el issue de GitHub.",
     "sceneContent": "Contenido de la escena:"
   },

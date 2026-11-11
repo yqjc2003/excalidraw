@@ -407,7 +407,6 @@
     "headingMain": "A apărut o eroare. Încearcă <button>să reîncarci pagina</button>.",
     "clearCanvasMessage": "Dacă reîncărcarea nu funcționează, încearcă <button>să ștergi pânza</button>.",
     "clearCanvasCaveat": " Acest lucru va duce la pierderea progresului ",
-    "trackedToSentry": "Eroarea cu identificatorul {{eventId}} a fost urmărită în sistemul nostru.",
     "openIssueMessage": "Am luat măsuri de precauție pentru a nu include informații despre scenă în eroare. Dacă scena nu este privată, oferă-ne mai multe informații în <button>monitorul nostru pentru erori</button>. Include informațiile de mai jos copiindu-le și lipindu-le în tichetul cu problemă de pe GitHub.",
     "sceneContent": "Conținutul scenei:"
   },

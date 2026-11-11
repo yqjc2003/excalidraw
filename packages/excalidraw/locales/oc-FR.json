@@ -407,7 +407,6 @@
     "headingMain": "Una error s’es producha. Ensajatz <button>recargament de la pagina.</button>",
     "clearCanvasMessage": "Se recargar fonciona pas, ensajatz <button>d’escafar los canabasses.</button>",
     "clearCanvasCaveat": " Menarà a una pèrda del trabalh ",
-    "trackedToSentry": "Error amb l’identificant {{eventId}} es estada enregistrada sus nòstre sistèma.",
     "openIssueMessage": "Èrem plan prudents per inclure pas d’informacions de la scèna vòstra sus l’error. Se vòstra scèna es pas privada, volgatz considerar de perseguir sus nòstre <button>traçadors d’avarias.</button> Volgatz inclure las informacions çai-jos en las copiant e pegant a l’issue GitHub.",
     "sceneContent": "Contengut de la scèna :"
   },

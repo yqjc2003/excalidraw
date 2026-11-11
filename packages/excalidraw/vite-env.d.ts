@@ -42,7 +42,6 @@ interface ImportMetaEnv {
   VITE_APP_COLLAPSE_OVERLAY: string;
   // Enable eslint in dev server
   VITE_APP_ENABLE_ESLINT: string;
-  VITE_APP_ENABLE_TRACKING: string;
 
   PKG_NAME: string;
   PKG_VERSION: string;

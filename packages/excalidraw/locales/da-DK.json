@@ -407,7 +407,6 @@
     "headingMain": "",
     "clearCanvasMessage": "",
     "clearCanvasCaveat": "",
-    "trackedToSentry": "",
     "openIssueMessage": "<button></button> Kopiere og indsæt venligst oplysningerne nedenfor i et GitHub problem.",
     "sceneContent": "Scene indhold:"
   },

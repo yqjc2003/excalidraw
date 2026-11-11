@@ -14,8 +14,11 @@
   The UI hides the corresponding entry points when the env var is missing.
 - `libraries.excalidraw.com` is intentionally kept: the user verified that the hosted library
   browser and the one-click "Add to" import work without any upstream backend of our own.
-- `trackEvent` in `packages/excalidraw/analytics.ts` is a deliberate no-op; the
-  `@excalidraw/excalidraw/analytics` API and all of its call sites are kept intact on purpose.
+- The whole behavioral-telemetry mechanism is gone: `packages/excalidraw/analytics.ts`, the
+  `trackEvent` field on actions (`packages/excalidraw/actions/types.ts`), the `trackAction`
+  helper in `packages/excalidraw/actions/manager.tsx` and every `trackEvent(...)` call site are
+  all removed. Do not reintroduce them; if analytics are ever needed again, add a fresh
+  implementation rather than restoring the upstream one.
 - The user authorizes committing and pushing straight to `origin/master` once the change
   typechecks, lints and builds — no extra confirmation needed. Commit messages follow English
   conventional commits, e.g. `feat(app): ...`.

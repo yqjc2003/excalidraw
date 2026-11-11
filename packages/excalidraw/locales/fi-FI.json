@@ -407,7 +407,6 @@
     "headingMain": "Tapahtui virhe. Yritä <button>sivun lataamista uudelleen.</button>",
     "clearCanvasMessage": "Mikäli sivun lataaminen uudelleen ei auta, yritä <button>tyhjentää piirtoalue.</button>",
     "clearCanvasCaveat": " Tämä johtaa työn menetykseen ",
-    "trackedToSentry": "Virhe tunnisteella {{eventId}} tallennettiin järjestelmäämme.",
     "openIssueMessage": "Olimme varovaisia emmekä sisällyttäneet tietoa piirroksestasi virheeseen. Mikäli piirroksesi ei ole yksityinen, harkitsethan kertovasi meille <button>virheenseurantajärjestelmässämme.</button> Sisällytä alla olevat tiedot kopioimalla ne GitHub-ongelmaan.",
     "sceneContent": "Piirroksen tiedot:"
   },

@@ -407,7 +407,6 @@
     "headingMain": "Atopouse un erro. Probe <button>recargando a páxina.</button>",
     "clearCanvasMessage": "Se recargar non funcionou, probe <button>limpando o lenzo.</button>",
     "clearCanvasCaveat": " Isto resultará nunha perda do seu traballo ",
-    "trackedToSentry": "O erro con identificador {{eventId}} foi rastrexado no noso sistema.",
     "openIssueMessage": "Fomos moi cautelosos de non incluír a información da súa escena no erro. Se a súa escena non é privada, por favor, considere o seguimento do noso <button>rastrexador de erros.</button> Por favor inclúa a seguinte información copiándoa e pegándoa na issue de Github.",
     "sceneContent": "Contido da escena:"
   },

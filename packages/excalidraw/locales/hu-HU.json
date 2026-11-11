@@ -407,7 +407,6 @@
     "headingMain": "Hiba történt. Próbáld <button>újratölteni az oldalt.</button>",
     "clearCanvasMessage": "Ha az újratöltés nem működik, próbáld <button>letörölni a vászont.</button>",
     "clearCanvasCaveat": " Ezzel az eddigi munka elveszik ",
-    "trackedToSentry": "A hibakód azonosítóval {{eventId}} nyomon van követve a rendszerünkben.",
     "openIssueMessage": "Vigyáztunk arra, hogy a jelenthez tartozó információ ne jelenjen meg a hibaüzenetben. Ha a jeleneted nem bizalmas, kérjük add hozzá a <button>hibakövető rendszerünkhöz.</button> Kérjük, másolja be az alábbi információkat a GitHub problémába.",
     "sceneContent": "Jelenet tartalma:"
   },

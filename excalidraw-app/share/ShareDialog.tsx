@@ -1,4 +1,3 @@
-import { trackEvent } from "@excalidraw/excalidraw/analytics";
 import { copyTextToSystemClipboard } from "@excalidraw/excalidraw/clipboard";
 import { Dialog } from "@excalidraw/excalidraw/components/Dialog";
 import { FilledButton } from "@excalidraw/excalidraw/components/FilledButton";
@@ -15,7 +14,7 @@ import {
 import { useUIAppState } from "@excalidraw/excalidraw/context/ui-appState";
 import { useCopyStatus } from "@excalidraw/excalidraw/hooks/useCopiedIndicator";
 import { useI18n } from "@excalidraw/excalidraw/i18n";
-import { KEYS, getFrame } from "@excalidraw/common";
+import { KEYS } from "@excalidraw/common";
 import { useEffect, useRef, useState } from "react";
 
 import { atom, useAtom, useAtomValue } from "../app-jotai";
@@ -167,7 +166,6 @@ const ActiveRoomDialog = ({
           label={t("roomDialog.button_stopSession")}
           icon={playerStopFilledIcon}
           onClick={() => {
-            trackEvent("share", "room closed");
             collabAPI.stopCollaboration();
             if (!collabAPI.isCollaborating()) {
               handleClose();
@@ -201,7 +199,6 @@ const ShareDialogPicker = (props: ShareDialogProps) => {
           label={t("roomDialog.button_startSession")}
           icon={playerPlayIcon}
           onClick={() => {
-            trackEvent("share", "room creation", `ui (${getFrame()})`);
             collabAPI.startCollaboration(null);
           }}
         />

@@ -439,7 +439,6 @@
     "headingMain": "遇到异常。请尝试<button>重新加载页面</button>。",
     "clearCanvasMessage": "如果重新加载页面无效，请尝试<button>清除画布</button>。",
     "clearCanvasCaveat": "这会造成当前工作丢失",
-    "trackedToSentry": "标识符为{{eventId}}的错误已在我们的系统中被记录",
     "openIssueMessage": "我们非常谨慎地处理错误信息，您的画布内容不会被包含在错误报告中。如果您的画布内容不需要保持私密，请考虑在我们的 <button>bug 跟踪系统</button>上提供更多信息。请复制粘贴以下信息到 GitHub Issue 中。",
     "sceneContent": "画布内容:"
   },

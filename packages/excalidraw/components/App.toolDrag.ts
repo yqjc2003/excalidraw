@@ -14,8 +14,6 @@ import type {
   NonDeleted,
 } from "@excalidraw/element/types";
 
-import { trackEvent } from "../analytics";
-
 import type App from "./App";
 import type { ToolType } from "../types";
 
@@ -148,7 +146,6 @@ export class AppToolDrag {
       if (moved < DRAGGING_THRESHOLD) {
         return;
       }
-      trackEvent("toolbar", this.armed.type, "drag");
     }
     const preview = this.tool!.createElement(
       this.app,
@@ -168,7 +165,7 @@ export class AppToolDrag {
     if (!this.armed || event.pointerId !== this.armed.pointerId) {
       return;
     }
-    const { preview, tool, type } = this;
+    const { preview, tool } = this;
     // the button's own click handles a press that never became a drag
     if (!preview) {
       this.cancel();
@@ -191,7 +188,6 @@ export class AppToolDrag {
       { type: app.state.preferredSelectionTool.type },
       { keepSelection: true },
     );
-    trackEvent("toolbar", type!, "drop");
     tool!.onDrop?.(app, preview);
   };
 

@@ -407,7 +407,6 @@
     "headingMain": "Chyba. Zkuste <button>znovu načíst stránku</button>.",
     "clearCanvasMessage": "Pokud opětovné načtení nefunguje, zkuste <button>vymazat plátno</button>.",
     "clearCanvasCaveat": " To povede ke ztrátě dat ",
-    "trackedToSentry": "Chyba identifikátoru {{eventId}} byl zaznamenán v našem systému.",
     "openIssueMessage": "Byli jsme velmi opatrní, abychom neuváděli informace o Vaší scéně. Pokud vaše scéna není soukromá, zvažte prosím sledování na našem <button>bug trackeru</button>. Uveďte prosím níže uvedené informace kopírováním a vložením do problému na GitHubu.",
     "sceneContent": "Obsah scény:"
   },

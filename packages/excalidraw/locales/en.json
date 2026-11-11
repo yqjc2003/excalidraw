@@ -455,7 +455,6 @@
     "headingMain": "Encountered an error. Try <button>reloading the page</button>.",
     "clearCanvasMessage": "If reloading doesn't work, try <button>clearing the canvas</button>.",
     "clearCanvasCaveat": " This will result in loss of work ",
-    "trackedToSentry": "The error with identifier {{eventId}} was tracked on our system.",
     "openIssueMessage": "We were very cautious not to include your scene information on the error. If your scene is not private, please consider following up on our <button>bug tracker</button>. Please include information below by copying and pasting into the GitHub issue.",
     "sceneContent": "Scene content:"
   },

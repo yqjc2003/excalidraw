@@ -407,7 +407,6 @@
     "headingMain": "En feil oppsto. Prøv <button>å laste siden på nytt.</button>",
     "clearCanvasMessage": "Om ny sidelasting ikke fungerer, prøv <button>å tømme lerretet.</button>",
     "clearCanvasCaveat": " Dette vil føre til tap av arbeid ",
-    "trackedToSentry": "Feilen med identifikator {{eventId}} ble logget i vårt system.",
     "openIssueMessage": "Vi er veldig nøye med å ikke inkludere dine scene-opplysninger i feilen. Hvis din scene ikke er privat, vurder å følge opp i vårt <button>feilrapporteringssystem.</button> Ta med opplysningene nedenfor ved å kopiere og lime inn i GitHub-saken.",
     "sceneContent": "Scene-innhold:"
   },

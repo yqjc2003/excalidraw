@@ -407,7 +407,6 @@
     "headingMain": "エラーが発生しました。もう一度やり直してください。 <button>ページを再読み込みする。</button>",
     "clearCanvasMessage": "再読み込みがうまくいかない場合は、<button>キャンバスを消去</button>してみてください。",
     "clearCanvasCaveat": " これにより作業が失われます ",
-    "trackedToSentry": "エラー (識別子: {{eventId}}) はシステムに記録されました。",
     "openIssueMessage": "エラーにシーン情報が含まれないよう配慮しています。シーンが非公開でなければ、<button>バグ報告</button>へのご協力をお願いします。以下の情報をコピーしてGitHub Issueに貼り付けてください。",
     "sceneContent": "シーンの内容:"
   },

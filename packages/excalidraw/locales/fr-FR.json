@@ -407,7 +407,6 @@
     "headingMain": "Une erreur est survenue. Essayez <button>de recharger la page.</button>",
     "clearCanvasMessage": "Si le rechargement ne résout pas l'erreur, essayez <button>effacement du canevas.</button>",
     "clearCanvasCaveat": " Cela entraînera une perte du travail ",
-    "trackedToSentry": "L'erreur avec l'identifiant {{eventId}} a été enregistrée dans notre système.",
     "openIssueMessage": "Nous avons fait très attention à ne pas inclure les informations de votre scène dans l'erreur. Si votre scène n'est pas privée, veuillez envisager de poursuivre sur notre <button>outil de suivi des bugs.</button> Veuillez inclure les informations ci-dessous en les copiant-collant dans le ticket GitHub.",
     "sceneContent": "Contenu de la scène :"
   },

@@ -47,7 +47,6 @@ import type { AppState } from "../types";
 export const actionChangeViewBackgroundColor = register<Partial<AppState>>({
   name: "changeViewBackgroundColor",
   label: "labels.canvasBackground",
-  trackEvent: false,
   predicate: (elements, appState, props, app) => {
     return (
       !!app.props.UIOptions.canvasActions.changeViewBackgroundColor &&
@@ -85,7 +84,6 @@ export const actionClearCanvas = register({
   name: "clearCanvas",
   label: "labels.clearCanvas",
   icon: TrashIcon,
-  trackEvent: { category: "canvas" },
   predicate: (elements, appState, props, app) => {
     return (
       !!app.props.UIOptions.canvasActions.clearCanvas &&
@@ -132,7 +130,6 @@ export const actionZoomIn = register({
   viewMode: true,
   navigation: true,
   icon: ZoomInIcon,
-  trackEvent: { category: "canvas" },
   predicate: (elements, appState, appProps, app) => app.isNavigationEnabled(),
   perform: (_elements, appState, _, app) => {
     app.requestUnfollow();
@@ -186,7 +183,6 @@ export const actionZoomOut = register({
   icon: ZoomOutIcon,
   viewMode: true,
   navigation: true,
-  trackEvent: { category: "canvas" },
   predicate: (elements, appState, appProps, app) => app.isNavigationEnabled(),
   perform: (_elements, appState, _, app) => {
     app.requestUnfollow();
@@ -240,7 +236,6 @@ export const actionResetZoom = register({
   icon: ZoomResetIcon,
   viewMode: true,
   navigation: true,
-  trackEvent: { category: "canvas" },
   predicate: (elements, appState, appProps, app) => app.isNavigationEnabled(),
   perform: (_elements, appState, _, app) => {
     app.requestUnfollow();
@@ -317,7 +312,6 @@ export const actionZoomToFitSelectionInViewport = register({
   // a viewport lock is active
   viewMode: true,
   navigation: true,
-  trackEvent: { category: "canvas" },
   predicate: (elements, appState, appProps, app) => app.isNavigationEnabled(),
   perform: (elements, appState, _, app) => {
     app.requestUnfollow();
@@ -360,7 +354,6 @@ export const actionZoomToFitSelection = register({
   // a viewport lock is active
   viewMode: true,
   navigation: true,
-  trackEvent: { category: "canvas" },
   predicate: (elements, appState, appProps, app) => app.isNavigationEnabled(),
   perform: (elements, appState, _, app) => {
     app.requestUnfollow();
@@ -399,7 +392,6 @@ export const actionZoomToFit = register({
   icon: zoomAreaIcon,
   viewMode: true,
   navigation: true,
-  trackEvent: { category: "canvas" },
   predicate: (elements, appState, appProps, app) => app.isNavigationEnabled(),
   perform: (elements, appState, _, app) => {
     app.requestUnfollow();
@@ -440,7 +432,6 @@ export const actionToggleTheme = register<AppState["theme"]>({
   icon: (appState, elements) =>
     appState.theme === THEME.LIGHT ? MoonIcon : SunIcon,
   viewMode: true,
-  trackEvent: { category: "canvas" },
   perform: (_, appState, value, app) => {
     const nextTheme =
       value || (appState.theme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT);

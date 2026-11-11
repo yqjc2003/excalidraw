@@ -407,7 +407,6 @@
     "headingMain": "Errore bat aurkitu da. Saiatu <button>orria birkargatzen.</button>",
     "clearCanvasMessage": "Birkargatzea ez bada burutzen, saiatu <button>oihala garbitzen.</button>",
     "clearCanvasCaveat": " Honen ondorioz lana galduko da ",
-    "trackedToSentry": "Identifikatzailearen errorea {{eventId}} gure sistemak behatu du.",
     "openIssueMessage": "Oso kontuz ibili gara zure eszenaren informazioa errorean ez sartzeko. Zure eszena pribatua ez bada, kontuan hartu gure <button>erroreen jarraipena egitea.</button> Sartu beheko informazioa kopiatu eta itsatsi bidez GitHub issue-n.",
     "sceneContent": "Eszenaren edukia:"
   },

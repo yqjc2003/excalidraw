@@ -407,7 +407,6 @@
     "headingMain": "Đã xảy ra lỗi. Hãy thử <button>tải lại trang</button>.",
     "clearCanvasMessage": "Nếu không tải lại được, hãy thử <button>dọn canvas.</button>",
     "clearCanvasCaveat": " Điều này sẽ dẫn đến mất dữ liệu bạn đã làm ",
-    "trackedToSentry": "",
     "openIssueMessage": "",
     "sceneContent": "Nội dung bản vẽ:"
   },

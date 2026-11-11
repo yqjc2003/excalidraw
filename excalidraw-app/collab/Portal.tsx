@@ -1,5 +1,4 @@
 import { CaptureUpdateAction } from "@excalidraw/excalidraw";
-import { trackEvent } from "@excalidraw/excalidraw/analytics";
 import { encryptData } from "@excalidraw/excalidraw/data/encryption";
 import { newElementWith } from "@excalidraw/element";
 import throttle from "lodash.throttle";
@@ -43,7 +42,6 @@ class Portal {
     this.socket.on("init-room", () => {
       if (this.socket) {
         this.socket.emit("join-room", this.roomId);
-        trackEvent("share", "room joined");
       }
     });
     this.socket.on("new-user", async (_socketId: string) => {

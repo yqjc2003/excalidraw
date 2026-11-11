@@ -407,7 +407,6 @@
     "headingMain": "Prišlo je do napake. Poskusite <button>ponovno naložiti stran.</button>",
     "clearCanvasMessage": "Če ponovno nalaganje ne deluje, poskusite <button>počistiti platno.</button>",
     "clearCanvasCaveat": " To bo povzročilo izgubo dela ",
-    "trackedToSentry": "Napaka z identifikatorjem {{eventId}} smo zabeležili v naš sistem.",
     "openIssueMessage": "Zelo smo bili previdni, da v podatke o napaki nismo vključili vaših podatkov o sceni. Če vaša scena ni zasebna, vas prosimo, da napišete več podrobnosti na našem <button>sledilniku hroščev.</button> Prosimo, vključite spodnje informacije tako, da jih kopirate in prilepite v GitHub vprašanje.",
     "sceneContent": "Vsebina scene:"
   },

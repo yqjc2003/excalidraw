@@ -193,27 +193,6 @@ export interface Action<TData = any> {
     app: AppClassProperties,
   ) => boolean;
   checked?: (appState: Readonly<UIAppState>) => boolean;
-  trackEvent:
-    | false
-    | {
-        category:
-          | "toolbar"
-          | "element"
-          | "canvas"
-          | "export"
-          | "history"
-          | "menu"
-          | "collab"
-          | "hyperlink"
-          | "search_menu"
-          | "shape_switch";
-        action?: string;
-        predicate?: (
-          appState: Readonly<AppState>,
-          elements: readonly ExcalidrawElement[],
-          value: any,
-        ) => boolean;
-      };
   /** if set to `true`, allow action to be performed in viewMode.
    *  Defaults to `false` */
   viewMode?: boolean;

@@ -407,7 +407,6 @@
     "headingMain": "Fout opgetreden. Probeer <button>de pagina opnieuw laden.</button>",
     "clearCanvasMessage": "Als herladen niet werkt, probeer <button>het canvas te wissen.</button>",
     "clearCanvasCaveat": " Dit zal leiden tot verlies van je werk ",
-    "trackedToSentry": "De fout met ID {{eventId}} was gevolgd op ons systeem.",
     "openIssueMessage": "We waren voorzichtig om je scène-informatie niet in de fout toe te voegen. Als je scène niet privé is, overweeg dan alstublieft het opvolgen op onze <button>bugtracker.</button> Kopieer de informatie hieronder naar de GitHub issue.",
     "sceneContent": "Scène-inhoud:"
   },
