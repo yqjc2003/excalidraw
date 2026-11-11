@@ -258,7 +258,6 @@
     "clear": "เคลียร์",
     "remove": "ลบ",
     "embed": "สลับการฝัง",
-    "publishLibrary": "",
     "submit": "ตกลง",
     "confirm": "ยืนยัน",
     "embeddableInteractionButton": "คลิกเพื่อปฏิสัมพันธ์"
@@ -388,7 +387,6 @@
     "lineEditor_line_info": "",
     "lineEditor_pointSelected": "",
     "lineEditor_nothingSelected": "",
-    "publishLibrary": "",
     "bindTextToElement": "",
     "createFlowchart": "",
     "deepBoxSelect": "",
@@ -476,38 +474,6 @@
   },
   "clearCanvasDialog": {
     "title": "ล้างผืนผ้าใบ"
-  },
-  "publishDialog": {
-    "title": "",
-    "itemName": "ชื่อสิ่งของ",
-    "authorName": "ชื่อเจ้าของ",
-    "githubUsername": "ชื่อผู้ใช้ GitHub",
-    "twitterUsername": "ชื่อผู้ใช้ Twitter",
-    "libraryName": "ชื่อไลบรารี่",
-    "libraryDesc": "",
-    "website": "เว็บไซต์",
-    "placeholder": {
-      "authorName": "",
-      "libraryName": "",
-      "libraryDesc": "",
-      "githubHandle": "",
-      "twitterHandle": "",
-      "website": ""
-    },
-    "errors": {
-      "required": "จำเป็น",
-      "website": "ป้อน URL ที่ถูกต้อง"
-    },
-    "noteDescription": "",
-    "noteGuidelines": "",
-    "noteLicense": "",
-    "noteItems": "",
-    "atleastOneLibItem": "",
-    "republishWarning": ""
-  },
-  "publishSuccessDialog": {
-    "title": "",
-    "content": ""
   },
   "confirmDialog": {
     "resetLibrary": "รีเซ็ตคลัง",

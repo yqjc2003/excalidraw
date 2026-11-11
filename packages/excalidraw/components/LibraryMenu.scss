@@ -39,27 +39,6 @@
     }
   }
 
-  .publish-library-success {
-    .Dialog__content {
-      display: flex;
-      flex-direction: column;
-    }
-
-    &-close.ToolIcon_type_button {
-      background-color: $color-blue-6;
-      align-self: flex-end;
-      &:hover {
-        background-color: $color-blue-8;
-      }
-      .ToolIcon__icon {
-        width: auto;
-        font-size: 1rem;
-        color: #fff;
-        padding: 0 0.5rem;
-      }
-    }
-  }
-
   .library-menu-control-buttons {
     display: flex;
     align-items: center;

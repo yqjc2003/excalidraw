@@ -258,7 +258,6 @@
     "clear": "Wissen",
     "remove": "Verwijderen",
     "embed": "Embedden in-/uitschakelen",
-    "publishLibrary": "Hernoemen of publiceren",
     "submit": "Versturen",
     "confirm": "Bevestigen",
     "embeddableInteractionButton": "Klik voor interactie"
@@ -388,7 +387,6 @@
     "lineEditor_line_info": "Dubbelklik of druk op {{shortcut}} om punten te bewerken",
     "lineEditor_pointSelected": "Druk op {{shortcut_1}} om punt(en) te verwijderen,\n{{shortcut_2}} om te dupliceren, of sleep om te verplaatsen",
     "lineEditor_nothingSelected": "Selecteer een punt om te bewerken (houd {{shortcut_1}} ingedrukt om meerdere te selecteren),\nof houd {{shortcut_2}} ingedrukt en klik om nieuwe punten toe te voegen",
-    "publishLibrary": "Publiceer je eigen bibliotheek",
     "bindTextToElement": "{{shortcut}} om tekst toe te voegen",
     "createFlowchart": "{{shortcut}} voor het maken van een flowchart",
     "deepBoxSelect": "Houd {{shortcut}} ingedrukt om diep te selecteren, en om slepen te voorkomen",
@@ -476,38 +474,6 @@
   },
   "clearCanvasDialog": {
     "title": "Wis canvas"
-  },
-  "publishDialog": {
-    "title": "Publiceer bibliotheek",
-    "itemName": "Itemnaam",
-    "authorName": "Naam auteur",
-    "githubUsername": "GitHub gebruikersnaam",
-    "twitterUsername": "Twitter gebruikersnaam",
-    "libraryName": "Naam bibliotheek",
-    "libraryDesc": "Beschrijving van de bibliotheek",
-    "website": "Website",
-    "placeholder": {
-      "authorName": "Je naam of gebruikersnaam",
-      "libraryName": "Naam van je bibliotheek",
-      "libraryDesc": "Beschrijving van je bibliotheek om mensen te helpen het gebruik ervan te begrijpen",
-      "githubHandle": "GitHub-gebruikersnaam (optioneel), zodat je de bibliotheek kunt bewerken zodra deze ter beoordeling is ingediend",
-      "twitterHandle": "Twitter-gebruikersnaam (optioneel), zodat we weten wie we moeten vermelden bij promotie op Twitter",
-      "website": "Link naar je persoonlijke website of elders (optioneel)"
-    },
-    "errors": {
-      "required": "Vereist",
-      "website": "Vul een geldige URL in"
-    },
-    "noteDescription": "<link>openbare repository</link>",
-    "noteGuidelines": "<link>richtlijnen</link>",
-    "noteLicense": "<link>MIT-licentie, </link>",
-    "noteItems": "Elk bibliotheekitem moet een eigen naam hebben zodat het gefilterd kan worden. De volgende bibliotheekitems worden geïncludeerd:",
-    "atleastOneLibItem": "Selecteer op zijn minst één bibliotheekitem om te starten",
-    "republishWarning": "Opmerking: sommige van de geselecteerde items zijn al gepubliceerd/ingediend. Je moet items alleen opnieuw indienen bij het bijwerken van een bestaande bibliotheek of inzending."
-  },
-  "publishSuccessDialog": {
-    "title": "Bibliotheek ingediend",
-    "content": "Dank je {{authorName}}. Jouw bibliotheek is ingediend voor beoordeling. Je kunt de status <link>hier bijhouden</link>"
   },
   "confirmDialog": {
     "resetLibrary": "Reset bibliotheek",

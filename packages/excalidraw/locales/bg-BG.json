@@ -258,7 +258,6 @@
     "clear": "Изчисти",
     "remove": "Премахване",
     "embed": "Включи вмъкване",
-    "publishLibrary": "",
     "submit": "Изпрати",
     "confirm": "Потвърждаване",
     "embeddableInteractionButton": "Натисни, за да взаимодействаш"
@@ -388,7 +387,6 @@
     "lineEditor_line_info": "",
     "lineEditor_pointSelected": "",
     "lineEditor_nothingSelected": "",
-    "publishLibrary": "Публикувайте собствена библиотека",
     "bindTextToElement": "",
     "createFlowchart": "",
     "deepBoxSelect": "",
@@ -476,38 +474,6 @@
   },
   "clearCanvasDialog": {
     "title": "Изчисти платното"
-  },
-  "publishDialog": {
-    "title": "Публикувай библиотека",
-    "itemName": "Име",
-    "authorName": "Авторско име",
-    "githubUsername": "GitHub потребителско име",
-    "twitterUsername": "Twitter потребителско име",
-    "libraryName": "Име на библиотеката",
-    "libraryDesc": "Описание на библиотеката",
-    "website": "Уебсайт",
-    "placeholder": {
-      "authorName": "Името или потребителското Ви име",
-      "libraryName": "Име на библиотеката Ви",
-      "libraryDesc": "Описание на библиотеката ви, за да помогнете на хората да разберат приложенията ѝ",
-      "githubHandle": "",
-      "twitterHandle": "",
-      "website": ""
-    },
-    "errors": {
-      "required": "Задължително",
-      "website": "Въведете валиден URL адрес"
-    },
-    "noteDescription": "",
-    "noteGuidelines": "",
-    "noteLicense": "",
-    "noteItems": "",
-    "atleastOneLibItem": "",
-    "republishWarning": ""
-  },
-  "publishSuccessDialog": {
-    "title": "",
-    "content": ""
   },
   "confirmDialog": {
     "resetLibrary": "Нулирай библиотека",

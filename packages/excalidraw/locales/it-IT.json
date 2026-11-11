@@ -258,7 +258,6 @@
     "clear": "Cancella",
     "remove": "Rimuovi",
     "embed": "Attiva/disattiva incorporamento",
-    "publishLibrary": "Rinomina o pubblica",
     "submit": "Invia",
     "confirm": "Conferma",
     "embeddableInteractionButton": "Clicca per interagire"
@@ -388,7 +387,6 @@
     "lineEditor_line_info": "Fare doppio clic o premere {{shortcut}} per modificare i punti",
     "lineEditor_pointSelected": "Premi {{shortcut_1}} per rimuovere punto(i),\n{{shortcut_2}} per duplicare, o trascinare per spostare",
     "lineEditor_nothingSelected": "Seleziona un punto da modificare (tieni premuto {{shortcut_1}} per selezionarne più di uno),\noppure tieni premuto {{shortcut_2}} e fai clic per aggiungere nuovi punti",
-    "publishLibrary": "Pubblica la tua libreria",
     "bindTextToElement": "{{shortcut}} per aggiungere testo",
     "createFlowchart": "{{shortcut}} per creare un diagramma di flusso",
     "deepBoxSelect": "Tieni premuto {{shortcut}} per selezionare in profondità e per evitare il trascinamento",
@@ -476,38 +474,6 @@
   },
   "clearCanvasDialog": {
     "title": "Svuota la tela"
-  },
-  "publishDialog": {
-    "title": "Pubblica la libreria",
-    "itemName": "Nome dell'elemento",
-    "authorName": "Nome dell'autore",
-    "githubUsername": "Nome utente di GitHub",
-    "twitterUsername": "Nome utente di Twitter",
-    "libraryName": "Nome della libreria",
-    "libraryDesc": "Descrizione della libreria",
-    "website": "Sito Web",
-    "placeholder": {
-      "authorName": "Il tuo nome o nome utente",
-      "libraryName": "Nome della tua libreria",
-      "libraryDesc": "Descrizione della tua libreria per aiutare le persone a comprenderne lo scopo",
-      "githubHandle": "Handle di GitHub (opzionale), così che tu possa modificare la libreria una volta inviata per la revisione",
-      "twitterHandle": "Nome utente di Twitter (opzionale), così che sappiamo chi accreditare promuovendo su Twitter",
-      "website": "Link al tuo sito web personale o altro (opzionale)"
-    },
-    "errors": {
-      "required": "Obbligatorio",
-      "website": "Inserisci un URL valido"
-    },
-    "noteDescription": "Invia la tua libreria da includere nella <link>repository della libreria pubblica</link>perché sia usata da altri nei loro disegni.",
-    "noteGuidelines": "La libreria dev'esser prima approvata manualmente. Sei pregato di leggere le <link>linee guida</link> prima di inviarla. Necessiterai di un profilo di GitHub per comunicare ed effettuare modifiche se richiesto, ma non è strettamente necessario.",
-    "noteLicense": "Inviando, acconsenti che la libreria sarà pubblicata sotto la <link>Licenza MIT, </link>che in breve significa che chiunque possa usarla senza restrizioni.",
-    "noteItems": "Ogni elemento della libreria deve avere il proprio nome, così che sia filtrabile. Gli elementi della seguente libreria saranno inclusi:",
-    "atleastOneLibItem": "Sei pregato di selezionare almeno un elemento della libreria per iniziare",
-    "republishWarning": "Nota: alcuni degli elementi selezionati sono contrassegnati come già pubblicati/presentati. È necessario reinviare gli elementi solo quando si aggiorna una libreria o una presentazione esistente."
-  },
-  "publishSuccessDialog": {
-    "title": "Libreria inviata",
-    "content": "Grazie {{authorName}}. La tua libreria è stata inviata per la revisione. Puoi monitorarne lo stato<link>qui</link>"
   },
   "confirmDialog": {
     "resetLibrary": "Ripristina la libreria",

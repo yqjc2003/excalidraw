@@ -258,7 +258,6 @@
     "clear": "Làm sạch",
     "remove": "Xóa",
     "embed": "Bật/tắt chế độ nhúng",
-    "publishLibrary": "",
     "submit": "Gửi",
     "confirm": "Xác nhận",
     "embeddableInteractionButton": "Nhấn để tương tác"
@@ -388,7 +387,6 @@
     "lineEditor_line_info": "",
     "lineEditor_pointSelected": "",
     "lineEditor_nothingSelected": "",
-    "publishLibrary": "Chia sẻ thư viện của bạn",
     "bindTextToElement": "Nhấn {{shortcut}} để thêm văn bản",
     "createFlowchart": "",
     "deepBoxSelect": "",
@@ -476,38 +474,6 @@
   },
   "clearCanvasDialog": {
     "title": "Dọn canvas"
-  },
-  "publishDialog": {
-    "title": "",
-    "itemName": "Tên món",
-    "authorName": "Tên tác giả",
-    "githubUsername": "Tên tài khoản Github",
-    "twitterUsername": "Tên tài khoản Twitter",
-    "libraryName": "Tên thư viện",
-    "libraryDesc": "Mô tả thư viện",
-    "website": "Website",
-    "placeholder": {
-      "authorName": "Tên của bạn hoặc tên tài khoản",
-      "libraryName": "Tên thư viện của bạn",
-      "libraryDesc": "Mô tả thư viện của bạn để mọi người có thể hiểu được cách dùng của nó",
-      "githubHandle": "",
-      "twitterHandle": "Tên Twitter (không bắt buộc) để chúng tôi ghi nhận bạn khi chia sẻ trên Twitter.",
-      "website": "Đường dẫn tới trang web cá nhân của bạn hoặc tới đâu đó (tùy chọn)"
-    },
-    "errors": {
-      "required": "Bắt buộc",
-      "website": "Nhập đường dẫn hợp lệ"
-    },
-    "noteDescription": "Chia sẻ thư viện của bạn vào <link>kho thư viện công khai</link> để mọi người có thể dùng trong bản vẽ của họ.",
-    "noteGuidelines": "Thư viện cần được phê duyệt thủ công trước. Vui lòng đọc <link>hướng dẫn</link> trước khi gửi. Bạn sẽ cần tài khoản GitHub để trao đổi và chỉnh sửa khi được yêu cầu, nhưng điều này không bắt buộc.",
-    "noteLicense": "Bằng việc gửi, bạn đồng ý rằng thư viện sẽ được phát hành theo <link>Giấy phép MIT</link>, nghĩa là bất kỳ ai cũng có thể sử dụng mà không bị hạn chế.",
-    "noteItems": "Từng món trong thư viện phải có tên riêng để có thể lọc. Các món thư viện sau đây sẽ thêm:",
-    "atleastOneLibItem": "Vui lòng chọn ít nhất một món thư viện để bắt đầu",
-    "republishWarning": "Lưu ý: một số món đã chọn được đánh dấu là đã xuất bản/đã gửi. Bạn chỉ nên gửi lại các món khi cập nhật thư viện hiện có hoặc gửi."
-  },
-  "publishSuccessDialog": {
-    "title": "Thư viện đã được gửi",
-    "content": "Cảm ơn {{authorName}}! Thư viện của bạn đã được gửi để duyệt. Bạn có thể xem tiến trình <link>tại đây</link>."
   },
   "confirmDialog": {
     "resetLibrary": "Cài lại thư viện",

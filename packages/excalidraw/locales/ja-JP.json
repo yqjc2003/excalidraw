@@ -258,7 +258,6 @@
     "clear": "消去",
     "remove": "削除",
     "embed": "埋め込みの切り替え",
-    "publishLibrary": "名前の変更または公開",
     "submit": "送信",
     "confirm": "確認",
     "embeddableInteractionButton": "クリックして操作"
@@ -388,7 +387,6 @@
     "lineEditor_line_info": "ダブルクリック、または {{shortcut}} を押して点を編集",
     "lineEditor_pointSelected": "{{shortcut_1}} で点を削除、\n{{shortcut_2}} で複製、またはドラッグで移動",
     "lineEditor_nothingSelected": "点を選択して編集 ({{shortcut_1}} を押し続けて複数選択)、\nまたは {{shortcut_2}} を押しながらクリックで新しい点を追加",
-    "publishLibrary": "自分のライブラリを公開",
     "bindTextToElement": "{{shortcut}} でテキストを追加",
     "createFlowchart": "{{shortcut}} でフローチャートを作成",
     "deepBoxSelect": "{{shortcut}} を押し続けて詳細選択・ドラッグ防止",
@@ -476,38 +474,6 @@
   },
   "clearCanvasDialog": {
     "title": "キャンバスを消去"
-  },
-  "publishDialog": {
-    "title": "ライブラリを公開",
-    "itemName": "アイテム名",
-    "authorName": "作成者名",
-    "githubUsername": "GitHub ユーザ名",
-    "twitterUsername": "Twitter ユーザ名",
-    "libraryName": "ライブラリ名",
-    "libraryDesc": "ライブラリの説明",
-    "website": "Webサイト",
-    "placeholder": {
-      "authorName": "お名前またはユーザー名",
-      "libraryName": "あなたのライブラリ名",
-      "libraryDesc": "ライブラリの使い方を理解するための説明",
-      "githubHandle": "GitHubハンドル(任意)。一度レビューのために送信されると、ライブラリを編集できます",
-      "twitterHandle": "Twitterのユーザー名 (任意)。Twitterでプロモーションする際にクレジットする人を知っておくためのものです",
-      "website": "個人のウェブサイトまたは他のサイトへのリンク (任意)"
-    },
-    "errors": {
-      "required": "必須項目",
-      "website": "有効な URL を入力してください"
-    },
-    "noteDescription": "あなたのライブラリを<link>公開ライブラリリポジトリ</link>に投稿して、他の人が作図に使えるようにしましょう。",
-    "noteGuidelines": "投稿されたライブラリは担当者が審査します。投稿前に<link>ガイドライン</link>をお読みください。修正をお願いすることがあるため、GitHubアカウントがあると便利ですが、必須ではありません。",
-    "noteLicense": "投稿することで、ライブラリが<link>MITライセンス</link>で公開されることに同意したものとみなします。これは誰でも自由に利用できることを意味します。",
-    "noteItems": "各アイテムにはフィルタリング用に固有の名前が必要です。以下のアイテムが含まれます:",
-    "atleastOneLibItem": "開始するには少なくとも1つのライブラリ項目を選択してください",
-    "republishWarning": "注意: 選択された項目の中には、すでに公開/投稿済みと表示されているものがあります。既存のライブラリや投稿を更新する場合のみ、アイテムを再投稿してください。"
-  },
-  "publishSuccessDialog": {
-    "title": "ライブラリを送信しました",
-    "content": "{{authorName}} さん、ありがとうございます。あなたのライブラリはレビューのために提出されました。状況を追跡できます。<link>こちら</link>"
   },
   "confirmDialog": {
     "resetLibrary": "ライブラリをリセット",

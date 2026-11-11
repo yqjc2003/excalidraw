@@ -258,7 +258,6 @@
     "clear": "Hapus",
     "remove": "Hapus",
     "embed": "Mati/nyala penyematan",
-    "publishLibrary": "Ubah nama atau publikasikan",
     "submit": "Kirimkan",
     "confirm": "Konfirmasi",
     "embeddableInteractionButton": "Pencet untuk interaksi"
@@ -388,7 +387,6 @@
     "lineEditor_line_info": "Klik dua kali atau tekan {{shortcut}} untuk mengedit titik",
     "lineEditor_pointSelected": "Tekan {{shortcut_1}} untuk menghapus titik, {{shortcut_2}} untuk menggandakan, atau seret untuk memindahkan",
     "lineEditor_nothingSelected": "Pilih titik untuk mengedit (tahan {{shortcut_1}} untuk memilih beberapa), atau tahan {{shortcut_2}} dan klik untuk menambahkan titik baru",
-    "publishLibrary": "Terbitkan pustaka Anda",
     "bindTextToElement": "{{shortcut}} untuk menambahkan teks",
     "createFlowchart": "{{shortcut}} untuk membuat diagram alir",
     "deepBoxSelect": "Tahan {{shortcut}} untuk memilih tingkat dalam, dan untuk mencegah pergeseran",
@@ -476,38 +474,6 @@
   },
   "clearCanvasDialog": {
     "title": "Hapus kanvas"
-  },
-  "publishDialog": {
-    "title": "Terbitkan pustaka",
-    "itemName": "Nama item",
-    "authorName": "Nama pembuat",
-    "githubUsername": "Nama pengguna github",
-    "twitterUsername": "Nama pengguna Twitter",
-    "libraryName": "Nama Pustaka",
-    "libraryDesc": "Deskripsi pustaka",
-    "website": "Situs Web",
-    "placeholder": {
-      "authorName": "Nama atau nama pengguna Anda",
-      "libraryName": "Nama dari pustaka Anda",
-      "libraryDesc": "Deskripsi pustaka Anda untuk membantu orang mengerti penggunaannya",
-      "githubHandle": "Akun GitHub (opsional), jadi Anda dapat mengubah pustaka ketika diserahkan untuk review",
-      "twitterHandle": "Nama pengguna Twitter (opsional), jadi kami tahu siapa dipuji ketika mempromosikannya melalui Twitter",
-      "website": "Hubungkan ke situs personal Anda atau lainnya (opsional)"
-    },
-    "errors": {
-      "required": "Dibutuhkan",
-      "website": "Masukkan URL valid"
-    },
-    "noteDescription": "Kirimkan pustaka Anda untuk disertakan di <link>repositori pustaka publik</link>untuk orang lain menggunakannya dalam gambar mereka.",
-    "noteGuidelines": "Pustaka butuh disetujui secara manual terlebih dahulu. Baca <link>pedoman</link> sebelum mengirim. Anda butuh akun GitHub untuk berkomunikasi dan membuat perubahan jika dibutuhkan, tetapi tidak wajib dibutukan.",
-    "noteLicense": "Dengan mengkirimkannya, Anda setuju pustaka akan diterbitkan dibawah <link>Lisensi MIT, </link>yang artinya siapa pun dapat menggunakannya tanpa batasan.",
-    "noteItems": "Setiap item pustaka harus memiliki nama, sehingga bisa disortir. Item pustaka di bawah ini akan dimasukan:",
-    "atleastOneLibItem": "Pilih setidaknya satu item pustaka untuk mulai",
-    "republishWarning": "Catatan: beberapa item yang dipilih telah ditandai sebagai sudah dipublikasikan/diserahkan. Anda hanya dapat menyerahkan kembali item-item ketika memperbarui pustaka atau pengumpulan."
-  },
-  "publishSuccessDialog": {
-    "title": "Pustaka telah dikirm",
-    "content": "Terima kasih {{authorName}}. pustaka Anda telah diserahkan untuk ditinjau ulang. Anda dapat cek statusnya<link>di sini</link>"
   },
   "confirmDialog": {
     "resetLibrary": "Reset pustaka",

@@ -258,7 +258,6 @@
     "clear": "Wyczyść",
     "remove": "Usuń",
     "embed": "Przełącz osadzenie",
-    "publishLibrary": "Zmień nazwę lub opublikuj",
     "submit": "Prześlij",
     "confirm": "Zatwierdź",
     "embeddableInteractionButton": "Kliknij, aby wejść w interakcję"
@@ -388,7 +387,6 @@
     "lineEditor_line_info": "Kliknij dwukrotnie lub naciśnij {{shortcut}}, aby edytować punkty",
     "lineEditor_pointSelected": "Naciśnij {{shortcut_1}}, aby usunąć punkty,\n{{shortcut_2}}, aby je powielić, lub przeciągnij, aby je przenieść",
     "lineEditor_nothingSelected": "Wybierz punkt do edycji (przytrzymaj {{shortcut_1}}, aby wybrać wiele punktów)\nlub przytrzymaj {{shortcut_2}} i kliknij myszą, aby dodać nowe punkty",
-    "publishLibrary": "Opublikuj własną bibliotekę",
     "bindTextToElement": "Naciśnij {{shortcut}}, aby dodać tekst",
     "createFlowchart": "Naciśnij {{shortcut}}, aby utworzyć diagram",
     "deepBoxSelect": "Przytrzymaj {{shortcut}}, aby wybrać w obrębie grupy i zapobiec przeciągnięciu",
@@ -476,38 +474,6 @@
   },
   "clearCanvasDialog": {
     "title": "Wyczyść płótno"
-  },
-  "publishDialog": {
-    "title": "Opublikuj bibliotekę",
-    "itemName": "Nazwa elementu",
-    "authorName": "Nazwa autora",
-    "githubUsername": "Nazwa użytkownika na GitHubie",
-    "twitterUsername": "Nazwa użytkownika Twitter",
-    "libraryName": "Nazwa biblioteki",
-    "libraryDesc": "Opis biblioteki",
-    "website": "Strona internetowa",
-    "placeholder": {
-      "authorName": "Twoje imię lub nazwa użytkownika",
-      "libraryName": "Nazwa twojej biblioteki",
-      "libraryDesc": "Opis twojej biblioteki, aby pomóc innym zrozumieć jej działanie",
-      "githubHandle": "Uchwyt GitHub (opcjonalny), dzięki czemu możesz edytować bibliotekę po przesłaniu do sprawdzenia",
-      "twitterHandle": "Nazwa użytkownika w serwisie Twitter (opcjonalna), aby wiedzieć kogo oznaczyć przy promowaniu na Twitterze",
-      "website": "Link do Twojej osobistej strony internetowej lub gdzie indziej (opcjonalnie)"
-    },
-    "errors": {
-      "required": "Wymagane",
-      "website": "Wprowadź prawidłowy adres URL"
-    },
-    "noteDescription": "<link></link>dla innych osób do wykorzystania w swoich rysunkach.",
-    "noteGuidelines": "Biblioteka musi być najpierw zatwierdzona ręcznie. Przeczytaj <link>wytyczne</link>",
-    "noteLicense": "Wysyłając zgadzasz się, że biblioteka zostanie opublikowana pod <link>Licencja MIT, </link>w skrócie, każdy może z nich korzystać bez ograniczeń.",
-    "noteItems": "Każdy element biblioteki musi mieć własną nazwę, aby był filtrowalny. Uwzględnione zostaną następujące elementy biblioteki:",
-    "atleastOneLibItem": "Proszę wybrać co najmniej jeden element biblioteki, by rozpocząć",
-    "republishWarning": "Uwaga: niektóre z wybranych elementów są oznaczone jako już opublikowane/wysłane. Powinieneś ponownie przesłać elementy tylko wtedy, gdy aktualizujesz istniejącą bibliotekę lub zgłoszenie."
-  },
-  "publishSuccessDialog": {
-    "title": "Biblioteka została przesłana",
-    "content": "Dziękujemy {{authorName}}. Twoja biblioteka została przesłana do sprawdzenia. Możesz śledzić jej stan<link>tutaj</link>"
   },
   "confirmDialog": {
     "resetLibrary": "Zresetuj Bibliotekę",

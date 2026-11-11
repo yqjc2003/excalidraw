@@ -258,7 +258,6 @@
     "clear": "Išvalyti",
     "remove": "Pašalinti",
     "embed": "",
-    "publishLibrary": "",
     "submit": "Pateikti",
     "confirm": "Patvirtinti",
     "embeddableInteractionButton": ""
@@ -388,7 +387,6 @@
     "lineEditor_line_info": "",
     "lineEditor_pointSelected": "",
     "lineEditor_nothingSelected": "",
-    "publishLibrary": "",
     "bindTextToElement": "",
     "createFlowchart": "",
     "deepBoxSelect": "",
@@ -476,38 +474,6 @@
   },
   "clearCanvasDialog": {
     "title": "Išvalyti drobę"
-  },
-  "publishDialog": {
-    "title": "Paviešinti biblioteką",
-    "itemName": "Elemento pavadinimas",
-    "authorName": "Autoriaus vardas",
-    "githubUsername": "Github spalyvardis",
-    "twitterUsername": "Twitter slapyvardis",
-    "libraryName": "Bibliotekos pavadinimas",
-    "libraryDesc": "Bibliotekos aprašas",
-    "website": "Tinklalapis",
-    "placeholder": {
-      "authorName": "Tavo vardas arba spalyvardis",
-      "libraryName": "Tavo bibliotekos pavadinimas",
-      "libraryDesc": "Tavo bibliotekos aprašas, padėti žmonėms geriau suprasti jos paskirtį",
-      "githubHandle": "",
-      "twitterHandle": "",
-      "website": ""
-    },
-    "errors": {
-      "required": "Privalomas",
-      "website": "Įveskite teisingą nuorodą (URL)"
-    },
-    "noteDescription": "Pateik savo biblioteką, jog ji galėtų būti įtraukta į <link></link>jog kiti žmonės galėtų tai naudoti savo piešiniuose.",
-    "noteGuidelines": "Visų pirma, biblioteka turi būti rankiniu būdu patvirtinta. Prašome paskaityti <link>gairės</link>",
-    "noteLicense": "<link>MIT licencija, </link>",
-    "noteItems": "",
-    "atleastOneLibItem": "",
-    "republishWarning": ""
-  },
-  "publishSuccessDialog": {
-    "title": "Biblioteka pateikta",
-    "content": "Ačiū {{authorName}}. Tavo biblioteka buvo pateikta peržiūrai. Gali sekti būseną<link>čia</link>"
   },
   "confirmDialog": {
     "resetLibrary": "Atstatyti biblioteką",
