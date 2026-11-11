@@ -24,8 +24,6 @@ interface ImportMetaEnv {
   // debugging Service Workers.
   VITE_APP_DEV_DISABLE_LIVE_RELOAD: string;
 
-  VITE_APP_DISABLE_SENTRY: string;
-
   // Set this flag to false if you want to open the overlay by default
   VITE_APP_COLLAPSE_OVERLAY: string;
 

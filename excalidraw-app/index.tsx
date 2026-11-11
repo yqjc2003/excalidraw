@@ -2,8 +2,6 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { registerSW } from "virtual:pwa-register";
 
-import "../excalidraw-app/sentry";
-
 import ExcalidrawApp from "./App";
 
 // the entry's JavaScript and CSS loaded and ran (`scripts/stats/perf.mjs`)

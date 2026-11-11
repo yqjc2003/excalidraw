@@ -9,6 +9,11 @@ const ALLOWED_CATEGORIES_TO_TRACK = new Set([
   "ai",
 ]);
 
+// NOTE: telemetry was intentionally removed from this build — no event (PV or
+// behavioral) is ever sent anywhere. `trackEvent` is kept as a no-op so that
+// the public API of `@excalidraw/excalidraw/analytics` and all of its call
+// sites keep working. Set VITE_APP_ENABLE_TRACKING and plug your own
+// analytics in below if you ever need them.
 export const trackEvent = (
   category: string,
   action: string,
@@ -35,14 +40,6 @@ export const trackEvent = (
 
     if (!import.meta.env.PROD) {
       console.info("trackEvent", { category, action, label, value });
-    }
-
-    if (window.sa_event) {
-      window.sa_event(action, {
-        category,
-        label,
-        value,
-      });
     }
   } catch (error) {
     console.error("error during analytics", error);

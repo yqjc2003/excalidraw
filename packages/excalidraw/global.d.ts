@@ -6,7 +6,6 @@ interface Window {
   DEBUG_FRACTIONAL_INDICES: boolean | undefined;
   EXCALIDRAW_EXPORT_SOURCE: string;
   gtag: Function;
-  sa_event: Function;
   fathom: { trackEvent: Function };
 }
 

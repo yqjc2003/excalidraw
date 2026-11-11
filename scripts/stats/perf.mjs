@@ -653,7 +653,6 @@ async function serveLocalBuild({ dir, sha, label }) {
       env: {
         ...process.env,
         VITE_APP_GIT_SHA: sha,
-        VITE_APP_ENABLE_TRACKING: "true",
         VITE_APP_ENABLE_ESLINT: "false",
       },
     },
